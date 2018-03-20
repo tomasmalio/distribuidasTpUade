@@ -11,6 +11,6 @@ public class PropiedadSRV {
 	}
 	
 	public void grabarPropiedad(List<Propiedad> propiedades){
-		dao.grabarPropiedades(propiedades);(propiedades);
+		dao.grabarPropiedades(propiedades);
 	}
 }

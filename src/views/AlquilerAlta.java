@@ -1,6 +1,7 @@
 package views;
 
 import java.awt.EventQueue;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JFrame;
@@ -19,28 +20,31 @@ public class AlquilerAlta {
 	private JTextField textFechaDesde;
 	private JTextField textFechaHasta;
 	private JTable table;
+	
+	private SistemaInmobiliaria sistema;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					AlquilerAlta window = new AlquilerAlta();
-					window.frmAlquilerAlta.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					AlquilerAlta window = new AlquilerAlta();
+//					window.frmAlquilerAlta.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the application.
 	 */
-	public AlquilerAlta() {
+	public AlquilerAlta(SistemaInmobiliaria s) {
 		initialize();
+		sistema= s;
 		buscarPropiedad("");
 		createTable();
 	}
@@ -65,27 +69,27 @@ public class AlquilerAlta {
 		
 		JLabel lblFechaHasta = new JLabel("Fecha hasta:");
 		lblFechaHasta.setBounds(36, 87, 85, 16);
-		frame.getContentPane().add(lblFechaHasta);
+		frmAlquilerAlta.getContentPane().add(lblFechaHasta);
 		
 		textFechaHasta = new JTextField();
 		textFechaHasta.setBounds(155, 82, 130, 26);
-		frame.getContentPane().add(textFechaHasta);
+		frmAlquilerAlta.getContentPane().add(textFechaHasta);
 		textFechaHasta.setColumns(10);
 		
 		JLabel lblPropiedad = new JLabel("Propiedad");
 		lblPropiedad.setBounds(36, 146, 80, 16);
-		frame.getContentPane().add(lblPropiedad);
+		frmAlquilerAlta.getContentPane().add(lblPropiedad);
 	}
 	private List<Propiedad> buscarPropiedad(String busqueda) {
-		List<Propiedad> propiedades = new List<Propiedad>(SistemaInmobiliaria.getPropiedades());
-		List <Propiedad> propAlquier= new List<Propiedad>();
+		List<Propiedad> propiedades = new List<>(sistema.getPropiedades());
+		List<Propiedad> propAlquiler= new ArrayList<Propiedad>();
 
-		for(Propiedad p: propiedades) {
+		for(Propiedad p: propiedades) 
 			if(p.getValorAlquiler()>0) {
 				propAlquiler
 			}
 		}
-		return resultado;
+		return propiedades;
 	}
 	
 	public void createTable() {
@@ -94,6 +98,18 @@ public class AlquilerAlta {
 		model.setRowCount(0);
 		
 		if (resultado != null) {
+			
+
+			for(Propiedad p: propiedades) 
+				if(p.getValorAlquiler()>0) {
+					model.addRow(new Object[]{
+							calle,
+							p.getArticulo().getNombre(),
+							"$" + precio,
+							categoria
+					});
+				}
+			}
 
 			for(Publicacion p : resultado){
 	

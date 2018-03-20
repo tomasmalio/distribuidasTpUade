@@ -59,7 +59,7 @@ public class VentaBaja extends javax.swing.JFrame {
 	 * @return ArrayList<Venta>
 	 */
 	private List<Propiedad> buscarPropiedadesEnVenta() {
-		return (new ArrayList<>(sistema.getPropiedadesEnVenta()));
+		return (sistema.getPropiedadesEnVenta());
 	}
 	
 	/**

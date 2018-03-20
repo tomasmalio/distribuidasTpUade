@@ -261,4 +261,7 @@ public class VentaAlta extends javax.swing.JFrame {
 			JOptionPane.showMessageDialog(null, "No se encontraron coincidencias");
 		}
 	}
+	public void setVisible(boolean isVisible) {
+		this.frmVentaAlta.setVisible(isVisible);
+	}
 }

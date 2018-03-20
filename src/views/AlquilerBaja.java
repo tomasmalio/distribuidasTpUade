@@ -8,7 +8,6 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -19,7 +18,6 @@ public class AlquilerBaja extends javax.swing.JFrame {
 	private static final long serialVersionUID = 1L;
 
 	private SistemaInmobiliaria sistema;
-	private JTextField txtBajaAlquiler;
 	
 	List<Alquiler> alquileres;
 	private Alquiler alquiler;

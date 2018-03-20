@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -12,8 +14,6 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 import app.SistemaInmobiliaria;
-import bean.Propiedad;
-import bean.Servicio;
 import bean.Venta;
 
 public class VentaBaja extends javax.swing.JFrame {
@@ -21,7 +21,8 @@ public class VentaBaja extends javax.swing.JFrame {
 	private static final long serialVersionUID = 1L;
 
 	private SistemaInmobiliaria sistema;
-	private JTextField bajaVenta;
+	private JFrame frmVentaBaja;
+	private JButton btnBajaVenta;
 	private JTable table;
 	
 	List<Venta> ventas;
@@ -30,16 +31,21 @@ public class VentaBaja extends javax.swing.JFrame {
 	public VentaBaja (SistemaInmobiliaria s) {
 		super();		
 		sistema = s;		
-		ventas= buscarPropiedadesEnVenta();
+		ventas = buscarPropiedadesEnVenta();
 		initialize();
 		createTableVentas();
 		setVisible(true);		
 	}
 	
 	private void initialize () {
-		getContentPane().setLayout(null);
-		bajaVenta = new JTextField();
-		bajaVenta.addActionListener(new ActionListener() {
+		
+		frmVentaBaja = new JFrame();
+		frmVentaBaja.setBounds(100, 100, 682, 632);
+		frmVentaBaja.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmVentaBaja.getContentPane().setLayout(null);
+		
+		btnBajaVenta = new JButton("Baja Alquiler");
+		btnBajaVenta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				/**
 				 * Llama al sistema para que se baje la venta
@@ -47,14 +53,12 @@ public class VentaBaja extends javax.swing.JFrame {
 				sistema.deleteService(venta);
 			}
 		});
-		bajaVenta.setText("Baja venta");
-		bajaVenta.setBounds(314, 246, 130, 26);
-		getContentPane().add(bajaVenta);
-		bajaVenta.setColumns(10);
+		btnBajaVenta.setBounds(165, 246, 117, 29);
+		frmVentaBaja.getContentPane().add(btnBajaVenta);
+		
 		String[] columnNames = {"Calle", "Nombre"};
 		table = new JTable();
 		table.setModel(new DefaultTableModel(new Object[][] {}, columnNames) {
-			 @Override
 			    public Class<?> getColumnClass(int column) {
 			        switch(column) {
 			            default: return Object.class;
@@ -66,10 +70,10 @@ public class VentaBaja extends javax.swing.JFrame {
 		table.getColumnModel().getColumn(0).setMaxWidth(200);
 		table.getColumnModel().getColumn(1).setMaxWidth(200);
 
-		JScrollPane scrollPaneAlquileres = new JScrollPane(table);
-		scrollPaneAlquileres.setBounds(48, 19, 359, 215);
+		JScrollPane scrollPaneVenta = new JScrollPane(table);
+		scrollPaneVenta.setBounds(48, 19, 359, 215);
 		table.setFillsViewportHeight(true);
-		getContentPane().add(scrollPaneAlquileres);
+		frmVentaBaja.getContentPane().add(scrollPaneVenta);
 	}
 	
 	/**

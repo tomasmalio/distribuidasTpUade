@@ -30,11 +30,18 @@ public class ServicioSRV {
 	}
 
 	public void grabarAlquileres(List<Alquiler> servicios) {
+		dao.grabarAlquileres(servicios);
+	}
+	
+	public void grabarAlquiler(Alquiler servicios) {
 		dao.grabarAlquiler(servicios);
 	}
 
 	public void grabarVentas(List<Venta> servicios) {
-		dao.grabarVentas(servicios);
-		
+		dao.grabarVentas(servicios);	
+	}
+	
+	public void grabarVenta(Venta servicios) {
+		dao.grabarVenta(servicios);	
 	}
 }

@@ -56,12 +56,21 @@ public class HibernateServicioDAO {
 		session.getTransaction().commit();
 		session.close();
 	}
-
-	public void grabarAlquiler(List<Alquiler> servicios) {
+	
+	public void grabarAlquileres(List<Alquiler> servicios) {
 		Session session = sf.openSession();
 		session.beginTransaction();
 		for(Alquiler servicio:servicios)
 			session.persist(servicio);
+		session.flush();
+		session.getTransaction().commit();
+		session.close();
+	}
+
+	public void grabarAlquiler(Alquiler servicio) {
+		Session session = sf.openSession();
+		session.beginTransaction();
+		session.persist(servicio);
 		session.flush();
 		session.getTransaction().commit();
 		session.close();
@@ -72,6 +81,15 @@ public class HibernateServicioDAO {
 		session.beginTransaction();
 		for(Venta servicio:servicios)
 			session.persist(servicio);
+		session.flush();
+		session.getTransaction().commit();
+		session.close();
+	}
+	
+	public void grabarVenta(Venta servicio) {
+		Session session = sf.openSession();
+		session.beginTransaction();
+		session.persist(servicio);
 		session.flush();
 		session.getTransaction().commit();
 		session.close();

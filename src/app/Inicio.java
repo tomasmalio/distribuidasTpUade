@@ -57,8 +57,12 @@ public class Inicio extends JFrame {
     }
     
     private void setup() {
+		inmobiliariaController.addPersona("201112221", "Av. Cabildo 1000", "martin.sacco@gmail.com", "Martín", "1150001000");
+		inmobiliariaController.addPersona("151212111", "Av. Monroe 4000", "juan.pedro@gmail.com", "Juan", "1520004444");
 		inmobiliariaController.addPersona("11234567890", "pepe", "asd", "asd", "asd");
 		inmobiliariaController.addPersona("20331114821", "Lima 123", "tomasmalio@gmail.com", "Tomás", "1158259693");
+		inmobiliariaController.grabarPersonas(inmobiliariaController.getPersonas());
+		
 		inmobiliariaController.addPropiedad("Rivadavia", inmobiliariaController.getPersonas().get(1));
 		System.out.println(inmobiliariaController.getPersonas().get(0).getCuil_cuit());
     }

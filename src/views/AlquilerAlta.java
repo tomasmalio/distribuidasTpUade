@@ -64,7 +64,7 @@ public class AlquilerAlta {
 		frmAlquilerAlta.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmAlquilerAlta.getContentPane().setLayout(null);
 		
-		JLabel lblFechaDesde = new JLabel("Fecha desde: ");
+		JLabel lblFechaDesde = new JLabel("Fecha Desde:");
 		lblFechaDesde.setBounds(6, 218, 85, 16);
 		frmAlquilerAlta.getContentPane().add(lblFechaDesde);
 		
@@ -74,7 +74,7 @@ public class AlquilerAlta {
 		frmAlquilerAlta.getContentPane().add(textFechaDesde);
 		textFechaDesde.setColumns(10);
 		
-		JLabel lblFechaHasta = new JLabel("Fecha hasta:");
+		JLabel lblFechaHasta = new JLabel("Fecha Hasta:");
 		lblFechaHasta.setBounds(6, 283, 85, 16);
 		frmAlquilerAlta.getContentPane().add(lblFechaHasta);
 		
@@ -83,7 +83,7 @@ public class AlquilerAlta {
 		frmAlquilerAlta.getContentPane().add(textFechaHasta);
 		textFechaHasta.setColumns(10);
 		
-		JLabel lblPropiedad = new JLabel("Propiedad");
+		JLabel lblPropiedad = new JLabel("Propiedad:");
 		lblPropiedad.setBounds(213, 6, 80, 16);
 		frmAlquilerAlta.getContentPane().add(lblPropiedad);
 		
@@ -91,7 +91,7 @@ public class AlquilerAlta {
 		lblComision.setBounds(245, 218, 61, 16);
 		frmAlquilerAlta.getContentPane().add(lblComision);
 		
-		JLabel lblGastoSellado = new JLabel("Gasto sellado:");
+		JLabel lblGastoSellado = new JLabel("Gasto Sellado:");
 		lblGastoSellado.setBounds(245, 283, 90, 16);
 		frmAlquilerAlta.getContentPane().add(lblGastoSellado);
 		

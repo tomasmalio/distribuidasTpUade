@@ -12,6 +12,7 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JButton;
 
 public class AlquilerBaja extends javax.swing.JFrame {
 
@@ -24,6 +25,7 @@ public class AlquilerBaja extends javax.swing.JFrame {
 	private Alquiler alquiler;
 	
 	private JTable table;
+	private JButton btnBajaAlquiler;
 
 	public AlquilerBaja  (SistemaInmobiliaria s) {
 		super();	
@@ -37,17 +39,6 @@ public class AlquilerBaja extends javax.swing.JFrame {
 	@SuppressWarnings("serial")
 	private void initialize () {
 		getContentPane().setLayout(null);	
-		txtBajaAlquiler = new JTextField();
-		txtBajaAlquiler.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//llamar al sistema para que se baje el alquiler
-				sistema.deleteService(alquiler);
-			}
-		});
-		txtBajaAlquiler.setText("Baja alquiler");
-		txtBajaAlquiler.setBounds(314, 246, 99, 26);
-		getContentPane().add(txtBajaAlquiler);
-		txtBajaAlquiler.setColumns(10);
 
 		String[] columnNames = {"Calle", "Nombre"};
 		table = new JTable();
@@ -67,6 +58,15 @@ public class AlquilerBaja extends javax.swing.JFrame {
 		scrollPaneAlquileres.setBounds(71, 46, 283, 152);
 		table.setFillsViewportHeight(true);
 		getContentPane().add(scrollPaneAlquileres);
+		
+		btnBajaAlquiler = new JButton("Baja Alquiler");
+		btnBajaAlquiler.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				sistema.deleteService(alquiler);
+			}
+		});
+		btnBajaAlquiler.setBounds(165, 246, 117, 29);
+		getContentPane().add(btnBajaAlquiler);
 	}
 	
 	/**

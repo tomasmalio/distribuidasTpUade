@@ -161,7 +161,7 @@ public class SistemaInmobiliaria {
 	 * @return List<Alquiler>
 	 */
 	public List<Alquiler> getAlquileres() {
-		return null;
+		return alquileres.getAlquileres();
 	}
 
 	/**
@@ -172,8 +172,7 @@ public class SistemaInmobiliaria {
 	 * @return List<Venta>
 	 */
 	public List<Venta> getVentas() {
-		// TODO Auto-generated method stub
-		return null;
+		return ventas.getVentas();
 	}
 
 	/**

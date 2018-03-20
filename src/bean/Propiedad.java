@@ -13,12 +13,12 @@ public class Propiedad {
 	private String departamento;
 	private String ciudad;
 	private String cantidadAmbientes;
-	private double metrosCubiertos;
-	private double valorAlquiler;
-	private double valorVenta;
-	private double impuestos;
-	private double servicios;
-	private double expensas;
+	private float metrosCubiertos;
+	private float valorAlquiler;
+	private float valorVenta;
+	private float impuestos;
+	private float servicios;
+	private float expensas;
 	
 //	@Column (name = "id_persona", nullable = false, length = 13)
 //	private Persona propietario;
@@ -47,27 +47,27 @@ public class Propiedad {
 		this.cantidadAmbientes = cantidadAmbientes;
 	}
 
-	public void setMetrosCubiertos(double metrosCubiertos) {
+	public void setMetrosCubiertos(float metrosCubiertos) {
 		this.metrosCubiertos = metrosCubiertos;
 	}
 
-	public void setValorAlquiler(double valorAlquiler) {
+	public void setValorAlquiler(float valorAlquiler) {
 		this.valorAlquiler = valorAlquiler;
 	}
 
-	public void setValorVenta(double valorVenta) {
+	public void setValorVenta(float valorVenta) {
 		this.valorVenta = valorVenta;
 	}
 
-	public void setImpuestos(double impuestos) {
+	public void setImpuestos(float impuestos) {
 		this.impuestos = impuestos;
 	}
 
-	public void setServicios(double servicios) {
+	public void setServicios(float servicios) {
 		this.servicios = servicios;
 	}
 
-	public void setExpensas(double expensas) {
+	public void setExpensas(float expensas) {
 		this.expensas = expensas;
 	}
 

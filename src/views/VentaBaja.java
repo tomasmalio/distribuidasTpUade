@@ -12,6 +12,7 @@ import javax.swing.table.DefaultTableModel;
 
 import app.SistemaInmobiliaria;
 import bean.Propiedad;
+import bean.Servicio;
 import bean.Venta;
 
 public class VentaBaja extends javax.swing.JFrame {
@@ -21,7 +22,7 @@ public class VentaBaja extends javax.swing.JFrame {
 	private SistemaInmobiliaria sistema;
 	private JTextField bajaVenta;
 	List<Propiedad> propiedades;
-	List<Venta> ventas;
+	List<Servicio> ventas;
 	private Venta venta;
 	private JTable table;
 
@@ -56,10 +57,11 @@ public class VentaBaja extends javax.swing.JFrame {
 	 * Obtenemos todas las propiedades que se encuentran en
 	 * venta y así mostrarlas
 	 * 
-	 * @return ArrayList<Venta>
+	 * @return ArrayList<Servicio>
 	 */
-	private List<Propiedad> buscarPropiedadesEnVenta() {
-		return (sistema.getPropiedadesEnVenta());
+	private List<Servicio> buscarPropiedadesEnVenta() {
+		List<Servicio> ventas = sistema.getVentas());
+		return ventas;
 	}
 	
 	/**

@@ -17,7 +17,7 @@ public class HibernateUtil
         	 	Configuration config = new Configuration();
         	 	config.addAnnotatedClass(Propiedad.class);
     	 		config.addAnnotatedClass(Persona.class);
-    	 		config.addAnnotatedClass(Servicio.class);
+    	 		// config.addAnnotatedClass(Servicio.class);
             sessionFactory = config.buildSessionFactory();
         }
         catch (Throwable ex)

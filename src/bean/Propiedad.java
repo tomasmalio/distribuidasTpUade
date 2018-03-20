@@ -19,6 +19,9 @@ public class Propiedad {
 	private float impuestos;
 	private float servicios;
 	private float expensas;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "persona_id")
 	private Persona propietario;
 	
 	public void setNumero(int numero) {
@@ -69,9 +72,6 @@ public class Propiedad {
 		this.expensas = expensas;
 	}
 
-	public void setPropietario(Persona propietario) {
-		this.propietario = propietario;
-	}
 
 	public int getNumero() {
 		return numero;
@@ -121,10 +121,11 @@ public class Propiedad {
 		return expensas;
 	}
 
-	@ManyToOne
-	@JoinColumn(name="persona")
 	public Persona getPropietario() {
 		return propietario;
 	}
-	
+
+	public void setPropietario(Persona propietario) {
+		this.propietario = propietario;
+	}
 }

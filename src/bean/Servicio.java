@@ -2,9 +2,18 @@ package bean;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+@Entity
+@Table(name="servicios")
 public class Servicio {
+	
+	@Column (name = "fecha", nullable = false, length = 50)
 	Date fecha;
+	@Column (name = "id_propiedad")
 	Propiedad propiedad;
+	@Column (name = "id_persona")
 	Persona interesado;
 	
 	public Date getFecha() {

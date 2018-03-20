@@ -2,11 +2,21 @@ package bean;
 
 import java.util.Date;
 
-public class Venta {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+@Entity
+@Table(name="ventas")
+public class Venta extends Servicio{
+	@Column (name = "fechaEscritura", nullable = false, length = 50)
 	Date fechaEscritura;
+	@Column (name = "valorEscritura", nullable = false, length = 50)
 	float valorEscritura;
+	@Column (name = "comisionVenta", nullable = false, length = 50)
 	float comisionVenta;
+	@Column (name = "gastosEscritura", nullable = false, length = 50)
 	float gastosEscritura;
+	
 	public Date getFechaEscritura() {
 		return fechaEscritura;
 	}

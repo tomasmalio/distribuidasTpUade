@@ -121,8 +121,8 @@ public class Inicio extends JFrame {
 					public void actionPerformed(ActionEvent evt)
 					{
 						if (inmobiliariaController != null) {
-							AlquilerBaja alquilerBajar = new AlquilerBaja(inmobiliariaController);
-							AlquilerBaja.setVisible(true);
+							AlquilerBaja alquilerBaja = new AlquilerBaja(inmobiliariaController);
+							alquilerBaja.setVisible(true);
 							toFront();
 						}
 					}

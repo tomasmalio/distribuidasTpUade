@@ -1,8 +1,199 @@
+/****************************************************
+ * Aplicaciones Distribuidas 2018 Verano
+ * Trabajo Práctico - Inmobiliaria
+ * GitHub: https://github.com/tomasmalio/distribuidasTpUade
+ * 
+ * @author	Tomas Malio, 
+ * 			Florencia Otero
+ * 			Martin Sacco,
+ * 
+ ****************************************************/
 package app;
 
-public class Inicio {
-	public static void main(String[] args) {
-		SistemaInmobiliaria immobiliaria = new SistemaInmobiliaria();
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.*;
+import javax.swing.event.MenuEvent;
+import javax.swing.event.MenuListener;
 
+public class Inicio extends JFrame {
+	
+	private static final long serialVersionUID = 1L;
+
+	private JMenuBar jMenuBar;
+
+	private JMenu jMenuAlquiler;
+	private JMenu jMenuVenta;
+	
+	private JMenuItem jMenuAltaAlquiler;
+	private JMenuItem jMenuModificarAlquiler;
+	private JMenuItem jMenuBajaAlquiler;
+	
+	private JMenuItem jMenuAltaVenta;
+	private JMenuItem jMenuModificarVenta;
+	private JMenuItem jMenuBajaVenta;
+
+	private JMenu jMenuSalir;
+	
+	public Inicio() {
+		super();
+		initGUI();
+	}
+	
+    public static void main(String[] args) {
+    	Inicio inicio = new Inicio();
+    	inicio.setVisible(true);
+    }
+   
+    private void initGUI() {
+		try {
+			setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+			
+				jMenuBar = new JMenuBar();
+				setJMenuBar(jMenuBar);
+				jMenuBar.setPreferredSize(new java.awt.Dimension(392, 22));
+				
+				/**************************************************************
+				 * 						ALQUILER
+				 * 1) Alta
+				 * 2) Modificar
+				 * 3) Baja
+				 **************************************************************/
+				jMenuAlquiler = new JMenu();
+				jMenuBar.add(jMenuAlquiler);
+				jMenuAlquiler.setText("Alquiler");
+				jMenuAlquiler.setPreferredSize(new java.awt.Dimension(70, 21));
+				jMenuAlquiler.setVisible(true);
+				jMenuAlquiler.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent evt) 
+						{
+						}
+					});
+
+				/**
+				 * 1) Alta de Alquiler
+				 **/
+				jMenuAltaAlquiler = new JMenuItem();
+				jMenuAlquiler.add(jMenuAltaAlquiler);
+				jMenuAltaAlquiler.setText("Alta");
+				jMenuAltaAlquiler.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent evt)
+					{
+						
+					}
+				});
+				
+				/**
+				 * 2) Modificar Alquiler
+				 **/
+				jMenuModificarAlquiler = new JMenuItem();
+				jMenuAlquiler.add(jMenuModificarAlquiler);
+				jMenuModificarAlquiler.setText("Modificar");
+				jMenuModificarAlquiler.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent evt)
+					{
+						
+					}
+				});
+				
+				/**
+				 * 3) Baja de Alquiler
+				 **/
+				jMenuBajaAlquiler = new JMenuItem();
+				jMenuAlquiler.add(jMenuBajaAlquiler);
+				jMenuBajaAlquiler.setText("Baja");
+				jMenuBajaAlquiler.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent evt)
+					{
+						
+					}
+				});
+				
+				/**************************************************************
+				 * 						EOF ALQUILER
+				 **************************************************************/
+				
+				/**************************************************************
+				 * 						VENTA
+				 * 1) Alta
+				 * 2) Modificar
+				 * 3) Baja
+				 **************************************************************/
+				jMenuVenta = new JMenu();
+				jMenuBar.add(jMenuVenta);
+				jMenuVenta.setText("Venta");
+				jMenuVenta.setPreferredSize(new java.awt.Dimension(70, 21));
+				jMenuVenta.setVisible(true);
+				jMenuVenta.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent evt) 
+						{
+						}
+					});
+
+				/**
+				 * 1) Alta de Venta de Propiedad
+				 **/
+				jMenuAltaVenta = new JMenuItem();
+				jMenuVenta.add(jMenuAltaVenta);
+				jMenuAltaVenta.setText("Alta");
+				jMenuAltaVenta.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent evt)
+					{
+						
+					}
+				});
+				
+				/**
+				 * 2) Modificar Venta de Propiedad
+				 **/
+				jMenuModificarVenta = new JMenuItem();
+				jMenuVenta.add(jMenuModificarVenta);
+				jMenuModificarVenta.setText("Modificar");
+				jMenuModificarVenta.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent evt)
+					{
+						
+					}
+				});
+				
+				/**
+				 * 3) Baja de Venta de Propiedad
+				 **/
+				jMenuBajaVenta = new JMenuItem();
+				jMenuVenta.add(jMenuBajaVenta);
+				jMenuBajaVenta.setText("Baja");
+				jMenuBajaVenta.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent evt)
+					{
+						
+					}
+				});
+				
+				/**************************************************************
+				 * 						EOF VENTA
+				 **************************************************************/
+				
+				/**************************************************************
+				 * 						SALIR
+				 **************************************************************/
+				jMenuSalir = new JMenu();
+				jMenuBar.add(jMenuSalir);
+				jMenuSalir.setText("Salir");
+				jMenuSalir.setVisible(true);
+				jMenuSalir.addMenuListener(new MenuListener() {
+					public void menuSelected(MenuEvent evt) {
+						System.exit(0);
+					}
+					public void menuDeselected(MenuEvent evt) {
+					}
+					public void menuCanceled(MenuEvent evt) {
+					}
+				});
+				
+			pack();
+			setSize(500, 300);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

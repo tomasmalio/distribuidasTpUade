@@ -50,7 +50,6 @@ public class AlquilerAlta {
 	 * Create the application.
 	 */
 	public AlquilerAlta(SistemaInmobiliaria s) {
-		
 		sistema = s;
 		buscarPropiedad();
 		buscarPersonas();

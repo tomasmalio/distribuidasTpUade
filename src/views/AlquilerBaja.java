@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -29,9 +30,16 @@ public class AlquilerBaja extends javax.swing.JFrame {
 	private JTable table;
 
 	public AlquilerBaja  (SistemaInmobiliaria s) {
-		super();
-		getContentPane().setLayout(null);
-		
+		super();	
+		sistema = s;
+		buscarAlquileres();	
+		initialize();
+		createTableAlquileres();
+		setVisible(true);
+	}
+	
+	private void initialize () {
+		getContentPane().setLayout(null);	
 		txtBajaAlquiler = new JTextField();
 		txtBajaAlquiler.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -43,14 +51,26 @@ public class AlquilerBaja extends javax.swing.JFrame {
 		txtBajaAlquiler.setBounds(314, 246, 130, 26);
 		getContentPane().add(txtBajaAlquiler);
 		txtBajaAlquiler.setColumns(10);
-		sistema = s;
-		initialize();
-		setVisible(true);
-	}
-	
-	private void initialize () {
-		buscarAlquileres();
-		createTableAlquileres();
+
+		String[] columnNames = {"Calle", "Nombre"};
+		table = new JTable();
+		table.setModel(new DefaultTableModel(new Object[][] {}, columnNames) {
+			 @Override
+			    public Class<?> getColumnClass(int column) {
+			        switch(column) {
+			            default: return Object.class;
+			        }
+			    }
+		});
+		table.setAutoCreateRowSorter(true);
+		table.setRowHeight(20);
+		table.getColumnModel().getColumn(0).setMaxWidth(50);
+		table.getColumnModel().getColumn(1).setMaxWidth(50);
+
+		JScrollPane scrollPaneAlquileres = new JScrollPane(table);
+		scrollPaneAlquileres.setBounds(10, 120, 480, 300);
+		table.setFillsViewportHeight(true);
+		getContentPane().add(scrollPaneAlquileres);
 	}
 	
 	/**
@@ -74,8 +94,8 @@ public class AlquilerBaja extends javax.swing.JFrame {
 			
 			for (Alquiler a: alquileres) {
 				model.addRow(new Object[]{
-						a.getPropiedad(),
-						a.getInteresado()
+						a.getPropiedad().getCalle(),
+						a.getInteresado().getNombre_razon()
 				});
 			}
 			

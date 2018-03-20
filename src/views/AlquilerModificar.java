@@ -7,6 +7,7 @@ import bean.Servicio;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JButton;
 import javax.swing.JTextField;
@@ -38,6 +39,14 @@ public class AlquilerModificar extends javax.swing.JFrame {
 	
 	public AlquilerModificar (SistemaInmobiliaria s) {
 		super();
+		sistema = s;
+		buscarAlquileres();
+		initialize();
+		createTableAlquileres();
+		setVisible(true);
+	}
+	
+	private void initialize () {
 		getContentPane().setLayout(null);
 		
 		JLabel lblAlquileres = new JLabel("Alquileres");
@@ -52,6 +61,28 @@ public class AlquilerModificar extends javax.swing.JFrame {
 		lblSellado.setEnabled(false);
 		lblSellado.setBounds(33, 274, 117, 16);
 		getContentPane().add(lblSellado);
+		
+		String[] columnNames = {"Calle", "Nombre"};
+		table = new JTable();
+		table.setModel(new DefaultTableModel(new Object[][] {}, columnNames) {
+			 @Override
+			    public Class<?> getColumnClass(int column) {
+			        switch(column) {
+			            default: return Object.class;
+			        }
+			    }
+		});
+		table.setAutoCreateRowSorter(true);
+		table.setRowHeight(20);
+		table.getColumnModel().getColumn(0).setMaxWidth(32);
+		table.getColumnModel().getColumn(1).setMaxWidth(100);
+
+		JScrollPane scrollPanePublicaciones = new JScrollPane(table);
+		scrollPanePublicaciones.setBounds(10, 120, 480, 300);
+		table.setFillsViewportHeight(true);
+		getContentPane().add(scrollPanePublicaciones);
+		
+		
 		
 		JButton btnModificar = new JButton("Modificar");
 		btnModificar.addActionListener(new ActionListener() {
@@ -86,14 +117,6 @@ public class AlquilerModificar extends javax.swing.JFrame {
 		txtSellado.setBounds(173, 269, 130, 26);
 		getContentPane().add(txtSellado);
 		txtSellado.setColumns(10);
-		sistema = s;
-		initialize();
-	}
-	
-	private void initialize () {
-		buscarAlquileres();
-		createTableAlquileres();
-		setVisible(true);
 	}
 	
 	private List<Alquiler> buscarAlquileres() {
@@ -110,8 +133,8 @@ public class AlquilerModificar extends javax.swing.JFrame {
 			
 			for (Servicio a: alquileres) {
 				model.addRow(new Object[]{
-					a.getPropiedad(),
-					a.getInteresado()
+					a.getPropiedad().getCalle(),
+					a.getInteresado().getNombre_razon()
 				});
 			}
 			

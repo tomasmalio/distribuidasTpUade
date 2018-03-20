@@ -28,7 +28,7 @@ public class AlquilerModificar extends javax.swing.JFrame {
 	private JTextField txtSellado;
 	private JTextField txtBajaAlquiler;
 	
-	List<Alquiler> alquileres;
+	private List<Alquiler> alquileres;
 	private Alquiler alquiler;
 	
 	private JTable table;

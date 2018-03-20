@@ -26,7 +26,7 @@ public class PersonaList {
 	
 	public Persona getPersonaPorId(String id){
 		for(Persona persona : personas){
-			if(persona.getCuil_cuit() == id) return persona;
+			if(persona.getCuil_cuit().equals(id)) return persona;
 		}
 		return null;
 	}

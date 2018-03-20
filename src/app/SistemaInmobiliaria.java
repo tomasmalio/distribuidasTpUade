@@ -139,13 +139,18 @@ public class SistemaInmobiliaria {
 		// TODO Auto-generated method stub
 	}
 
-	public List<Propiedad> getAlquileres() {
+	public List<Servicio> getAlquileres() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public List<Propiedad> getVentas() {
+	public List<Servicio> getVentas() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public void modifySerivce(Alquiler alquiler, String string) {
+		// TODO Auto-generated method stub
+		
 	}
 }

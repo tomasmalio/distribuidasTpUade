@@ -2,17 +2,31 @@ package views;
 
 import java.awt.EventQueue;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 import app.SistemaInmobiliaria;
+import bean.Persona;
 import bean.Propiedad;
 
 import javax.swing.JTable;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.awt.event.ActionEvent;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+
+import javax.swing.JFormattedTextField;
 
 public class AlquilerAlta {
 
@@ -20,8 +34,15 @@ public class AlquilerAlta {
 	private JTextField textFechaDesde;
 	private JTextField textFechaHasta;
 	private JTable table;
+	List<Propiedad> propiedades;
+	List<Persona> personas;
 	
 	private SistemaInmobiliaria sistema;
+	private JTextField textComision;
+	private JTextField textSellado;
+	
+	private Persona pers;
+	private Propiedad prop;
 
 	/**
 	 * Launch the application.
@@ -45,8 +66,10 @@ public class AlquilerAlta {
 	public AlquilerAlta(SistemaInmobiliaria s) {
 		initialize();
 		sistema= s;
-		buscarPropiedad("");
-		createTable();
+		buscarPropiedad();
+		buscarPersonas();
+		createTablePropiedades();
+		createTablePersonas();
 	}
 
 	/**
@@ -54,79 +77,102 @@ public class AlquilerAlta {
 	 */
 	private void initialize() {
 		frmAlquilerAlta = new JFrame();
-		frmAlquilerAlta.setBounds(100, 100, 450, 300);
+		frmAlquilerAlta.setBounds(100, 100, 551, 524);
 		frmAlquilerAlta.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmAlquilerAlta.getContentPane().setLayout(null);
 		
 		JLabel lblFechaDesde = new JLabel("Fecha desde: ");
-		lblFechaDesde.setBounds(36, 40, 85, 16);
+		lblFechaDesde.setBounds(6, 218, 85, 16);
 		frmAlquilerAlta.getContentPane().add(lblFechaDesde);
 		
-		textFechaDesde = new JTextField();
-		textFechaDesde.setBounds(155, 35, 130, 26);
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		textFechaDesde = new JFormattedTextField(dateFormat);
+		textFechaDesde.setBounds(103, 213, 130, 26);
 		frmAlquilerAlta.getContentPane().add(textFechaDesde);
 		textFechaDesde.setColumns(10);
 		
 		JLabel lblFechaHasta = new JLabel("Fecha hasta:");
-		lblFechaHasta.setBounds(36, 87, 85, 16);
+		lblFechaHasta.setBounds(6, 283, 85, 16);
 		frmAlquilerAlta.getContentPane().add(lblFechaHasta);
 		
-		textFechaHasta = new JTextField();
-		textFechaHasta.setBounds(155, 82, 130, 26);
+		textFechaHasta = new JFormattedTextField(dateFormat);
+		textFechaHasta.setBounds(103, 278, 130, 26);
 		frmAlquilerAlta.getContentPane().add(textFechaHasta);
 		textFechaHasta.setColumns(10);
 		
 		JLabel lblPropiedad = new JLabel("Propiedad");
-		lblPropiedad.setBounds(36, 146, 80, 16);
+		lblPropiedad.setBounds(213, 6, 80, 16);
 		frmAlquilerAlta.getContentPane().add(lblPropiedad);
-	}
-	private List<Propiedad> buscarPropiedad(String busqueda) {
-		List<Propiedad> propiedades = new List<>(sistema.getPropiedades());
-		List<Propiedad> propAlquiler= new ArrayList<Propiedad>();
+		
+		JButton btnAlquilar = new JButton("Alquilar");
+		btnAlquilar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					Date fdesde = new SimpleDateFormat("yyyy-MM-dd").parse(textFechaDesde.getText());
+				} catch (ParseException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				try {
+					Date fhasta = new SimpleDateFormat("yyyy-MM-dd").parse(textFechaHasta.getText());
+				} catch (ParseException e2) {
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
+				}
 
-		for(Propiedad p: propiedades) 
-			if(p.getValorAlquiler()>0) {
-				propAlquiler
+				float gestion= Float.parseFloat(textComision.getText());
+				float sellado= Float.parseFloat(textSellado.getText());
+				
+				//llamar al sistema para generar el alquiler.
+				
+				
+				
 			}
-		}
+		});
+		btnAlquilar.setBounds(417, 467, 117, 29);
+		frmAlquilerAlta.getContentPane().add(btnAlquilar);
+		
+		JLabel lblComision = new JLabel("Comision");
+		lblComision.setBounds(245, 218, 61, 16);
+		frmAlquilerAlta.getContentPane().add(lblComision);
+		
+		JLabel lblGastoSellado = new JLabel("Gasto sellado");
+		lblGastoSellado.setBounds(245, 283, 90, 16);
+		frmAlquilerAlta.getContentPane().add(lblGastoSellado);
+		
+		textComision = new JTextField();
+		textComision.setBounds(358, 213, 130, 26);
+		frmAlquilerAlta.getContentPane().add(textComision);
+		textComision.setColumns(10);
+		
+		textSellado = new JTextField();
+		textSellado.setBounds(358, 278, 130, 26);
+		frmAlquilerAlta.getContentPane().add(textSellado);
+		textSellado.setColumns(10);
+		
+		JLabel lblPersona = new JLabel("Persona");
+		lblPersona.setBounds(213, 332, 61, 16);
+		frmAlquilerAlta.getContentPane().add(lblPersona);
+	}
+	private List<Propiedad> buscarPropiedad() {
+		propiedades = new ArrayList<>(sistema.getPropiedades());
 		return propiedades;
 	}
 	
-	public void createTable() {
+	public void createTablePropiedades() {
 			
 		DefaultTableModel model = (DefaultTableModel) table.getModel();
 		model.setRowCount(0);
 		
-		if (resultado != null) {
+		if (propiedades != null) {
 			
-
 			for(Propiedad p: propiedades) 
 				if(p.getValorAlquiler()>0) {
 					model.addRow(new Object[]{
-							calle,
-							p.getArticulo().getNombre(),
-							"$" + precio,
-							categoria
+							p.getCalle(),
+							p.getPropietario().getNombre_razon(),
 					});
 				}
-			}
-
-			for(Publicacion p : resultado){
-	
-				String categoria =(p.getArticulo() instanceof Producto) ? "Producto" : "Servicio";
-				String tipoPublicacion = (p instanceof Subasta) ? "subasta-16.png" : "compra-inmediata-16.png";
-				String precio = Float.toString(p.getPrecio());
-
-				/**
-				 * TODO checkear el tema de la subasta
-				 */
-				model.addRow(new Object[]{
-						tipoPub,
-						p.getArticulo().getNombre(),
-						"$" + precio,
-						categoria
-				});
-			}				
 
 			table.addMouseListener(new java.awt.event.MouseAdapter() {
 			    @Override
@@ -134,22 +180,52 @@ public class AlquilerAlta {
 			        int row = table.rowAtPoint(evt.getPoint());
 			        int col = table.columnAtPoint(evt.getPoint());
 			        if (row >= 0 && col >= 0) {
-			        		Publicacion p = resultado.get(row);
-
-			        		VerPublicacion articuloSeleccionado = new VerPublicacion(p);	
-			        		articuloSeleccionado.setVisible(true);
-			        		frame.dispose();
+			        		 prop = propiedades.get(row);
+			        			//Propiedad seleccionada para desp pasar a alquilada.
 			        }
 			    }
 			});
 		} else {
 			JOptionPane.showMessageDialog(null, "No se encontraron coincidencias");
 		}
+	}
+	
+	private List<Persona> buscarPersonas() {
+		personas = new ArrayList<>(sistema.getPersonas());
+		return personas;
+	}
+	
+	public void createTablePersonas() {
 		
-		btnBuscar.setEnabled(true);
+		DefaultTableModel model = (DefaultTableModel) table.getModel();
+		model.setRowCount(0);
+		
+		if (personas != null) {
+			
+			for(Persona p: personas) 			
+					model.addRow(new Object[]{
+							p.getNombre_razon(),
+							p.getCuil_cuit()
+					});
+				
+
+			table.addMouseListener(new java.awt.event.MouseAdapter() {
+			    @Override
+			    public void mouseClicked(java.awt.event.MouseEvent evt) {
+			        int row = table.rowAtPoint(evt.getPoint());
+			        int col = table.columnAtPoint(evt.getPoint());
+			        if (row >= 0 && col >= 0) {
+			        		 pers = personas.get(row);
+			        			//Persona seleccionada para hacer el alquiler.
+			        }
+			    }
+			});
+		} else {
+			JOptionPane.showMessageDialog(null, "No se encontraron coincidencias");
+		}
 	}
 	
 	public void setVisible(boolean isVisible) {
-		this.frame.setVisible(isVisible);
+		this.frmAlquilerAlta.setVisible(isVisible);
 	}
 }

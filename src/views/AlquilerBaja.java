@@ -36,7 +36,7 @@ public class AlquilerBaja extends javax.swing.JFrame {
 		txtBajaAlquiler.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//llamar al sistema para que se baje el alquiler
-				sistema.deleteService(alquiler, "alquiler");
+				sistema.deleteService(alquiler);
 			}
 		});
 		txtBajaAlquiler.setText("Baja alquiler");

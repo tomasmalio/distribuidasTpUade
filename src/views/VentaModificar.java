@@ -64,7 +64,7 @@ public class VentaModificar extends javax.swing.JFrame {
 		btnModificar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//hacer que el sist tome datos de los text fields y modifique el alquiler
-				sistema.modifySerivce(venta, "venta"); 
+				sistema.modifyService(venta); 
 			}
 		});
 		btnModificar.setBounds(378, 327, 117, 29);

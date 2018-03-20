@@ -57,7 +57,7 @@ public class AlquilerModificar extends javax.swing.JFrame {
 		btnModificar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//hacer que el sist tome datos de los text fields y modifique el alquiler
-				sistema.modifySerivce(alquiler, "alquiler"); 
+				sistema.modifyService(alquiler); 
 			}
 		});
 		btnModificar.setBounds(378, 327, 117, 29);

@@ -131,12 +131,12 @@ public class SistemaInmobiliaria {
 		
 	}
 
-	public void deleteService(Alquiler alquiler, String string) {
+	
+	public void deleteService(Alquiler alquiler) {
 		// TODO Auto-generated method stub
 	}
 	
-	public void deleteService(Venta venta, String string) {
-		// TODO Auto-generated method stub
+	public void deleteService(Venta venta) {
 	}
 
 	/**
@@ -148,7 +148,6 @@ public class SistemaInmobiliaria {
 	 * @return List<Alquiler>
 	 */
 	public List<Alquiler> getAlquileres() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -164,8 +163,20 @@ public class SistemaInmobiliaria {
 		return null;
 	}
 
-	public void modifySerivce(Alquiler alquiler, String string) {
-		// TODO Auto-generated method stub
+	/**
+	 * Modify Service for Alquiler
+	 * 
+	 * @param alquiler
+	 */
+	public void modifyService(Alquiler alquiler) {
+		
+	}
+	
+	/**
+	 * Modifiy Service for Venta
+	 * @param venta
+	 */
+	public void modifyService(Venta venta) {
 		
 	}
 }

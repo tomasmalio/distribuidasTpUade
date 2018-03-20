@@ -12,6 +12,7 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 import app.SistemaInmobiliaria;
+import bean.Alquiler;
 import bean.Persona;
 import bean.Propiedad;
 
@@ -123,7 +124,8 @@ public class AlquilerAlta {
 					/**
 					 * Agregamos el alquiler
 					 */
-					sistema.addAlquiler(fdesde, fhasta, gestion, sellado, LocalDate.now(), prop.getNroPartida(), pers.getCuil_cuit());
+					Date dateNow = new Date();
+					sistema.addAlquiler(fdesde, fhasta, gestion, sellado, dateNow, prop, pers);
 					frmAlquilerAlta.dispose();
 					
 				} catch (ParseException e1) {

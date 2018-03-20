@@ -9,6 +9,7 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -37,8 +38,17 @@ public class VentaModificar extends javax.swing.JFrame {
 	
 	public VentaModificar  (SistemaInmobiliaria s) {
 		super();
-		sistema = s;
-		
+		sistema = s;	
+		buscarVentas();
+		initialize();
+		createTableAlquileres();
+		setVisible(true);
+	}
+	
+	private void initialize () {
+		buscarVentas();
+		createTableAlquileres();
+		setVisible(true);
 		getContentPane().setLayout(null);
 		
 		JLabel lblVentas = new JLabel("Ventas");
@@ -69,7 +79,25 @@ public class VentaModificar extends javax.swing.JFrame {
 		});
 		btnModificar.setBounds(378, 327, 117, 29);
 		getContentPane().add(btnModificar);
-		
+		String[] columnNames = {"Calle", "Nombre"};
+		table = new JTable();
+		table.setModel(new DefaultTableModel(new Object[][] {}, columnNames) {
+			 @Override
+			    public Class<?> getColumnClass(int column) {
+			        switch(column) {
+			            default: return Object.class;
+			        }
+			    }
+		});
+		table.setAutoCreateRowSorter(true);
+		table.setRowHeight(20);
+		table.getColumnModel().getColumn(0).setMaxWidth(50);
+		table.getColumnModel().getColumn(1).setMaxWidth(50);
+
+		JScrollPane scrollPaneAlquileres = new JScrollPane(table);
+		scrollPaneAlquileres.setBounds(10, 120, 480, 300);
+		table.setFillsViewportHeight(true);
+		getContentPane().add(scrollPaneAlquileres);
 		txtComision = new JTextField();
 		txtComision.addKeyListener(new KeyAdapter() {
 			public void keyTyped(KeyEvent e) {
@@ -107,13 +135,6 @@ public class VentaModificar extends javax.swing.JFrame {
 		getContentPane().add(txtValorEscritura);
 		txtValorEscritura.setColumns(10);
 		
-		initialize();
-	}
-	
-	private void initialize () {
-		buscarVentas();
-		createTableAlquileres();
-		setVisible(true);
 	}
 	
 	private List<Venta> buscarVentas() {

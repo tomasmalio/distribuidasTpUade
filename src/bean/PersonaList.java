@@ -26,7 +26,7 @@ public class PersonaList {
 	
 	public Persona getPersonaPorCuit(String cuit){
 		for (Persona persona : personas){
-			if (persona.getCuil_cuit() == cuit) return persona;
+			if (persona.getCuil_cuit().equals(cuit)) return persona;
 		}
 		return null;
 	}

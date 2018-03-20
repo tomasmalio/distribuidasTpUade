@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -27,9 +28,16 @@ public class VentaBaja extends javax.swing.JFrame {
 	private Venta venta;
 
 	public VentaBaja (SistemaInmobiliaria s) {
-		super();
+		super();		
+		sistema = s;		
+		buscarPropiedadesEnVenta();
+		initialize();
+		createTableVentas();
+		setVisible(true);		
+	}
+	
+	private void initialize () {
 		getContentPane().setLayout(null);
-		
 		bajaVenta = new JTextField();
 		bajaVenta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -43,14 +51,25 @@ public class VentaBaja extends javax.swing.JFrame {
 		bajaVenta.setBounds(314, 246, 130, 26);
 		getContentPane().add(bajaVenta);
 		bajaVenta.setColumns(10);
-		sistema = s;
-		initialize();
-	}
-	
-	private void initialize () {
-		buscarPropiedadesEnVenta();
-		createTableVentas();
-		setVisible(true);
+		String[] columnNames = {"Calle", "Nombre"};
+		table = new JTable();
+		table.setModel(new DefaultTableModel(new Object[][] {}, columnNames) {
+			 @Override
+			    public Class<?> getColumnClass(int column) {
+			        switch(column) {
+			            default: return Object.class;
+			        }
+			    }
+		});
+		table.setAutoCreateRowSorter(true);
+		table.setRowHeight(20);
+		table.getColumnModel().getColumn(0).setMaxWidth(50);
+		table.getColumnModel().getColumn(1).setMaxWidth(50);
+
+		JScrollPane scrollPaneAlquileres = new JScrollPane(table);
+		scrollPaneAlquileres.setBounds(10, 120, 480, 300);
+		table.setFillsViewportHeight(true);
+		getContentPane().add(scrollPaneAlquileres);
 	}
 	
 	/**

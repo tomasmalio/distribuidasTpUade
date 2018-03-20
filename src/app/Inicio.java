@@ -16,6 +16,10 @@ import javax.swing.*;
 import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
 
+import views.AlquilerAlta;
+import views.AlquilerModificar;
+import views.AlquilerBaja;
+
 public class Inicio extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
@@ -35,8 +39,11 @@ public class Inicio extends JFrame {
 
 	private JMenu jMenuSalir;
 	
+	private SistemaInmobiliaria inmobiliariaController;
+	
 	public Inicio() {
 		super();
+		inmobiliariaController = SistemaInmobiliaria.getInstance();
 		initGUI();
 	}
 	
@@ -79,7 +86,11 @@ public class Inicio extends JFrame {
 				jMenuAltaAlquiler.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent evt)
 					{
-						
+						if (inmobiliariaController != null) {
+							AlquilerAlta alquilerAlta = new AlquilerAlta(inmobiliariaController);
+							alquilerAlta.setVisible(true);
+							toFront();
+						}
 					}
 				});
 				
@@ -92,7 +103,11 @@ public class Inicio extends JFrame {
 				jMenuModificarAlquiler.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent evt)
 					{
-						
+						if (inmobiliariaController != null) {
+							AlquilerModificar alquilerModificar = new AlquilerModificar(inmobiliariaController);
+							alquilerModificar.setVisible(true);
+							toFront();
+						}
 					}
 				});
 				
@@ -105,7 +120,11 @@ public class Inicio extends JFrame {
 				jMenuBajaAlquiler.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent evt)
 					{
-						
+						if (inmobiliariaController != null) {
+							AlquilerBaja alquilerBaja = new AlquilerBaja(inmobiliariaController);
+							alquilerBaja.setVisible(true);
+							toFront();
+						}
 					}
 				});
 				

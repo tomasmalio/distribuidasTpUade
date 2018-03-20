@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import bean.Alquiler;
+import bean.AlquilerList;
 import bean.Persona;
 import bean.PersonaList;
 import bean.Propiedad;
@@ -12,15 +13,19 @@ import bean.PropiedadList;
 import bean.Servicio;
 import bean.ServicioList;
 import bean.Venta;
+import bean.VentaList;
 import bean.srv.PersonaSRV;
 import bean.srv.PropiedadSRV;
 import bean.srv.ServicioSRV;
 
 public class SistemaInmobiliaria {
+	
 	private static SistemaInmobiliaria instance = null;
-	private PersonaList personas = new PersonaList();
-	private PropiedadList propiedades = new PropiedadList();
-	private ServicioList servicios = new ServicioList();
+	private PersonaList personas 				= new PersonaList();
+	private PropiedadList propiedades 			= new PropiedadList();
+	private ServicioList servicios 				= new ServicioList();
+	private AlquilerList alquileres				= new AlquilerList();
+	private VentaList ventas					= new VentaList();
 	
 	public static SistemaInmobiliaria getInstance() {
         if (instance == null) {

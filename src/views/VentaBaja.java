@@ -30,7 +30,7 @@ public class VentaBaja extends javax.swing.JFrame {
 	public VentaBaja (SistemaInmobiliaria s) {
 		super();		
 		sistema = s;		
-		buscarPropiedadesEnVenta();
+		ventas= buscarPropiedadesEnVenta();
 		initialize();
 		createTableVentas();
 		setVisible(true);		
@@ -63,11 +63,11 @@ public class VentaBaja extends javax.swing.JFrame {
 		});
 		table.setAutoCreateRowSorter(true);
 		table.setRowHeight(20);
-		table.getColumnModel().getColumn(0).setMaxWidth(50);
-		table.getColumnModel().getColumn(1).setMaxWidth(50);
+		table.getColumnModel().getColumn(0).setMaxWidth(200);
+		table.getColumnModel().getColumn(1).setMaxWidth(200);
 
 		JScrollPane scrollPaneAlquileres = new JScrollPane(table);
-		scrollPaneAlquileres.setBounds(10, 120, 480, 300);
+		scrollPaneAlquileres.setBounds(48, 19, 359, 215);
 		table.setFillsViewportHeight(true);
 		getContentPane().add(scrollPaneAlquileres);
 	}

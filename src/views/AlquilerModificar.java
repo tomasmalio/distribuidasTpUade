@@ -40,7 +40,7 @@ public class AlquilerModificar extends javax.swing.JFrame {
 	public AlquilerModificar (SistemaInmobiliaria s) {
 		super();
 		sistema = s;
-		buscarAlquileres();
+		alquileres= buscarAlquileres();
 		initialize();
 		createTableAlquileres();
 		setVisible(true);

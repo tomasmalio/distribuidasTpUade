@@ -64,14 +64,14 @@ public class Inicio extends JFrame {
 		inmobiliariaController.addPersona("12345", "Martín", "Av. Cabildo 1000", "1150001000", "martin.sacco@gmail.com");
 		inmobiliariaController.addPersona("12346", "Juan", "Av. Monroe 4000", "1520004444", "juan.pedro@gmail.com");
 		inmobiliariaController.addPersona("12348", "Tomás", "Lima 123", "1158259693", "tomasmalio@gmail.com" );
-		//inmobiliariaController.grabarPersonas(inmobiliariaController.getPersonas());
 		
+		/**
+    	 * Carga de datos de Propiedades
+    	 */
 		inmobiliariaController.addPropiedad("1", "Av. Cabildo", 3530, "3", "A", "Buenos Aires", "3", 120, 12000, 1000000, 100, 50, 500, inmobiliariaController.buscarPersona("12345"));
 		inmobiliariaController.addPropiedad("2", "Juramento", 2060, "15", "B", "Buenos Aires", "5", 320, 26000, 2000000, 2030, 150, 1500, inmobiliariaController.buscarPersona("12345"));
 		inmobiliariaController.addPropiedad("3", "Av. Lacroze", 460, "5", "D", "Buenos Aires", "1", 90, 8000, 750000, 80, 60, 300, inmobiliariaController.buscarPersona("12346"));
 		inmobiliariaController.grabarVentas(inmobiliariaController.getVentas());
-
-		//System.out.println("Finalizo la etapa de carga de datos");
     }
    
     private void initGUI() {

@@ -12,6 +12,7 @@ import javax.swing.table.DefaultTableModel;
 
 import app.SistemaInmobiliaria;
 import bean.Propiedad;
+import bean.Servicio;
 import bean.Venta;
 
 public class VentaBaja extends javax.swing.JFrame {
@@ -20,10 +21,10 @@ public class VentaBaja extends javax.swing.JFrame {
 
 	private SistemaInmobiliaria sistema;
 	private JTextField bajaVenta;
-	List<Propiedad> propiedades;
+	private JTable table;
+	
 	List<Venta> ventas;
 	private Venta venta;
-	private JTable table;
 
 	public VentaBaja (SistemaInmobiliaria s) {
 		super();
@@ -35,7 +36,7 @@ public class VentaBaja extends javax.swing.JFrame {
 				/**
 				 * Llama al sistema para que se baje la venta
 				 */
-				sistema.deleteService(venta, "venta");
+				sistema.deleteService(venta);
 			}
 		});
 		bajaVenta.setText("Baja venta");
@@ -58,8 +59,9 @@ public class VentaBaja extends javax.swing.JFrame {
 	 * 
 	 * @return ArrayList<Venta>
 	 */
-	private List<Propiedad> buscarPropiedadesEnVenta() {
-		return (sistema.getVentas());
+	private List<Venta> buscarPropiedadesEnVenta() {
+		List<Venta> ventas = sistema.getVentas();
+		return ventas;
 	}
 	
 	/**
@@ -73,7 +75,7 @@ public class VentaBaja extends javax.swing.JFrame {
 		DefaultTableModel model = (DefaultTableModel) table.getModel();
 		model.setRowCount(0);
 		
-		if (propiedades != null) {
+		if (ventas != null) {
 			
 			for (Venta v: ventas) {
 				model.addRow(new Object[]{

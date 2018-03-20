@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 @Entity
 @Table(name="ventas")
-public class Venta extends Servicio{
+public class Venta extends Servicio {
 	@Column (name = "fechaEscritura", nullable = false, length = 50)
 	Date fechaEscritura;
 	@Column (name = "valorEscritura", nullable = false, length = 50)

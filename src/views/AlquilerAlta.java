@@ -137,7 +137,7 @@ public class AlquilerAlta {
 	}
 	
 	private List<Propiedad> buscarPropiedad() {
-		propiedades = new ArrayList<>(sistema.getPropiedades());
+		List<Propiedad> propiedades = sistema.getPropiedades();
 		return propiedades;
 	}
 	
@@ -175,7 +175,7 @@ public class AlquilerAlta {
 	}
 	
 	private List<Persona> buscarPersonas() {
-		personas = new ArrayList<>(sistema.getPersonas());
+		List<Persona> personas = sistema.getPersonas();
 		return personas;
 	}
 	

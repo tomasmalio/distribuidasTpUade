@@ -2,6 +2,8 @@ package views;
 
 import app.SistemaInmobiliaria;
 import bean.Alquiler;
+import bean.Propiedad;
+import bean.Servicio;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -25,11 +27,13 @@ public class AlquilerModificar extends javax.swing.JFrame {
 	private JTextField txtComision;
 	private JTextField txtSellado;
 	private JTextField txtBajaAlquiler;
-	List<Alquiler> alquileres;
+	
+	private List<Alquiler> alquileres;
 	private Alquiler alquiler;
+	
 	private JTable table;
-	private JLabel lblNewLabel = new JLabel("Comision gestion");
-	private JLabel lblNewLabel_1 = new JLabel("Gastos sellado");
+	private JLabel lblComision = new JLabel("Comision gestion");
+	private JLabel lblSellado = new JLabel("Gastos sellado");
 	
 	
 	public AlquilerModificar (SistemaInmobiliaria s) {
@@ -40,22 +44,20 @@ public class AlquilerModificar extends javax.swing.JFrame {
 		lblAlquileres.setBounds(180, 23, 80, 16);
 		getContentPane().add(lblAlquileres);
 		
-		
-		
-		lblNewLabel.setEnabled(false);
-		lblNewLabel.setBounds(33, 220, 117, 16);
-		getContentPane().add(lblNewLabel);
+		lblComision.setEnabled(false);
+		lblComision.setBounds(33, 220, 117, 16);
+		getContentPane().add(lblComision);
 		
 
-		lblNewLabel_1.setEnabled(false);
-		lblNewLabel_1.setBounds(33, 274, 117, 16);
-		getContentPane().add(lblNewLabel_1);
+		lblSellado.setEnabled(false);
+		lblSellado.setBounds(33, 274, 117, 16);
+		getContentPane().add(lblSellado);
 		
 		JButton btnModificar = new JButton("Modificar");
 		btnModificar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//hacer que el sist tome datos de los text fields y modifique el alquiler
-				sistema.modifySerivce(alquiler, "alquiler"); 
+				sistema.modifyService(alquiler); 
 			}
 		});
 		btnModificar.setBounds(378, 327, 117, 29);
@@ -63,7 +65,6 @@ public class AlquilerModificar extends javax.swing.JFrame {
 		
 		txtComision = new JTextField();
 		txtComision.addKeyListener(new KeyAdapter() {
-			@Override
 			public void keyTyped(KeyEvent e) {
 				alquiler.setComisionGestion(Float.parseFloat(txtComision.getText()));
 			}
@@ -76,7 +77,6 @@ public class AlquilerModificar extends javax.swing.JFrame {
 		
 		txtSellado = new JTextField();
 		txtSellado.addKeyListener(new KeyAdapter() {
-			@Override
 			public void keyTyped(KeyEvent e) {
 				alquiler.setGastosSellado(Float.parseFloat(txtSellado.getText()));
 			}
@@ -96,7 +96,7 @@ public class AlquilerModificar extends javax.swing.JFrame {
 	}
 	
 	private List<Alquiler> buscarAlquileres() {
-		alquileres = new ArrayList<>(sistema.getAlquileres());
+		List<Alquiler> alquileres = sistema.getAlquileres();
 		return alquileres;
 	}
 	
@@ -107,10 +107,10 @@ public class AlquilerModificar extends javax.swing.JFrame {
 		
 		if (alquileres != null) {
 			
-			for (Alquiler a: alquileres) {
+			for (Servicio a: alquileres) {
 				model.addRow(new Object[]{
-						a.getPropiedad(),
-						a.getInteresado()
+					a.getPropiedad(),
+					a.getInteresado()
 				});
 			}
 			
@@ -119,11 +119,11 @@ public class AlquilerModificar extends javax.swing.JFrame {
 			        int row = table.rowAtPoint(evt.getPoint());
 			        int col = table.columnAtPoint(evt.getPoint());
 			        if (row >= 0 && col >= 0) {
-			        		alquiler = alquileres.get(row);
+			        	alquiler = alquileres.get(row);
 						txtComision.setVisible(true);
 						txtSellado.setVisible(true);
-						lblNewLabel.setVisible(true);
-						lblNewLabel_1.setVisible(true);
+						lblComision.setVisible(true);
+						lblSellado.setVisible(true);
 						txtComision.setText(Float.toString(alquiler.getComisionGestion()));
 						txtSellado.setText(Float.toString(alquiler.getGastosSellado()));
 			        }

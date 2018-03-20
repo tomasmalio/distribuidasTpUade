@@ -22,8 +22,10 @@ public class AlquilerBaja extends javax.swing.JFrame {
 
 	private SistemaInmobiliaria sistema;
 	private JTextField txtBajaAlquiler;
+	
 	List<Alquiler> alquileres;
 	private Alquiler alquiler;
+	
 	private JTable table;
 
 	public AlquilerBaja  (SistemaInmobiliaria s) {
@@ -34,7 +36,7 @@ public class AlquilerBaja extends javax.swing.JFrame {
 		txtBajaAlquiler.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//llamar al sistema para que se baje el alquiler
-				sistema.deleteService(alquiler, "alquiler");
+				sistema.deleteService(alquiler);
 			}
 		});
 		txtBajaAlquiler.setText("Baja alquiler");
@@ -57,8 +59,8 @@ public class AlquilerBaja extends javax.swing.JFrame {
 	 * 
 	 * @return ArrayList<Venta>
 	 */
-	private List<Propiedad> buscarAlquileres() {
-		List<Propiedad> alquileres = sistema.getAlquileres();
+	private List<Alquiler> buscarAlquileres() {
+		List<Alquiler> alquileres = sistema.getAlquileres();
 		return alquileres;
 	}
 	

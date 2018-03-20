@@ -6,6 +6,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -13,8 +14,10 @@ import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 import app.SistemaInmobiliaria;
 import bean.Persona;
@@ -29,8 +32,8 @@ public class VentaAlta extends javax.swing.JFrame {
 	private JTextField valorEscritura;
 	private JTextField comisionVenta;
 	private JTextField gastosEscritura;
-	
 	private JTable table;
+	
 	List<Propiedad> propiedades;
 	List<Persona> personas;
 	
@@ -42,6 +45,10 @@ public class VentaAlta extends javax.swing.JFrame {
 	public VentaAlta  (SistemaInmobiliaria s) {
 		super();
 		sistema = s;
+		buscarPropiedad();
+		buscarPersonas();
+		createTablePropiedades();
+		createTablePersonas();
 		initialize();
 	}
 	
@@ -127,5 +134,87 @@ public class VentaAlta extends javax.swing.JFrame {
 		
 		btnVenta.setBounds(417, 467, 117, 29);
 		frmVentaAlta.getContentPane().add(btnVenta);
+	}
+	
+	/**
+	 * buscar Propiedad
+	 * 
+	 * Recibo las propiedades para poder identificar cuales
+	 * están en venta
+	 * 
+	 * @return List<Propiedad>
+	 */
+	private List<Propiedad> buscarPropiedad() {
+		List<Propiedad> propiedades = sistema.getPropiedades();
+		return propiedades;
+	}
+	
+	public void createTablePropiedades() {
+			
+		DefaultTableModel model = (DefaultTableModel) table.getModel();
+		model.setRowCount(0);
+		
+		if (propiedades != null) {
+			
+			for (Propiedad p: propiedades) {
+				if (p.getValorVenta()>0) {
+					model.addRow(new Object[]{
+						p.getCalle(),
+						p.getPropietario().getNombre_razon(),
+					});
+				}
+			}
+			
+			table.addMouseListener(new java.awt.event.MouseAdapter() {
+			    public void mouseClicked(java.awt.event.MouseEvent evt) {
+			        int row = table.rowAtPoint(evt.getPoint());
+			        int col = table.columnAtPoint(evt.getPoint());
+			        if (row >= 0 && col >= 0) {
+			        	/**
+			        	 * Propiedad seleccionada para luego venderla
+			        	 **/
+			        	prop = propiedades.get(row);
+			        }
+			    }
+			});
+		} else {
+			JOptionPane.showMessageDialog(null, "No se encontraron coincidencias");
+		}
+	}
+	
+	private List<Persona> buscarPersonas() {
+		List<Persona> personas = sistema.getPersonas();
+		return personas;
+	}
+	
+	public void createTablePersonas() {
+		
+		DefaultTableModel model = (DefaultTableModel) table.getModel();
+		model.setRowCount(0);
+		
+		if (personas != null) {
+			
+			for (Persona p: personas) {		
+				model.addRow(new Object[]{
+					p.getNombre_razon(),
+					p.getCuil_cuit()
+				});
+			}
+
+			table.addMouseListener(new java.awt.event.MouseAdapter() {
+			    public void mouseClicked(java.awt.event.MouseEvent evt) {
+			        int row = table.rowAtPoint(evt.getPoint());
+			        int col = table.columnAtPoint(evt.getPoint());
+			        if (row >= 0 && col >= 0) {
+			        	/**
+			        	 * Persona seleccionada para hacer el alquiler.
+			        	 */
+			        	pers = personas.get(row);
+			        }
+			    }
+			});
+		} else {
+			JOptionPane.showMessageDialog(null, "No se encontraron coincidencias");
+		}
 	}
 }

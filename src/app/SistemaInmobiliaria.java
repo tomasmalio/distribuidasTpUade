@@ -71,8 +71,8 @@ public class SistemaInmobiliaria {
 	}
 	
 	public void addPropiedad(String calle, String ciudad, String cantAmb, String departamento, 
-	  Double expensas, Double impuestos, Double metrosCubiertos, String nroPartida, int numero,
-	  Persona propietario, double servicios, double valorAlquiler, double valorVenta) {
+	  float expensas, float impuestos, float metrosCubiertos, String nroPartida, int numero,
+	  Persona propietario, float servicios, float valorAlquiler, float valorVenta) {
 		Propiedad propiedad = new Propiedad();
 		propiedad.setCalle(calle);
 		propiedad.setCiudad(ciudad);

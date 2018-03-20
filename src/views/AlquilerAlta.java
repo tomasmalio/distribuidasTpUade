@@ -47,8 +47,8 @@ public class AlquilerAlta {
 	 */
 	public AlquilerAlta(SistemaInmobiliaria s) {
 		sistema = s;
-		buscarPropiedad();
-		buscarPersonas();
+		propiedades = buscarPropiedad();
+		personas = buscarPersonas();
 		initialize();
 		createTablePropiedades();
 		createTablePersonas();

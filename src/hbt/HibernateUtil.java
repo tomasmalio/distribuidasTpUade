@@ -4,6 +4,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import bean.Persona;
+import bean.Propiedad;
+import bean.Servicio;
  
 public class HibernateUtil
 {
@@ -13,7 +15,9 @@ public class HibernateUtil
         try
         {
         	 	Configuration config = new Configuration();
-    	 		config.addAnnotatedClass(Persona.class);
+        	 	config.addAnnotatedClass(Propiedad.class);
+    	 		//config.addAnnotatedClass(Persona.class);
+    	 		//config.addAnnotatedClass(Servicio.class);
             sessionFactory = config.buildSessionFactory();
         }
         catch (Throwable ex)

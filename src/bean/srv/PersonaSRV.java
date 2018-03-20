@@ -10,7 +10,7 @@ public class PersonaSRV {
 		dao = HibernatePersonaDAO.getInstancia();
 	}
 	
-	public void grabarPersona(List<Persona> Usuarios){
-		dao.grabarPersonas(Usuarios);
+	public void grabarPersona(List<Persona> personas){
+		dao.grabarPersonas(personas);
 	}
 }

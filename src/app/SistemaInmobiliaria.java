@@ -9,6 +9,8 @@ import bean.Propiedad;
 import bean.PropiedadList;
 import bean.Servicio;
 import bean.ServicioList;
+import bean.srv.PersonaSRV;
+import bean.srv.PropiedadSRV;
 
 public class SistemaInmobiliaria {
 	private static SistemaInmobiliaria instance = null;
@@ -39,8 +41,8 @@ public class SistemaInmobiliaria {
 		personas.addPersona(persona);
 	}
 	
-	public void grabarUsuarios(List<Persona> personas){
-		// new PersonaSRV().grabarPersona(personas);
+	public void grabarPersonas(List<Persona> personas){
+	    new PersonaSRV().grabarPersona(personas);
 	}
 	
 	/////////////////
@@ -53,17 +55,17 @@ public class SistemaInmobiliaria {
 	public void addPropiedad(String calle) {
 		Propiedad propiedad = new Propiedad();
 		propiedad.setCalle(calle);
-		propiedad.setCiudad("");
-		propiedad.setCantidadAmbientes("");
-		propiedad.setDepartamento("");
-		propiedad.setExpensas(0);
-		propiedad.setImpuestos(0);
-		propiedad.setMetrosCubiertos(0);
-		propiedad.setNroPartida("");
-		propiedad.setNumero(0);
-		propiedad.setPropietario(null);
-		propiedad.setServicios(0);
-		propiedad.setValorAlquiler(0);
+		propiedad.setCiudad("asd");
+		propiedad.setCantidadAmbientes("2");
+		propiedad.setDepartamento("asd");
+		propiedad.setExpensas(1);
+		propiedad.setImpuestos(1);
+		propiedad.setMetrosCubiertos(1);
+		propiedad.setNroPartida("asd");
+		propiedad.setNumero(1);
+		// propiedad.setPropietario(null);
+		propiedad.setServicios(1);
+		propiedad.setValorAlquiler(1);
 		propiedad.setValorVenta(10);
 		propiedades.addPropiedad(propiedad);
 	}
@@ -81,7 +83,7 @@ public class SistemaInmobiliaria {
 		propiedad.setMetrosCubiertos(metrosCubiertos);
 		propiedad.setNroPartida(nroPartida);
 		propiedad.setNumero(numero);
-		propiedad.setPropietario(propietario);
+		// propiedad.setPropietario(propietario);
 		propiedad.setServicios(servicios);
 		propiedad.setValorAlquiler(valorAlquiler);
 		propiedad.setValorVenta(valorVenta);
@@ -89,7 +91,7 @@ public class SistemaInmobiliaria {
 	}
 	
 	public void grabarPropiedades(List<Propiedad> propiedades){
-		// new PropiedadSRV().grabarPropiedad(propiedades);
+		new PropiedadSRV().grabarPropiedad(propiedades);
 	}
 	
 	///////////////

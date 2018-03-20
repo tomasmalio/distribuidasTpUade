@@ -66,7 +66,7 @@ public class SistemaInmobiliaria {
 		return propiedades.getPropiedades();
 	}
 	
-	public void addPropiedad(String calle, Persona propietario) {
+	/*public void addPropiedad(String calle, Persona propietario) {
 		Propiedad propiedad = new Propiedad();
 		propiedad.setCalle(calle);
 		propiedad.setCiudad("asd");
@@ -82,25 +82,38 @@ public class SistemaInmobiliaria {
 		propiedad.setValorAlquiler(1);
 		propiedad.setValorVenta(10);
 		propiedades.addPropiedad(propiedad);
-	}
+	}*/
 	
-	public void addPropiedad(String calle, String ciudad, String cantAmb, String departamento, 
-	  float expensas, float impuestos, float metrosCubiertos, String nroPartida, int numero,
-	  Persona propietario, float servicios, float valorAlquiler, float valorVenta) {
+	public void addPropiedad (String nroPartida, 
+							String calle, 
+							int numero, 
+							String piso,
+							String departamento,
+							String ciudad, 
+							String cantAmb, 
+							float metrosCubiertos, 
+							float valorAlquiler, 
+							float valorVenta,
+							float impuestos,
+							float servicios,
+							float expensas, 
+							Persona propietario
+							) {
 		Propiedad propiedad = new Propiedad();
+		propiedad.setNroPartida(nroPartida);
 		propiedad.setCalle(calle);
+		propiedad.setNumero(numero);
+		propiedad.setPiso(piso);
+		propiedad.setDepartamento(departamento);
 		propiedad.setCiudad(ciudad);
 		propiedad.setCantidadAmbientes(cantAmb);
-		propiedad.setDepartamento(departamento);
-		propiedad.setExpensas(expensas);
-		propiedad.setImpuestos(impuestos);
 		propiedad.setMetrosCubiertos(metrosCubiertos);
-		propiedad.setNroPartida(nroPartida);
-		propiedad.setNumero(numero);
-		propiedad.setPropietario(propietario);
-		propiedad.setServicios(servicios);
 		propiedad.setValorAlquiler(valorAlquiler);
 		propiedad.setValorVenta(valorVenta);
+		propiedad.setImpuestos(impuestos);
+		propiedad.setServicios(servicios);
+		propiedad.setExpensas(expensas);
+		propiedad.setPropietario(propietario);
 		propiedades.addPropiedad(propiedad);
 	}
 	

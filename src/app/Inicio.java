@@ -47,12 +47,20 @@ public class Inicio extends JFrame {
 	public Inicio() {
 		super();
 		inmobiliariaController = SistemaInmobiliaria.getInstance();
+		setup();
 		initGUI();
 	}
 	
     public static void main(String[] args) {
-    	Inicio inicio = new Inicio();
-    	inicio.setVisible(true);
+	    	Inicio inicio = new Inicio();
+	    	inicio.setVisible(true);
+    }
+    
+    private void setup() {
+		inmobiliariaController.addPersona("11234567890", "pepe", "asd", "asd", "asd");
+		inmobiliariaController.addPersona("20331114821", "Lima 123", "tomasmalio@gmail.com", "Tomás", "1158259693");
+		inmobiliariaController.addPropiedad("Rivadavia", inmobiliariaController.getPersonas().get(1));
+		System.out.println(inmobiliariaController.getPersonas().get(0).getCuil_cuit());
     }
    
     private void initGUI() {

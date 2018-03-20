@@ -59,7 +59,7 @@ public class AlquilerBaja extends javax.swing.JFrame {
 	 * @return ArrayList<Venta>
 	 */
 	private List<Propiedad> buscarAlquileres() {
-		alquileres = new ArrayList<>(sistema.getAlquileres());
+		List<Propiedad> alquileres = sistema.getAlquileres();
 		return alquileres;
 	}
 	

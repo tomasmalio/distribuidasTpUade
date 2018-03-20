@@ -26,22 +26,22 @@ public class Propiedad {
 	private String cantidadAmbientes;
 	
 	@Column (name = "metrosCubiertos", nullable = false, length = 5)
-	private double metrosCubiertos;
+	private float metrosCubiertos;
 	
 	@Column (name = "valorAlquiler", nullable = false, length = 15)
-	private double valorAlquiler;
+	private float valorAlquiler;
 	
 	@Column (name = "valorVenta", nullable = false, length = 15)
-	private double valorVenta;
+	private float valorVenta;
 	
 	@Column (name = "impuestos", nullable = false, length = 4)
-	private double impuestos;
+	private float impuestos;
 	
 	@Column (name = "servicios", nullable = false, length = 4)
-	private double servicios;
+	private float servicios;
 	
 	@Column (name = "expensas", nullable = false, length = 4)
-	private double expensas;
+	private float expensas;
 	
 	@Column (name = "id_persona", nullable = false, length = 13)
 	private Persona propietario;
@@ -70,27 +70,27 @@ public class Propiedad {
 		this.cantidadAmbientes = cantidadAmbientes;
 	}
 
-	public void setMetrosCubiertos(double metrosCubiertos) {
+	public void setMetrosCubiertos(float metrosCubiertos) {
 		this.metrosCubiertos = metrosCubiertos;
 	}
 
-	public void setValorAlquiler(double valorAlquiler) {
+	public void setValorAlquiler(float valorAlquiler) {
 		this.valorAlquiler = valorAlquiler;
 	}
 
-	public void setValorVenta(double valorVenta) {
+	public void setValorVenta(float valorVenta) {
 		this.valorVenta = valorVenta;
 	}
 
-	public void setImpuestos(double impuestos) {
+	public void setImpuestos(float impuestos) {
 		this.impuestos = impuestos;
 	}
 
-	public void setServicios(double servicios) {
+	public void setServicios(float servicios) {
 		this.servicios = servicios;
 	}
 
-	public void setExpensas(double expensas) {
+	public void setExpensas(float expensas) {
 		this.expensas = expensas;
 	}
 

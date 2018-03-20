@@ -1,6 +1,7 @@
 package app;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 import bean.Persona;
@@ -11,6 +12,7 @@ import bean.Servicio;
 import bean.ServicioList;
 import bean.srv.PersonaSRV;
 import bean.srv.PropiedadSRV;
+import bean.srv.ServicioSRV;
 
 public class SistemaInmobiliaria {
 	private static SistemaInmobiliaria instance = null;
@@ -35,8 +37,9 @@ public class SistemaInmobiliaria {
 		return personas.getPersonas();
 	}
 	
-	public void addPersona(String nombre_razon) {
+	public void addPersona(String cuil_cuit, String nombre_razon) {
 		Persona persona = new Persona();
+		persona.setCuil_cuit(cuil_cuit);
 		persona.setNombre_razon(nombre_razon);
 		personas.addPersona(persona);
 	}
@@ -101,13 +104,15 @@ public class SistemaInmobiliaria {
 		return servicios.getServicios();
 	}
 	
-	public void addServicio(Propiedad propiedad) {
+	public void addServicio(Date fecha, Propiedad propiedad, Persona interesado) {
 		Servicio servicio = new Servicio();
+		servicio.setFecha(fecha);
 		servicio.setPropiedad(propiedad);
+		servicio.setInteresado(interesado);
 		servicios.addServicio(servicio);
 	}
 	
 	public void grabarServicio(List<Servicio> servicios){
-		// new ServicioSRV().grabarServicio(servicios);
+		new ServicioSRV().grabarServicio(servicios);
 	}
 }

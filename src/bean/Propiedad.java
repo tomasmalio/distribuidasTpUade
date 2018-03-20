@@ -3,7 +3,7 @@ package bean;
 import javax.persistence.*;
 
 @Entity
-@Table(name="propiedad")
+@Table(name="propiedades")
 public class Propiedad {
 
 	@Id

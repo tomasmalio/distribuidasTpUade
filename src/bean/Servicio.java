@@ -2,19 +2,26 @@ package bean;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Embeddable;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+
 @Entity
 @Table(name="servicios")
 public class Servicio {
-	
-	@Column (name = "fecha", nullable = false, length = 50)
-	Date fecha;
-	@Column (name = "id_propiedad")
-	Propiedad propiedad;
-	@Column (name = "id_persona")
-	Persona interesado;
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int id;
+	private Date fecha;
+//	private Propiedad propiedad;
+//	private Persona interesado;
 	
 	public Date getFecha() {
 		return fecha;
@@ -22,18 +29,24 @@ public class Servicio {
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
-	public Propiedad getPropiedad() {
-		return propiedad;
-	}
-	public void setPropiedad(Propiedad propiedad) {
-		this.propiedad = propiedad;
-	}
-	public Persona getInteresado() {
-		return interesado;
-	}
-	public void setInteresado(Persona interesado) {
-		this.interesado = interesado;
-	}
+	
+//	@OneToOne(cascade = CascadeType.ALL)
+//    @PrimaryKeyJoinColumn
+//	public Propiedad getPropiedad() {
+//		return propiedad;
+//	}
+//	public void setPropiedad(Propiedad propiedad) {
+//		this.propiedad = propiedad;
+//	}
+//	
+//	@OneToOne(cascade = CascadeType.ALL)
+//    @PrimaryKeyJoinColumn
+//	public Persona getInteresado() {
+//		return interesado;
+//	}
+//	public void setInteresado(Persona interesado) {
+//		this.interesado = interesado;
+//	}
 	public float CalcularComision() {
 		float comision = 0;
 		return comision;

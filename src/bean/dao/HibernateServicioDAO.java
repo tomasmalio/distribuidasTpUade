@@ -7,6 +7,7 @@ import org.hibernate.SessionFactory;
 
 import bean.Alquiler;
 import bean.Servicio;
+import bean.Venta;
 
 public class HibernateServicioDAO {
 	private static HibernateServicioDAO instancia = null;
@@ -64,6 +65,15 @@ public class HibernateServicioDAO {
 		session.flush();
 		session.getTransaction().commit();
 		session.close();
-		
+	}
+
+	public void grabarVentas(List<Venta> servicios) {
+		Session session = sf.openSession();
+		session.beginTransaction();
+		for(Venta servicio:servicios)
+			session.persist(servicio);
+		session.flush();
+		session.getTransaction().commit();
+		session.close();
 	}
 }

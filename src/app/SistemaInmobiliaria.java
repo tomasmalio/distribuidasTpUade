@@ -129,7 +129,7 @@ public class SistemaInmobiliaria {
 	}
 	
 	public void grabarVentas(List<Venta> servicios){
-		// new ServicioSRV().grabarVentas(servicios);
+		new ServicioSRV().grabarVentas(servicios);
 	}
 
 	public void addAlquiler(Date fechaDesde, Date fechaHasta, float comisionGestion, float gastosSellado, Date fecha, Propiedad propiedad,

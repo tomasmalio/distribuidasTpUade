@@ -4,6 +4,7 @@ import java.util.List;
 
 import bean.Alquiler;
 import bean.Servicio;
+import bean.Venta;
 import bean.dao.HibernateServicioDAO;
 
 public class ServicioSRV {
@@ -30,5 +31,10 @@ public class ServicioSRV {
 
 	public void grabarAlquileres(List<Alquiler> servicios) {
 		dao.grabarAlquiler(servicios);
+	}
+
+	public void grabarVentas(List<Venta> servicios) {
+		dao.grabarVentas(servicios);
+		
 	}
 }

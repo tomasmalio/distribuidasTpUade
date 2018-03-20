@@ -16,6 +16,7 @@ import javax.swing.*;
 import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
 
+import bean.Persona;
 import views.AlquilerAlta;
 import views.AlquilerModificar;
 import views.VentaAlta;
@@ -57,10 +58,9 @@ public class Inicio extends JFrame {
     }
     
     private void setup() {
-		inmobiliariaController.addPersona("12345", "Av. Cabildo 1000", "martin.sacco@gmail.com", "Martín", "1150001000");
-		inmobiliariaController.addPersona("12346", "Av. Monroe 4000", "juan.pedro@gmail.com", "Juan", "1520004444");
-		inmobiliariaController.addPersona("12347", "pepe", "asd", "asd", "asd");
-		inmobiliariaController.addPersona("12348", "Lima 123", "tomasmalio@gmail.com", "Tomás", "1158259693");
+		inmobiliariaController.addPersona("12345", "Martín", "Av. Cabildo 1000", "1150001000", "martin.sacco@gmail.com");
+		inmobiliariaController.addPersona("12346", "Juan", "Av. Monroe 4000", "1520004444", "juan.pedro@gmail.com");
+		inmobiliariaController.addPersona("12348", "Tomás", "Lima 123", "1158259693", "tomasmalio@gmail.com" );
 		inmobiliariaController.grabarPersonas(inmobiliariaController.getPersonas());
 		
 		//System.out.println("aca" + inmobiliariaController.getPersonas().get(12345));
@@ -69,7 +69,7 @@ public class Inicio extends JFrame {
 		//inmobiliariaController.addPropiedad("3", "Av. Lacroze", 460, "5", "D", "Buenos Aires", "1", 90, 8000, 750000, 80, 60, 300, inmobiliariaController.getPersonas().get(12347));
 		//inmobiliariaController.grabarVentas(inmobiliariaController.getVentas());
 
-		System.out.println("Finalizo la etapa de carga de datos");
+		//System.out.println("Finalizo la etapa de carga de datos");
     }
    
     private void initGUI() {

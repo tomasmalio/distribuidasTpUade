@@ -122,8 +122,8 @@ public class VentaAlta extends javax.swing.JFrame {
 									cVenta,
 									gEscritura,
 									dateNow, 
-									prop.getNroPartida(), 
-									pers.getCuil_cuit()
+									prop, 
+									pers
 								);
 					frmVentaAlta.dispose();
 					

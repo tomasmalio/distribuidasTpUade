@@ -126,14 +126,11 @@ public class SistemaInmobiliaria {
 
 	public void addAlquiler(Date fdesde, Date fhasta, float gestion, float sellado, LocalDate now, String nroPartida,
 			String cuil_cuit) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	public void addVenta(Date fEscritura, float vEscritura, float cVenta, float gEscritura, LocalDate now,
 			String nroPartida, String cuil_cuit) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	/**
@@ -142,6 +139,7 @@ public class SistemaInmobiliaria {
 	 * @param alquiler
 	 */
 	public void deleteService(Alquiler alquiler) {
+		alquileres.removeAlquiler(alquiler);
 	}
 	
 	/**
@@ -150,6 +148,7 @@ public class SistemaInmobiliaria {
 	 * @param venta
 	 */
 	public void deleteService(Venta venta) {
+		ventas.removeVenta(venta);
 	}
 
 	/**

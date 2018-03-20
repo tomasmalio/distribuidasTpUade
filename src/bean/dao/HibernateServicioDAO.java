@@ -18,7 +18,7 @@ public class HibernateServicioDAO {
 		} 
 		return instancia;
 	}
-	
+
 	public void grabarServicio(List<Servicio> servicios){
 		Session session = sf.openSession();
 		session.beginTransaction();
@@ -28,5 +28,21 @@ public class HibernateServicioDAO {
 		session.getTransaction().commit();
 		session.close();
 	}
-
+	
+	@SuppressWarnings("unchecked")
+	public List<Servicio> listarServicios() {
+		Session session = sf.openSession();
+		List<Servicio> list = session.createQuery("from servicio").list();
+		session.close();
+		return list;
+	}
+	
+	public void actualizarServicio(Servicio servicio){
+		Session session = sf.openSession();
+		session.beginTransaction();
+		session.update(servicio);
+		session.flush();
+		session.getTransaction().commit();
+		session.close();
+	}
 }

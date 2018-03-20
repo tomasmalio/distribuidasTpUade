@@ -47,14 +47,15 @@ public class VentaAlta extends javax.swing.JFrame {
 	public VentaAlta  (SistemaInmobiliaria s) {
 		super();
 		sistema = s;
-		buscarPropiedad();
-		buscarPersonas();
+		propiedades = buscarPropiedad();
+		personas = buscarPersonas();
 		initialize();
 		createTablePropiedades();
 		createTablePersonas();
 		setVisible(true);
 	}
 	
+	@SuppressWarnings("serial")
 	private void initialize() {
 		frmVentaAlta = new JFrame();
 		frmVentaAlta.setBounds(100, 100, 608, 524);
@@ -78,7 +79,6 @@ public class VentaAlta extends javax.swing.JFrame {
 		String[] columnNames = {"Calle", "Propietario"};
 		tableProp = new JTable();
 		tableProp.setModel(new DefaultTableModel(new Object[][] {}, columnNames) {
-
 			    public Class<?> getColumnClass(int column) {
 			        switch(column) {
 			            default: return Object.class;
@@ -89,11 +89,10 @@ public class VentaAlta extends javax.swing.JFrame {
 		tableProp.setRowHeight(20);
 		tableProp.getColumnModel().getColumn(0).setMaxWidth(100);
 		tableProp.getColumnModel().getColumn(1).setMaxWidth(100);
-		
 
 		JScrollPane scrollPaneVentas = new JScrollPane(tableProp);
 		scrollPaneVentas.setBounds(142, 47, 209, 149);
-		tableP.setFillsViewportHeight(true);
+		tableProp.setFillsViewportHeight(true);
 		frmVentaAlta.getContentPane().add(scrollPaneVentas);
 		
 		JLabel lblComisionVenta = new JLabel("Comisión Venta:");

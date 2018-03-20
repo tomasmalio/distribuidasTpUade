@@ -3,7 +3,7 @@ package bean;
 import javax.persistence.*;
 
 @Entity
-@Table(name="propiedad")
+@Table(name="propiedades")
 public class Propiedad {
 
 	@Id
@@ -19,9 +19,7 @@ public class Propiedad {
 	private float impuestos;
 	private float servicios;
 	private float expensas;
-	
-//	@Column (name = "id_persona", nullable = false, length = 13)
-//	private Persona propietario;
+	private Persona propietario;
 	
 	public void setNumero(int numero) {
 		this.numero = numero;
@@ -71,9 +69,9 @@ public class Propiedad {
 		this.expensas = expensas;
 	}
 
-//	public void setPropietario(Persona propietario) {
-//		this.propietario = propietario;
-//	}
+	public void setPropietario(Persona propietario) {
+		this.propietario = propietario;
+	}
 
 	public int getNumero() {
 		return numero;
@@ -122,11 +120,11 @@ public class Propiedad {
 	public double getExpensas() {
 		return expensas;
 	}
-	
-//	@ManyToOne
-//	@JoinColumn(name="persona")
-//	public Persona getPropietario() {
-//		return propietario;
-//	}
+
+	@ManyToOne
+	@JoinColumn(name="persona")
+	public Persona getPropietario() {
+		return propietario;
+	}
 	
 }

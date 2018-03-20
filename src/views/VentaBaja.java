@@ -35,7 +35,7 @@ public class VentaBaja extends javax.swing.JFrame {
 				/**
 				 * Llama al sistema para que se baje la venta
 				 */
-				sistema.delete(venta, "venta");
+				sistema.deleteService(venta, "venta");
 			}
 		});
 		bajaVenta.setText("Baja venta");

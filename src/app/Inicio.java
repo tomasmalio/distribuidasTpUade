@@ -60,10 +60,14 @@ public class Inicio extends JFrame {
 		inmobiliariaController.addPersona("201112221", "Av. Cabildo 1000", "martin.sacco@gmail.com", "Martín", "1150001000");
 		inmobiliariaController.addPersona("151212111", "Av. Monroe 4000", "juan.pedro@gmail.com", "Juan", "1520004444");
 		inmobiliariaController.addPersona("11234567890", "pepe", "asd", "asd", "asd");
-		inmobiliariaController.addPersona("20331114821", "Lima 123", "tomasmalio@gmail.com", "Tomás", "1158259693");
+		inmobiliariaController.addPersona("2033111482", "Lima 123", "tomasmalio@gmail.com", "Tomás", "1158259693");
 		inmobiliariaController.grabarPersonas(inmobiliariaController.getPersonas());
 		
-		inmobiliariaController.addPropiedad("Rivadavia", inmobiliariaController.getPersonas().get(1));
+		inmobiliariaController.addPropiedad("1", "Av. Cabildo", 3530, "3", "A", "Buenos Aires", "3", 120, 12000, 1000000, 100, 50, 500, inmobiliariaController.getPersonas().get(201112221));
+		inmobiliariaController.addPropiedad("2", "Juramento", 2060, "15", "B", "Buenos Aires", "5", 320, 26000, 2000000, 2030, 150, 1500, inmobiliariaController.getPersonas().get(2033111482));
+		inmobiliariaController.addPropiedad("3", "Av. Lacroze", 460, "5", "D", "Buenos Aires", "1", 90, 8000, 750000, 80, 60, 300, inmobiliariaController.getPersonas().get(151212111));
+		inmobiliariaController.grabarVentas(inmobiliariaController.getVentas());
+
 		System.out.println(inmobiliariaController.getPersonas().get(0).getCuil_cuit());
     }
    

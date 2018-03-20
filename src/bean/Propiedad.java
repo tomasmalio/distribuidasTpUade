@@ -7,9 +7,10 @@ import javax.persistence.*;
 public class Propiedad {
 
 	@Id
-	private int numero;
 	private String nroPartida;
 	private String calle;
+	private int numero;
+	private String piso;
 	private String departamento;
 	private String ciudad;
 	private String cantidadAmbientes;
@@ -36,6 +37,10 @@ public class Propiedad {
 		this.calle = calle;
 	}
 
+	public void setPiso(String piso) {
+		this.piso = piso;
+	}
+	
 	public void setDepartamento(String departamento) {
 		this.departamento = departamento;
 	}
@@ -71,8 +76,7 @@ public class Propiedad {
 	public void setExpensas(float expensas) {
 		this.expensas = expensas;
 	}
-
-
+	
 	public int getNumero() {
 		return numero;
 	}
@@ -83,6 +87,10 @@ public class Propiedad {
 
 	public String getCalle() {
 		return calle;
+	}
+	
+	public String getPiso() {
+		return piso;
 	}
 
 	public String getDepartamento() {

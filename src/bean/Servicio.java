@@ -20,8 +20,8 @@ public class Servicio {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	private Date fecha;
-//	private Propiedad propiedad;
-//	private Persona interesado;
+	private Propiedad propiedad;
+	private Persona interesado;
 	
 	public Date getFecha() {
 		return fecha;
@@ -30,23 +30,23 @@ public class Servicio {
 		this.fecha = fecha;
 	}
 	
-//	@OneToOne(cascade = CascadeType.ALL)
-//    @PrimaryKeyJoinColumn
-//	public Propiedad getPropiedad() {
-//		return propiedad;
-//	}
-//	public void setPropiedad(Propiedad propiedad) {
-//		this.propiedad = propiedad;
-//	}
-//	
-//	@OneToOne(cascade = CascadeType.ALL)
-//    @PrimaryKeyJoinColumn
-//	public Persona getInteresado() {
-//		return interesado;
-//	}
-//	public void setInteresado(Persona interesado) {
-//		this.interesado = interesado;
-//	}
+	@OneToOne(cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
+	public Propiedad getPropiedad() {
+		return propiedad;
+	}
+	public void setPropiedad(Propiedad propiedad) {
+		this.propiedad = propiedad;
+	}
+	
+	@OneToOne(cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
+	public Persona getInteresado() {
+		return interesado;
+	}
+	public void setInteresado(Persona interesado) {
+		this.interesado = interesado;
+	}
 	public float CalcularComision() {
 		float comision = 0;
 		return comision;

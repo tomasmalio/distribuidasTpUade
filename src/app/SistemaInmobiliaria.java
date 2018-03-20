@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
+import bean.Alquiler;
 import bean.Persona;
 import bean.PersonaList;
 import bean.Propiedad;
@@ -37,11 +38,12 @@ public class SistemaInmobiliaria {
 		return personas.getPersonas();
 	}
 	
-	public void addPersona(String cuil_cuit, String nombre_razon) {
+	public Persona addPersona(String cuil_cuit, String nombre_razon) {
 		Persona persona = new Persona();
 		persona.setCuil_cuit(cuil_cuit);
 		persona.setNombre_razon(nombre_razon);
 		personas.addPersona(persona);
+		return persona;
 	}
 	
 	public void grabarPersonas(List<Persona> personas){
@@ -55,7 +57,7 @@ public class SistemaInmobiliaria {
 		return propiedades.getPropiedades();
 	}
 	
-	public void addPropiedad(String calle) {
+	public void addPropiedad(String calle, Persona propietario) {
 		Propiedad propiedad = new Propiedad();
 		propiedad.setCalle(calle);
 		propiedad.setCiudad("asd");
@@ -66,7 +68,7 @@ public class SistemaInmobiliaria {
 		propiedad.setMetrosCubiertos(1);
 		propiedad.setNroPartida("asd");
 		propiedad.setNumero(1);
-		// propiedad.setPropietario(null);
+		propiedad.setPropietario(propietario);
 		propiedad.setServicios(1);
 		propiedad.setValorAlquiler(1);
 		propiedad.setValorVenta(10);
@@ -86,7 +88,7 @@ public class SistemaInmobiliaria {
 		propiedad.setMetrosCubiertos(metrosCubiertos);
 		propiedad.setNroPartida(nroPartida);
 		propiedad.setNumero(numero);
-		// propiedad.setPropietario(propietario);
+		propiedad.setPropietario(propietario);
 		propiedad.setServicios(servicios);
 		propiedad.setValorAlquiler(valorAlquiler);
 		propiedad.setValorVenta(valorVenta);
@@ -107,12 +109,34 @@ public class SistemaInmobiliaria {
 	public void addServicio(Date fecha, Propiedad propiedad, Persona interesado) {
 		Servicio servicio = new Servicio();
 		servicio.setFecha(fecha);
-//		servicio.setPropiedad(propiedad);
-//		servicio.setInteresado(interesado);
+		servicio.setPropiedad(propiedad);
+		servicio.setInteresado(interesado);
 		servicios.addServicio(servicio);
 	}
 	
 	public void grabarServicio(List<Servicio> servicios){
 		new ServicioSRV().grabarServicio(servicios);
+	}
+
+	public void addAlquiler(Date fdesde, Date fhasta, float gestion, float sellado, LocalDate now, String nroPartida,
+			String cuil_cuit) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void addVenta(Date fEscritura, float vEscritura, float cVenta, float gEscritura, LocalDate now,
+			String nroPartida, String cuil_cuit) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void delete(Alquiler alquiler, String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public List<Propiedad> getAlquileres() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

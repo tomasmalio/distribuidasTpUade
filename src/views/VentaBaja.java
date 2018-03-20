@@ -21,10 +21,10 @@ public class VentaBaja extends javax.swing.JFrame {
 
 	private SistemaInmobiliaria sistema;
 	private JTextField bajaVenta;
-	List<Propiedad> propiedades;
-	List<Servicio> ventas;
-	private Venta venta;
 	private JTable table;
+	
+	List<Venta> ventas;
+	private Venta venta;
 
 	public VentaBaja (SistemaInmobiliaria s) {
 		super();
@@ -57,16 +57,11 @@ public class VentaBaja extends javax.swing.JFrame {
 	 * Obtenemos todas las propiedades que se encuentran en
 	 * venta y así mostrarlas
 	 * 
-	 * @return ArrayList<Servicio>
+	 * @return ArrayList<Venta>
 	 */
-<<<<<<< HEAD
-	private List<Servicio> buscarPropiedadesEnVenta() {
-		List<Servicio> ventas = sistema.getVentas());
+	private List<Venta> buscarPropiedadesEnVenta() {
+		List<Venta> ventas = sistema.getVentas();
 		return ventas;
-=======
-	private List<Propiedad> buscarPropiedadesEnVenta() {
-		return (sistema.getVentas());
->>>>>>> f94d213b03e4eefcad16428be5a5b262218fd17b
 	}
 	
 	/**
@@ -80,7 +75,7 @@ public class VentaBaja extends javax.swing.JFrame {
 		DefaultTableModel model = (DefaultTableModel) table.getModel();
 		model.setRowCount(0);
 		
-		if (propiedades != null) {
+		if (ventas != null) {
 			
 			for (Venta v: ventas) {
 				model.addRow(new Object[]{

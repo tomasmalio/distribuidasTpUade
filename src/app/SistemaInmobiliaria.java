@@ -139,12 +139,27 @@ public class SistemaInmobiliaria {
 		// TODO Auto-generated method stub
 	}
 
-	public List<Servicio> getAlquileres() {
+	/**
+	 * getAlquileres
+	 * 
+	 * Listado de propiedades
+	 * que están alquiladas
+	 * 
+	 * @return List<Alquiler>
+	 */
+	public List<Alquiler> getAlquileres() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public List<Servicio> getVentas() {
+	/**
+	 * getVentas
+	 * 
+	 * Listado de propiedades que están en venta
+	 * 
+	 * @return List<Venta>
+	 */
+	public List<Venta> getVentas() {
 		// TODO Auto-generated method stub
 		return null;
 	}

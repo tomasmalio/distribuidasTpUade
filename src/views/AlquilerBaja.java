@@ -22,8 +22,10 @@ public class AlquilerBaja extends javax.swing.JFrame {
 
 	private SistemaInmobiliaria sistema;
 	private JTextField txtBajaAlquiler;
+	
 	List<Alquiler> alquileres;
 	private Alquiler alquiler;
+	
 	private JTable table;
 
 	public AlquilerBaja  (SistemaInmobiliaria s) {
@@ -57,8 +59,8 @@ public class AlquilerBaja extends javax.swing.JFrame {
 	 * 
 	 * @return ArrayList<Venta>
 	 */
-	private List<Propiedad> buscarAlquileres() {
-		List<Propiedad> alquileres = sistema.getAlquileres();
+	private List<Alquiler> buscarAlquileres() {
+		List<Alquiler> alquileres = sistema.getAlquileres();
 		return alquileres;
 	}
 	

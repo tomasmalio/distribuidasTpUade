@@ -3,7 +3,9 @@ package app;
 import java.time.LocalDate;
 import java.util.List;
 
+import bean.Persona;
 import bean.PersonaList;
+import bean.Propiedad;
 import bean.PropiedadList;
 
 public class SistemaInmobiliaria {
@@ -19,6 +21,6 @@ public class SistemaInmobiliaria {
 	}
 	
 	public List<Propiedad> getPropiedades(){
-		return personas.getPropiedades();
+		return propiedades.getPropiedades();
 	}
 }

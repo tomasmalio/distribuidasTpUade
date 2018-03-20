@@ -2,11 +2,7 @@ package views;
 
 import app.SistemaInmobiliaria;
 import bean.Alquiler;
-import bean.Persona;
-import bean.Propiedad;
-import bean.Servicio;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JOptionPane;
@@ -38,6 +34,7 @@ public class AlquilerBaja extends javax.swing.JFrame {
 		setVisible(true);
 	}
 	
+	@SuppressWarnings("serial")
 	private void initialize () {
 		getContentPane().setLayout(null);	
 		txtBajaAlquiler = new JTextField();
@@ -55,7 +52,6 @@ public class AlquilerBaja extends javax.swing.JFrame {
 		String[] columnNames = {"Calle", "Nombre"};
 		table = new JTable();
 		table.setModel(new DefaultTableModel(new Object[][] {}, columnNames) {
-			 @Override
 			    public Class<?> getColumnClass(int column) {
 			        switch(column) {
 			            default: return Object.class;

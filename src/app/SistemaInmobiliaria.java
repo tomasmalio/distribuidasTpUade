@@ -55,6 +55,10 @@ public class SistemaInmobiliaria {
 		return persona;
 	}
 	
+	public Persona buscarPersona(String cuit){
+	    return personas.getPersonaPorCuit(cuit);
+	}
+	
 	public void grabarPersonas(List<Persona> personas){
 	    new PersonaSRV().grabarPersona(personas);
 	}
@@ -66,7 +70,7 @@ public class SistemaInmobiliaria {
 		return propiedades.getPropiedades();
 	}
 	
-	/*public void addPropiedad(String calle, Persona propietario) {
+	public void addPropiedad(String calle, Persona propietario) {
 		Propiedad propiedad = new Propiedad();
 		propiedad.setCalle(calle);
 		propiedad.setCiudad("asd");
@@ -74,6 +78,7 @@ public class SistemaInmobiliaria {
 		propiedad.setDepartamento("asd");
 		propiedad.setExpensas(1);
 		propiedad.setImpuestos(1);
+		propiedad.setPiso("a");
 		propiedad.setMetrosCubiertos(1);
 		propiedad.setNroPartida("asd");
 		propiedad.setNumero(1);
@@ -82,7 +87,7 @@ public class SistemaInmobiliaria {
 		propiedad.setValorAlquiler(1);
 		propiedad.setValorVenta(10);
 		propiedades.addPropiedad(propiedad);
-	}*/
+	}
 	
 	public void addPropiedad (String nroPartida, 
 							String calle, 

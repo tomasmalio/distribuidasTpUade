@@ -32,8 +32,8 @@ public class AlquilerModificar extends javax.swing.JFrame {
 	private Alquiler alquiler;
 	
 	private JTable table;
-	private JLabel lblNewLabel = new JLabel("Comision gestion");
-	private JLabel lblNewLabel_1 = new JLabel("Gastos sellado");
+	private JLabel lblComision = new JLabel("Comision gestion");
+	private JLabel lblSellado = new JLabel("Gastos sellado");
 	
 	
 	public AlquilerModificar (SistemaInmobiliaria s) {
@@ -44,14 +44,14 @@ public class AlquilerModificar extends javax.swing.JFrame {
 		lblAlquileres.setBounds(180, 23, 80, 16);
 		getContentPane().add(lblAlquileres);
 		
-		lblNewLabel.setEnabled(false);
-		lblNewLabel.setBounds(33, 220, 117, 16);
-		getContentPane().add(lblNewLabel);
+		lblComision.setEnabled(false);
+		lblComision.setBounds(33, 220, 117, 16);
+		getContentPane().add(lblComision);
 		
 
-		lblNewLabel_1.setEnabled(false);
-		lblNewLabel_1.setBounds(33, 274, 117, 16);
-		getContentPane().add(lblNewLabel_1);
+		lblSellado.setEnabled(false);
+		lblSellado.setBounds(33, 274, 117, 16);
+		getContentPane().add(lblSellado);
 		
 		JButton btnModificar = new JButton("Modificar");
 		btnModificar.addActionListener(new ActionListener() {
@@ -122,8 +122,8 @@ public class AlquilerModificar extends javax.swing.JFrame {
 			        	alquiler = alquileres.get(row);
 						txtComision.setVisible(true);
 						txtSellado.setVisible(true);
-						lblNewLabel.setVisible(true);
-						lblNewLabel_1.setVisible(true);
+						lblComision.setVisible(true);
+						lblSellado.setVisible(true);
 						txtComision.setText(Float.toString(alquiler.getComisionGestion()));
 						txtSellado.setText(Float.toString(alquiler.getGastosSellado()));
 			        }

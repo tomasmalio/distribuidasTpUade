@@ -134,16 +134,15 @@ public class SistemaInmobiliaria {
 
 	public void addAlquiler(Date fechaDesde, Date fechaHasta, float comisionGestion, float gastosSellado, Date fecha, Propiedad propiedad,
 			Persona interesado) {
-		Alquiler servicio = new Alquiler();
-		servicio.setFechaDesde(fechaDesde);
-		servicio.setFechaHasta(fechaHasta);
-		servicio.setComisionGestion(comisionGestion);
-		servicio.setGastosSellado(gastosSellado);
-		servicio.setFecha(fecha);
-		servicio.setPropiedad(propiedad);
-		servicio.setInteresado(interesado);
-		alquileres.addAlquiler(servicio);
-		
+		Alquiler alquiler = new Alquiler();
+		alquiler.setFechaDesde(fechaDesde);
+		alquiler.setFechaHasta(fechaHasta);
+		alquiler.setComisionGestion(comisionGestion);
+		alquiler.setGastosSellado(gastosSellado);
+		alquiler.setFecha(fecha);
+		alquiler.setPropiedad(propiedad);
+		alquiler.setInteresado(interesado);
+		alquileres.addAlquiler(alquiler);
 	}
 
 	public void addVenta(Date fechaEscritura, float valorEscritura, float comisionVenta, float gastosEscritura, Date fecha,

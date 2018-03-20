@@ -20,8 +20,9 @@ public class InicioConsole {
 		//sistema.grabarPropiedades(sistema.getPropiedades());
 		System.out.println("Still working...");
 		
-		sistema.addServicio(new Date(), sistema.getPropiedades().get(0), sistema.getPersonas().get(0));
-		sistema.grabarServicio(sistema.getServicios());
+		// sistema.addServicio(new Date(), sistema.getPropiedades().get(0), sistema.getPersonas().get(0));
+		sistema.addAlquiler(new Date(), new Date(), 100, 100, new Date(), sistema.getPropiedades().get(0), sistema.getPersonas().get(0));
+		sistema.grabarAlquileres(sistema.getAlquileres());
 		System.out.println("Finished!");
 	}
 

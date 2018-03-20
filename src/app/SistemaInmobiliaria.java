@@ -123,10 +123,26 @@ public class SistemaInmobiliaria {
 	public void grabarServicio(List<Servicio> servicios){
 		new ServicioSRV().grabarServicio(servicios);
 	}
+	
+	public void grabarAlquileres(List<Alquiler> servicios){
+		new ServicioSRV().grabarAlquileres(servicios);
+	}
+	
+	public void grabarVentas(List<Venta> servicios){
+		// new ServicioSRV().grabarVentas(servicios);
+	}
 
-	public void addAlquiler(Date fdesde, Date fhasta, float gestion, float sellado, LocalDate now, String nroPartida,
-			String cuil_cuit) {
-		// TODO Auto-generated method stub
+	public void addAlquiler(Date fechaDesde, Date fechaHasta, float comisionGestion, float gastosSellado, Date fecha, Propiedad propiedad,
+			Persona interesado) {
+		Alquiler servicio = new Alquiler();
+		servicio.setFechaDesde(fechaDesde);
+		servicio.setFechaHasta(fechaHasta);
+		servicio.setComisionGestion(comisionGestion);
+		servicio.setGastosSellado(gastosSellado);
+		servicio.setFecha(fecha);
+		servicio.setPropiedad(propiedad);
+		servicio.setInteresado(interesado);
+		alquileres.addAlquiler(servicio);
 		
 	}
 

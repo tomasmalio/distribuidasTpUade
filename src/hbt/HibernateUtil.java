@@ -3,6 +3,7 @@ package hbt;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import bean.Alquiler;
 import bean.Persona;
 import bean.Propiedad;
 import bean.Servicio;
@@ -18,6 +19,8 @@ public class HibernateUtil
         	 	config.addAnnotatedClass(Propiedad.class);
     	 		config.addAnnotatedClass(Persona.class);
     	 		config.addAnnotatedClass(Servicio.class);
+    	 		config.addAnnotatedClass(Alquiler.class);
+    	 		//config.addAnnotatedClass(Venta.class);
             sessionFactory = config.buildSessionFactory();
         }
         catch (Throwable ex)

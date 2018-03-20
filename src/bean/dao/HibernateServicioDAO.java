@@ -5,6 +5,7 @@ import hbt.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import bean.Alquiler;
 import bean.Servicio;
 
 public class HibernateServicioDAO {
@@ -27,6 +28,17 @@ public class HibernateServicioDAO {
 		session.flush();
 		session.getTransaction().commit();
 		session.close();
+	}
+
+	public void grabarAlquiler(List<Alquiler> servicios) {
+		Session session = sf.openSession();
+		session.beginTransaction();
+		for(Alquiler servicio:servicios)
+			session.persist(servicio);
+		session.flush();
+		session.getTransaction().commit();
+		session.close();
+		
 	}
 
 }

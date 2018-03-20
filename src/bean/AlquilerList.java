@@ -16,6 +16,10 @@ public class AlquilerList {
 		this.alquileres = alquileres;
 	}
 	
+	public boolean addAlquiler (Alquiler alquiler) {
+		return alquileres.add(alquiler);
+	}
+	
 	public boolean removeAlquiler (Alquiler alquiler) {
 		return alquileres.remove(alquiler);
 	}

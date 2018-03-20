@@ -1,6 +1,8 @@
 package bean.srv;
 
 import java.util.List;
+
+import bean.Alquiler;
 import bean.Servicio;
 import bean.dao.HibernateServicioDAO;
 
@@ -12,5 +14,9 @@ public class ServicioSRV {
 	
 	public void grabarServicio(List<Servicio> servicios){
 		dao.grabarServicio(servicios);
+	}
+
+	public void grabarAlquileres(List<Alquiler> servicios) {
+		dao.grabarAlquiler(servicios);
 	}
 }

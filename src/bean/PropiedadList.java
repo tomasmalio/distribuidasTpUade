@@ -6,32 +6,32 @@ import java.util.List;
 import bean.Propiedad;
 
 public class PropiedadList {
-	private List<Propiedad> propiedads = new ArrayList<Propiedad>();
+	private List<Propiedad> propiedades = new ArrayList<Propiedad>();
 
-	public List<Propiedad> getPropiedads() {
-		return propiedads;
+	public List<Propiedad> getPropiedades() {
+		return propiedades;
 	}
 	
-	public void setPropiedads(List<Propiedad> propiedads) {
-		this.propiedads = propiedads;
+	public void setPropiedades(List<Propiedad> propiedades) {
+		this.propiedades = propiedades;
 	}
 	
 	public void addPropiedad(Propiedad propiedad){
-		propiedads.add(propiedad);
+		propiedades.add(propiedad);
 	}
 	
 	public boolean removePropiedad(Propiedad propiedad) {
-		return propiedads.remove(propiedad);
+		return propiedades.remove(propiedad);
 	}
 	
 //	public Propiedad getPropiedadPorId(int id){
-//		for(Propiedad u : propiedads){
+//		for(Propiedad u : propiedades){
 //			if(u.getId()==id) return u;
 //		}
 //		return null;
 //	}
 	
-	public int cantidadPropiedads(){
-		return propiedads.size();
+	public int cantidadPropiedades(){
+		return propiedades.size();
 	}
 }

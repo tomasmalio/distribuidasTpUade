@@ -15,6 +15,18 @@ public class ServicioSRV {
 	public void grabarServicio(List<Servicio> servicios){
 		dao.grabarServicio(servicios);
 	}
+	
+	public List<Servicio> listarServicios() {
+		return dao.listarServicios();
+	}
+	
+	public void actualizarServicio(Servicio servicio) {
+		dao.actualizarServicio(servicio);
+	}
+	
+	public void borrarServicio(Servicio servicio) {
+		dao.borrarServicio(servicio);
+	}
 
 	public void grabarAlquileres(List<Alquiler> servicios) {
 		dao.grabarAlquiler(servicios);

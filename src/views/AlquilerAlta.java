@@ -8,6 +8,7 @@ import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
@@ -33,7 +34,8 @@ public class AlquilerAlta {
 	private JFrame frmAlquilerAlta;
 	private JTextField textFechaDesde;
 	private JTextField textFechaHasta;
-	private JTable table;
+	private JTable tablep;
+	private JTable tablepers;
 	List<Propiedad> propiedades;
 	List<Persona> personas;
 	
@@ -48,12 +50,11 @@ public class AlquilerAlta {
 	 * Create the application.
 	 */
 	public AlquilerAlta(SistemaInmobiliaria s) {
-		initialize();
+		
 		sistema = s;
 		buscarPropiedad();
 		buscarPersonas();
-		createTablePropiedades();
-		createTablePersonas();
+		initialize();
 		setVisible(true);
 	}
 
@@ -61,6 +62,8 @@ public class AlquilerAlta {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		createTablePropiedades();
+		createTablePersonas();
 		frmAlquilerAlta = new JFrame();
 		frmAlquilerAlta.setBounds(100, 100, 551, 524);
 		frmAlquilerAlta.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -107,9 +110,49 @@ public class AlquilerAlta {
 		frmAlquilerAlta.getContentPane().add(textSellado);
 		textSellado.setColumns(10);
 		
+		String[] columnNames = {"Calle", "Propietario"};
+		tablep = new JTable();
+		tablep.setModel(new DefaultTableModel(new Object[][] {}, columnNames) {
+			 @Override
+			    public Class<?> getColumnClass(int column) {
+			        switch(column) {
+			            default: return Object.class;
+			        }
+			    }
+		});
+		tablep.setAutoCreateRowSorter(true);
+		tablep.setRowHeight(20);
+		tablep.getColumnModel().getColumn(0).setMaxWidth(32);
+		tablep.getColumnModel().getColumn(1).setMaxWidth(100);
+
+		JScrollPane scrollPanePropiedades = new JScrollPane(tablep);
+		scrollPanePropiedades.setBounds(10, 120, 480, 300);
+		tablep.setFillsViewportHeight(true);
+		frmAlquilerAlta.getContentPane().add(scrollPanePropiedades);
+		
 		JLabel lblPersona = new JLabel("Persona");
 		lblPersona.setBounds(213, 332, 61, 16);
 		frmAlquilerAlta.getContentPane().add(lblPersona);
+		
+		String[] columnNamesPers = {"Nombre", "CUIT"};
+		tablepers = new JTable();
+		tablepers.setModel(new DefaultTableModel(new Object[][] {}, columnNames) {
+			 @Override
+			    public Class<?> getColumnClass(int column) {
+			        switch(column) {
+			            default: return Object.class;
+			        }
+			    }
+		});
+		tablepers.setAutoCreateRowSorter(true);
+		tablepers.setRowHeight(20);
+		tablepers.getColumnModel().getColumn(0).setMaxWidth(32);
+		tablepers.getColumnModel().getColumn(1).setMaxWidth(100);
+
+		JScrollPane scrollPanePersonas = new JScrollPane(tablepers);
+		scrollPanePersonas.setBounds(10, 120, 480, 300);
+		tablepers.setFillsViewportHeight(true);
+		frmAlquilerAlta.getContentPane().add(scrollPanePersonas);
 		
 		JButton btnAlquilar = new JButton("Alquilar");
 		
@@ -146,7 +189,7 @@ public class AlquilerAlta {
 	
 	public void createTablePropiedades() {
 			
-		DefaultTableModel model = (DefaultTableModel) table.getModel();
+		DefaultTableModel model = (DefaultTableModel) tablep.getModel();
 		model.setRowCount(0);
 		
 		if (propiedades != null) {
@@ -160,10 +203,10 @@ public class AlquilerAlta {
 				}
 			}
 			
-			table.addMouseListener(new java.awt.event.MouseAdapter() {
+			tablep.addMouseListener(new java.awt.event.MouseAdapter() {
 			    public void mouseClicked(java.awt.event.MouseEvent evt) {
-			        int row = table.rowAtPoint(evt.getPoint());
-			        int col = table.columnAtPoint(evt.getPoint());
+			        int row = tablep.rowAtPoint(evt.getPoint());
+			        int col = tablep.columnAtPoint(evt.getPoint());
 			        if (row >= 0 && col >= 0) {
 			        	/**
 			        	 * Propiedad seleccionada para luego alquilarla
@@ -184,7 +227,7 @@ public class AlquilerAlta {
 	
 	public void createTablePersonas() {
 		
-		DefaultTableModel model = (DefaultTableModel) table.getModel();
+		DefaultTableModel model = (DefaultTableModel) tablepers.getModel();
 		model.setRowCount(0);
 		
 		if (personas != null) {
@@ -196,10 +239,10 @@ public class AlquilerAlta {
 				});
 			}
 
-			table.addMouseListener(new java.awt.event.MouseAdapter() {
+			tablepers.addMouseListener(new java.awt.event.MouseAdapter() {
 			    public void mouseClicked(java.awt.event.MouseEvent evt) {
-			        int row = table.rowAtPoint(evt.getPoint());
-			        int col = table.columnAtPoint(evt.getPoint());
+			        int row = tablepers.rowAtPoint(evt.getPoint());
+			        int col = tablepers.columnAtPoint(evt.getPoint());
 			        if (row >= 0 && col >= 0) {
 			        	/**
 			        	 * Persona seleccionada para hacer el alquiler.

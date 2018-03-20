@@ -50,6 +50,7 @@ public class VentaAlta extends javax.swing.JFrame {
 		createTablePropiedades();
 		createTablePersonas();
 		initialize();
+		setVisible(true);
 	}
 	
 	private void initialize() {

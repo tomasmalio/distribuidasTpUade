@@ -45,6 +45,7 @@ public class AlquilerBaja extends javax.swing.JFrame {
 		txtBajaAlquiler.setColumns(10);
 		sistema = s;
 		initialize();
+		setVisible(true);
 	}
 	
 	private void initialize () {

@@ -50,6 +50,7 @@ public class VentaBaja extends javax.swing.JFrame {
 	private void initialize () {
 		buscarPropiedadesEnVenta();
 		createTableVentas();
+		setVisible(true);
 	}
 	
 	/**

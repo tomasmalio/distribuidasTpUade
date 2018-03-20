@@ -54,6 +54,7 @@ public class AlquilerAlta {
 		buscarPersonas();
 		createTablePropiedades();
 		createTablePersonas();
+		setVisible(true);
 	}
 
 	/**

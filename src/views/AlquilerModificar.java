@@ -93,6 +93,7 @@ public class AlquilerModificar extends javax.swing.JFrame {
 	private void initialize () {
 		buscarAlquileres();
 		createTableAlquileres();
+		setVisible(true);
 	}
 	
 	private List<Alquiler> buscarAlquileres() {

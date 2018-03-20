@@ -113,6 +113,7 @@ public class VentaModificar extends javax.swing.JFrame {
 	private void initialize () {
 		buscarVentas();
 		createTableAlquileres();
+		setVisible(true);
 	}
 	
 	private List<Venta> buscarVentas() {

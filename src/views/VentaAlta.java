@@ -15,6 +15,7 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -32,7 +33,8 @@ public class VentaAlta extends javax.swing.JFrame {
 	private JTextField valorEscritura;
 	private JTextField comisionVenta;
 	private JTextField gastosEscritura;
-	private JTable table;
+	private JTable tableProp;
+	private JTable tableP;
 	
 	List<Propiedad> propiedades;
 	List<Persona> personas;
@@ -55,17 +57,17 @@ public class VentaAlta extends javax.swing.JFrame {
 	
 	private void initialize() {
 		frmVentaAlta = new JFrame();
-		frmVentaAlta.setBounds(100, 100, 551, 524);
+		frmVentaAlta.setBounds(100, 100, 608, 524);
 		frmVentaAlta.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmVentaAlta.getContentPane().setLayout(null);
 		
 		JLabel lblFechaEscritura = new JLabel("Fecha Escritura:");
-		lblFechaEscritura.setBounds(6, 218, 85, 16);
+		lblFechaEscritura.setBounds(6, 218, 108, 16);
 		frmVentaAlta.getContentPane().add(lblFechaEscritura);
 		
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		fechaEscritura = new JFormattedTextField(dateFormat);
-		fechaEscritura.setBounds(103, 213, 130, 26);
+		fechaEscritura.setBounds(126, 213, 130, 26);
 		frmVentaAlta.getContentPane().add(fechaEscritura);
 		fechaEscritura.setColumns(10);
 		
@@ -73,36 +75,77 @@ public class VentaAlta extends javax.swing.JFrame {
 		lblPropiedad.setBounds(213, 6, 80, 16);
 		frmVentaAlta.getContentPane().add(lblPropiedad);
 		
+		String[] columnNames = {"Calle", "Propietario"};
+		tableProp = new JTable();
+		tableProp.setModel(new DefaultTableModel(new Object[][] {}, columnNames) {
+
+			    public Class<?> getColumnClass(int column) {
+			        switch(column) {
+			            default: return Object.class;
+			        }
+			    }
+		});
+		tableProp.setAutoCreateRowSorter(true);
+		tableProp.setRowHeight(20);
+		tableProp.getColumnModel().getColumn(0).setMaxWidth(100);
+		tableProp.getColumnModel().getColumn(1).setMaxWidth(100);
+		
+
+		JScrollPane scrollPaneVentas = new JScrollPane(tableProp);
+		scrollPaneVentas.setBounds(142, 47, 209, 149);
+		tableP.setFillsViewportHeight(true);
+		frmVentaAlta.getContentPane().add(scrollPaneVentas);
+		
 		JLabel lblComisionVenta = new JLabel("Comisión Venta:");
-		lblComisionVenta.setBounds(245, 218, 61, 16);
+		lblComisionVenta.setBounds(304, 218, 106, 16);
 		frmVentaAlta.getContentPane().add(lblComisionVenta);
 		
 		comisionVenta = new JTextField();
-		comisionVenta.setBounds(358, 213, 130, 26);
+		comisionVenta.setBounds(426, 213, 130, 26);
 		frmVentaAlta.getContentPane().add(comisionVenta);
 		comisionVenta.setColumns(10);
 		
 		JLabel lblGastosEscritura = new JLabel("Gastos Escritura:");
-		lblGastosEscritura.setBounds(245, 283, 90, 16);
+		lblGastosEscritura.setBounds(6, 283, 106, 16);
 		frmVentaAlta.getContentPane().add(lblGastosEscritura);
 		
 		gastosEscritura = new JTextField();
-		gastosEscritura.setBounds(358, 278, 130, 26);
+		gastosEscritura.setBounds(426, 278, 130, 26);
 		frmVentaAlta.getContentPane().add(gastosEscritura);
 		gastosEscritura.setColumns(10);
 		
 		JLabel lblValorEscritura = new JLabel("Valor Escritura:");
-		lblValorEscritura.setBounds(245, 283, 90, 16);
+		lblValorEscritura.setBounds(304, 283, 106, 16);
 		frmVentaAlta.getContentPane().add(lblValorEscritura);
 		
 		valorEscritura = new JTextField();
-		valorEscritura.setBounds(358, 278, 130, 26);
+		valorEscritura.setBounds(126, 278, 130, 26);
 		frmVentaAlta.getContentPane().add(valorEscritura);
 		valorEscritura.setColumns(10);
 		
 		JLabel lblPersona = new JLabel("Persona");
 		lblPersona.setBounds(213, 332, 61, 16);
 		frmVentaAlta.getContentPane().add(lblPersona);
+		
+		
+		String[] columnNamesPers = {"Nombre", "CUIT"};
+		tableP = new JTable();
+		tableP.setModel(new DefaultTableModel(new Object[][] {}, columnNamesPers) {
+			    public Class<?> getColumnClass(int column) {
+			        switch(column) {
+			            default: return Object.class;
+			        }
+			    }
+		});
+		tableP.setAutoCreateRowSorter(true);
+		tableP.setRowHeight(20);
+		tableP.getColumnModel().getColumn(0).setMaxWidth(100);
+		tableP.getColumnModel().getColumn(1).setMaxWidth(100);
+
+		JScrollPane scrollPanePersonas = new JScrollPane(tableP);
+		scrollPanePersonas.setBounds(159, 374, 209, 149);
+		tableP.setFillsViewportHeight(true);
+		frmVentaAlta.getContentPane().add(scrollPanePersonas);
 		
 		JButton btnVenta = new JButton("Vender");
 		
@@ -153,7 +196,7 @@ public class VentaAlta extends javax.swing.JFrame {
 	
 	public void createTablePropiedades() {
 			
-		DefaultTableModel model = (DefaultTableModel) table.getModel();
+		DefaultTableModel model = (DefaultTableModel) tableProp.getModel();
 		model.setRowCount(0);
 		
 		if (propiedades != null) {
@@ -167,10 +210,10 @@ public class VentaAlta extends javax.swing.JFrame {
 				}
 			}
 			
-			table.addMouseListener(new java.awt.event.MouseAdapter() {
+			tableProp.addMouseListener(new java.awt.event.MouseAdapter() {
 			    public void mouseClicked(java.awt.event.MouseEvent evt) {
-			        int row = table.rowAtPoint(evt.getPoint());
-			        int col = table.columnAtPoint(evt.getPoint());
+			        int row = tableProp.rowAtPoint(evt.getPoint());
+			        int col = tableProp.columnAtPoint(evt.getPoint());
 			        if (row >= 0 && col >= 0) {
 			        	/**
 			        	 * Propiedad seleccionada para luego venderla
@@ -191,7 +234,7 @@ public class VentaAlta extends javax.swing.JFrame {
 	
 	public void createTablePersonas() {
 		
-		DefaultTableModel model = (DefaultTableModel) table.getModel();
+		DefaultTableModel model = (DefaultTableModel) tableP.getModel();
 		model.setRowCount(0);
 		
 		if (personas != null) {
@@ -203,10 +246,10 @@ public class VentaAlta extends javax.swing.JFrame {
 				});
 			}
 
-			table.addMouseListener(new java.awt.event.MouseAdapter() {
+			tableP.addMouseListener(new java.awt.event.MouseAdapter() {
 			    public void mouseClicked(java.awt.event.MouseEvent evt) {
-			        int row = table.rowAtPoint(evt.getPoint());
-			        int col = table.columnAtPoint(evt.getPoint());
+			        int row = tableP.rowAtPoint(evt.getPoint());
+			        int col = tableP.columnAtPoint(evt.getPoint());
 			        if (row >= 0 && col >= 0) {
 			        	/**
 			        	 * Persona seleccionada para hacer el alquiler.

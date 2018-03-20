@@ -31,13 +31,6 @@ public class PersonaList {
 		return null;
 	}
 	
-	public Persona getPersonaPorNombre(String nombre){
-		for(Persona u : personas){
-			if(u.getNombre().equals(nombre)) return u;
-		}
-		return null;
-	}
-	
 	public int cantidadPersonas(){
 		return personas.size();
 	}

@@ -23,8 +23,14 @@ public class VentaModificar extends javax.swing.JFrame {
 	private static final long serialVersionUID = 1L;
 
 	private SistemaInmobiliaria sistema;
+	private JTextField txtComision;
+	private JTextField txtGastoEscritura;
+	private JTextField txtValorEscritura;
 
 	private JTable table;
+	private JLabel lblComision;
+	private JLabel lblGastoEscritura;
+	private JLabel lblValorEscritura;
 	
 	private List<Venta> ventas;
 	private Venta venta;
@@ -39,20 +45,26 @@ public class VentaModificar extends javax.swing.JFrame {
 		lblVentas.setBounds(180, 23, 80, 16);
 		getContentPane().add(lblVentas);
 		
-		lblNewLabel.setEnabled(false);
-		lblNewLabel.setBounds(33, 220, 117, 16);
-		getContentPane().add(lblNewLabel);
-		
+		JLabel lblComision = new JLabel("Comisión Venta:");
+		lblComision.setEnabled(false);
+		lblComision.setBounds(33, 220, 117, 16);
+		getContentPane().add(lblComision);
 
-		lblNewLabel_1.setEnabled(false);
-		lblNewLabel_1.setBounds(33, 274, 117, 16);
-		getContentPane().add(lblNewLabel_1);
+		JLabel lblGastoEscritura = new JLabel("Gastos Escritura");
+		lblGastoEscritura.setEnabled(false);
+		lblGastoEscritura.setBounds(33, 274, 117, 16);
+		getContentPane().add(lblGastoEscritura);
+		
+		JLabel lblValorEscritura = new JLabel("Valor Escritura");
+		lblValorEscritura.setEnabled(false);
+		lblValorEscritura.setBounds(33, 328, 117, 16);
+		getContentPane().add(lblValorEscritura);
 		
 		JButton btnModificar = new JButton("Modificar");
 		btnModificar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//hacer que el sist tome datos de los text fields y modifique el alquiler
-				sistema.modifySerivce(alquiler, "alquiler"); 
+				sistema.modifySerivce(venta, "venta"); 
 			}
 		});
 		btnModificar.setBounds(378, 327, 117, 29);
@@ -61,7 +73,7 @@ public class VentaModificar extends javax.swing.JFrame {
 		txtComision = new JTextField();
 		txtComision.addKeyListener(new KeyAdapter() {
 			public void keyTyped(KeyEvent e) {
-				alquiler.setComisionGestion(Float.parseFloat(txtComision.getText()));
+				venta.setComisionVenta(Float.parseFloat(txtComision.getText()));
 			}
 		});
 		txtComision.setEditable(false);
@@ -70,17 +82,30 @@ public class VentaModificar extends javax.swing.JFrame {
 		getContentPane().add(txtComision);
 		txtComision.setColumns(10);
 		
-		txtSellado = new JTextField();
-		txtSellado.addKeyListener(new KeyAdapter() {
+		txtGastoEscritura = new JTextField();
+		txtGastoEscritura.addKeyListener(new KeyAdapter() {
 			public void keyTyped(KeyEvent e) {
-				alquiler.setGastosSellado(Float.parseFloat(txtSellado.getText()));
+				venta.setGastosEscritura(Float.parseFloat(txtGastoEscritura.getText()));
 			}
 		});
-		txtSellado.setEnabled(false);
-		txtSellado.setEditable(false);
-		txtSellado.setBounds(173, 269, 130, 26);
-		getContentPane().add(txtSellado);
-		txtSellado.setColumns(10);
+		txtGastoEscritura.setEnabled(false);
+		txtGastoEscritura.setEditable(false);
+		txtGastoEscritura.setBounds(173, 269, 130, 26);
+		getContentPane().add(txtGastoEscritura);
+		txtGastoEscritura.setColumns(10);
+		
+		
+		txtValorEscritura = new JTextField();
+		txtValorEscritura.addKeyListener(new KeyAdapter() {
+			public void keyTyped(KeyEvent e) {
+				venta.setValorEscritura(Float.parseFloat(txtValorEscritura.getText()));
+			}
+		});
+		txtValorEscritura.setEnabled(false);
+		txtValorEscritura.setEditable(false);
+		txtValorEscritura.setBounds(173, 269, 130, 26);
+		getContentPane().add(txtValorEscritura);
+		txtValorEscritura.setColumns(10);
 		
 		initialize();
 	}
@@ -116,11 +141,13 @@ public class VentaModificar extends javax.swing.JFrame {
 			        if (row >= 0 && col >= 0) {
 			        	venta = ventas.get(row);
 						txtComision.setVisible(true);
-						txtSellado.setVisible(true);
-						lblNewLabel.setVisible(true);
-						lblNewLabel_1.setVisible(true);
-						txtComision.setText(Float.toString(alquiler.getComisionGestion()));
-						txtSellado.setText(Float.toString(alquiler.getGastosSellado()));
+						txtComision.setText(Float.toString(venta.getComisionVenta()));
+						
+						txtGastoEscritura.setVisible(true);
+						txtGastoEscritura.setText(Float.toString(venta.getGastosEscritura()));
+						
+						txtValorEscritura.setVisible(true);
+						txtValorEscritura.setText(Float.toString(venta.getValorEscritura()));
 			        }
 			    }
 			});

@@ -45,7 +45,7 @@ public class AlquilerBaja extends javax.swing.JFrame {
 			}
 		});
 		txtBajaAlquiler.setText("Baja alquiler");
-		txtBajaAlquiler.setBounds(314, 246, 130, 26);
+		txtBajaAlquiler.setBounds(314, 246, 99, 26);
 		getContentPane().add(txtBajaAlquiler);
 		txtBajaAlquiler.setColumns(10);
 
@@ -60,11 +60,11 @@ public class AlquilerBaja extends javax.swing.JFrame {
 		});
 		table.setAutoCreateRowSorter(true);
 		table.setRowHeight(20);
-		table.getColumnModel().getColumn(0).setMaxWidth(50);
-		table.getColumnModel().getColumn(1).setMaxWidth(50);
+		table.getColumnModel().getColumn(0).setMaxWidth(150);
+		table.getColumnModel().getColumn(1).setMaxWidth(130);
 
 		JScrollPane scrollPaneAlquileres = new JScrollPane(table);
-		scrollPaneAlquileres.setBounds(10, 120, 480, 300);
+		scrollPaneAlquileres.setBounds(71, 46, 283, 152);
 		table.setFillsViewportHeight(true);
 		getContentPane().add(scrollPaneAlquileres);
 	}

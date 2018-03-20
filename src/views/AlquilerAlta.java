@@ -124,6 +124,7 @@ public class AlquilerAlta {
 					 * Agregamos el alquiler
 					 */
 					sistema.addAlquiler(fdesde, fhasta, gestion, sellado, LocalDate.now(), prop.getNroPartida(), pers.getCuil_cuit());
+					frmAlquilerAlta.dispose();
 					
 				} catch (ParseException e1) {
 					e1.printStackTrace();

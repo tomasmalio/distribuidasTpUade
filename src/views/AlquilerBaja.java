@@ -11,10 +11,10 @@ public class AlquilerBaja extends javax.swing.JFrame {
 	public AlquilerBaja  (SistemaInmobiliaria s) {
 		super();
 		sistema = s;
-		initGui();
+		initialize();
 	}
 	
-	private void initGui () {
+	private void initialize () {
 		
 	}
 }

@@ -131,9 +131,12 @@ public class SistemaInmobiliaria {
 		
 	}
 
-	public void delete(Venta venta, String string) {
+	public void deleteService(Alquiler alquiler, String string) {
 		// TODO Auto-generated method stub
-		
+	}
+	
+	public void deleteService(Venta venta, String string) {
+		// TODO Auto-generated method stub
 	}
 
 	public List<Propiedad> getAlquileres() {

@@ -107,8 +107,8 @@ public class SistemaInmobiliaria {
 	public void addServicio(Date fecha, Propiedad propiedad, Persona interesado) {
 		Servicio servicio = new Servicio();
 		servicio.setFecha(fecha);
-		servicio.setPropiedad(propiedad);
-		servicio.setInteresado(interesado);
+//		servicio.setPropiedad(propiedad);
+//		servicio.setInteresado(interesado);
 		servicios.addServicio(servicio);
 	}
 	

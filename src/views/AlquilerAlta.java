@@ -148,14 +148,15 @@ public class AlquilerAlta {
 		
 		if (propiedades != null) {
 			
-			for (Propiedad p: propiedades) 
+			for (Propiedad p: propiedades) {
 				if (p.getValorAlquiler()>0) {
 					model.addRow(new Object[]{
 						p.getCalle(),
 						p.getPropietario().getNombre_razon(),
 					});
 				}
-
+			}
+			
 			table.addMouseListener(new java.awt.event.MouseAdapter() {
 			    public void mouseClicked(java.awt.event.MouseEvent evt) {
 			        int row = table.rowAtPoint(evt.getPoint());

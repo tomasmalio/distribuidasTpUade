@@ -169,6 +169,7 @@ public class AlquilerAlta {
 					 */
 					Date dateNow = new Date();
 					sistema.addAlquiler(fdesde, fhasta, gestion, sellado, dateNow, prop, pers);
+					sistema.grabarAlquileres(sistema.getAlquileres());
 					frmAlquilerAlta.dispose();
 					
 				} catch (ParseException e1) {

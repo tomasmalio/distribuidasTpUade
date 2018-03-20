@@ -24,9 +24,9 @@ public class PersonaList {
 		return personas.remove(persona);
 	}
 	
-	public Persona getPersonaPorId(int id){
-		for(Persona u : personas){
-			if(u.getId()==id) return u;
+	public Persona getPersonaPorId(String id){
+		for(Persona persona : personas){
+			if(persona.getCuil_cuit().equals(id)) return persona;
 		}
 		return null;
 	}

@@ -131,11 +131,19 @@ public class SistemaInmobiliaria {
 		
 	}
 
-	
+	/**
+	 * Delete Service for Alquiler
+	 * 
+	 * @param alquiler
+	 */
 	public void deleteService(Alquiler alquiler) {
-		// TODO Auto-generated method stub
 	}
 	
+	/**
+	 * Delete Service for Venta
+	 * 
+	 * @param venta
+	 */
 	public void deleteService(Venta venta) {
 	}
 

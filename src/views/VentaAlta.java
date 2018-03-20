@@ -116,11 +116,12 @@ public class VentaAlta extends javax.swing.JFrame {
 					/**
 					 * Agregamos una nueva venta
 					 */
+					Date dateNow = new Date();
 					sistema.addVenta(fEscritura, 
 									vEscritura,
 									cVenta,
 									gEscritura,
-									LocalDate.now(), 
+									dateNow, 
 									prop.getNroPartida(), 
 									pers.getCuil_cuit()
 								);

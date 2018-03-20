@@ -47,7 +47,9 @@ public class Inicio extends JFrame {
 	public Inicio() {
 		super();
 		inmobiliariaController = SistemaInmobiliaria.getInstance();
-		initGUI();
+		inmobiliariaController.addPersona("20331114821", "Lima 123", "tomasmalio@gmail.com", "Tomás", "1158259693");
+		inmobiliariaController.addPersona("20331114821", "Lima 123", "tomasmalio@gmail.com", "Tomás", "1158259693");
+		//initGUI();
 	}
 	
     public static void main(String[] args) {

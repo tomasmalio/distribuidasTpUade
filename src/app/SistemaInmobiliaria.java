@@ -44,10 +44,13 @@ public class SistemaInmobiliaria {
 		return personas.getPersonas();
 	}
 	
-	public Persona addPersona(String cuil_cuit, String nombre_razon) {
+	public Persona addPersona(String cuil_cuit, String nombre_razon, String domicilio, String telefono, String mail) {
 		Persona persona = new Persona();
 		persona.setCuil_cuit(cuil_cuit);
 		persona.setNombre_razon(nombre_razon);
+		persona.setDomicilio(domicilio);
+		persona.setTelefono(telefono);
+		persona.setMail(mail);
 		personas.addPersona(persona);
 		return persona;
 	}

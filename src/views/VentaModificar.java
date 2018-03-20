@@ -39,7 +39,7 @@ public class VentaModificar extends javax.swing.JFrame {
 	public VentaModificar  (SistemaInmobiliaria s) {
 		super();
 		sistema = s;	
-		buscarVentas();
+		ventas = buscarVentas();
 		initialize();
 		createTableAlquileres();
 		setVisible(true);

@@ -30,7 +30,7 @@ public class VentaBaja extends javax.swing.JFrame {
 	public VentaBaja (SistemaInmobiliaria s) {
 		super();		
 		sistema = s;		
-		buscarPropiedadesEnVenta();
+		ventas= buscarPropiedadesEnVenta();
 		initialize();
 		createTableVentas();
 		setVisible(true);		

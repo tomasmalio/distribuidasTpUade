@@ -28,7 +28,7 @@ public class AlquilerBaja extends javax.swing.JFrame {
 	public AlquilerBaja  (SistemaInmobiliaria s) {
 		super();	
 		sistema = s;
-		buscarAlquileres();	
+		alquileres= buscarAlquileres();	
 		initialize();
 		createTableAlquileres();
 		setVisible(true);

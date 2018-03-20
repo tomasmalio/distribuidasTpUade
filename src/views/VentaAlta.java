@@ -47,8 +47,8 @@ public class VentaAlta extends javax.swing.JFrame {
 	public VentaAlta  (SistemaInmobiliaria s) {
 		super();
 		sistema = s;
-		buscarPropiedad();
-		buscarPersonas();
+		propiedades = buscarPropiedad();
+		personas = buscarPersonas();
 		initialize();
 		createTablePropiedades();
 		createTablePersonas();

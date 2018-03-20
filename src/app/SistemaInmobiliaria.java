@@ -20,7 +20,27 @@ public class SistemaInmobiliaria {
 		return personas.getPersonas();
 	}
 	
+	public void addPersona(String nombre_razon) {
+		Persona persona = new Persona();
+		persona.setNombre_razon(nombre_razon);
+		personas.addPersona(persona);
+	}
+	
+	public void grabarUsuarios(List<Persona> personas){
+		// new PersonaSRV().grabarPersona(personas);
+	}
+	
 	public List<Propiedad> getPropiedades(){
 		return propiedades.getPropiedades();
+	}
+	
+	public void addPropiedad(String calle) {
+		Propiedad propiedad = new Propiedad();
+		propiedad.setCalle(calle);
+		propiedades.addPropiedad(propiedad);
+	}
+	
+	public void grabarPropiedades(List<Propiedad> propiedades){
+		// new PropiedadSRV().grabarPropiedad(propiedades);
 	}
 }

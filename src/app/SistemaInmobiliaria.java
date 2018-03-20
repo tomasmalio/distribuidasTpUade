@@ -11,6 +11,7 @@ import bean.Propiedad;
 import bean.PropiedadList;
 import bean.Servicio;
 import bean.ServicioList;
+import bean.Venta;
 import bean.srv.PersonaSRV;
 import bean.srv.PropiedadSRV;
 import bean.srv.ServicioSRV;
@@ -130,12 +131,17 @@ public class SistemaInmobiliaria {
 		
 	}
 
-	public void delete(Alquiler alquiler, String string) {
+	public void delete(Venta venta, String string) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	public List<Propiedad> getAlquileres() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Propiedad> getVentas() {
 		// TODO Auto-generated method stub
 		return null;
 	}

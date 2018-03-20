@@ -7,6 +7,7 @@ import bean.Alquiler;
 import bean.Persona;
 import bean.Propiedad;
 import bean.Servicio;
+import bean.Venta;
  
 public class HibernateUtil
 {
@@ -20,7 +21,7 @@ public class HibernateUtil
     	 		config.addAnnotatedClass(Persona.class);
     	 		config.addAnnotatedClass(Servicio.class);
     	 		config.addAnnotatedClass(Alquiler.class);
-    	 		//config.addAnnotatedClass(Venta.class);
+    	 		config.addAnnotatedClass(Venta.class);
             sessionFactory = config.buildSessionFactory();
         }
         catch (Throwable ex)

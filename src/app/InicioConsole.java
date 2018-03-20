@@ -21,8 +21,9 @@ public class InicioConsole {
 		System.out.println("Still working...");
 		
 		// sistema.addServicio(new Date(), sistema.getPropiedades().get(0), sistema.getPersonas().get(0));
-		sistema.addAlquiler(new Date(), new Date(), 100, 100, new Date(), sistema.getPropiedades().get(0), sistema.getPersonas().get(0));
-		sistema.grabarAlquileres(sistema.getAlquileres());
+		// sistema.addAlquiler(new Date(), new Date(), 100, 100, new Date(), sistema.getPropiedades().get(0), sistema.getPersonas().get(0));
+		sistema.addVenta(new Date(), 100, 100, 100, new Date(), sistema.getPropiedades().get(0), sistema.getPersonas().get(0));
+		sistema.grabarVentas(sistema.getVentas());
 		System.out.println("Finished!");
 	}
 

@@ -146,8 +146,17 @@ public class SistemaInmobiliaria {
 		
 	}
 
-	public void addVenta(Date fEscritura, float vEscritura, float cVenta, float gEscritura, LocalDate now,
-			String nroPartida, String cuil_cuit) {
+	public void addVenta(Date fechaEscritura, float valorEscritura, float comisionVenta, float gastosEscritura, Date fecha,
+			Propiedad propiedad, Persona interesado) {
+		Venta servicio = new Venta();
+		servicio.setFechaEscritura(fechaEscritura);
+		servicio.setValorEscritura(valorEscritura);
+		servicio.setComisionVenta(comisionVenta);
+		servicio.setGastosEscritura(gastosEscritura);
+		servicio.setFecha(fecha);
+		servicio.setPropiedad(propiedad);
+		servicio.setInteresado(interesado);
+		ventas.addVenta(servicio);
 	}
 
 	/**

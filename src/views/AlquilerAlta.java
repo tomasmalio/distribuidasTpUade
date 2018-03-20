@@ -19,9 +19,8 @@ import javax.swing.JTable;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.awt.event.ActionEvent;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -43,22 +42,6 @@ public class AlquilerAlta {
 	
 	private Persona pers;
 	private Propiedad prop;
-
-	/**
-	 * Launch the application.
-	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					AlquilerAlta window = new AlquilerAlta();
-//					window.frmAlquilerAlta.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
 
 	/**
 	 * Create the application.
@@ -104,39 +87,11 @@ public class AlquilerAlta {
 		lblPropiedad.setBounds(213, 6, 80, 16);
 		frmAlquilerAlta.getContentPane().add(lblPropiedad);
 		
-		JButton btnAlquilar = new JButton("Alquilar");
-		btnAlquilar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					Date fdesde = new SimpleDateFormat("yyyy-MM-dd").parse(textFechaDesde.getText());
-				} catch (ParseException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				try {
-					Date fhasta = new SimpleDateFormat("yyyy-MM-dd").parse(textFechaHasta.getText());
-				} catch (ParseException e2) {
-					// TODO Auto-generated catch block
-					e2.printStackTrace();
-				}
-
-				float gestion= Float.parseFloat(textComision.getText());
-				float sellado= Float.parseFloat(textSellado.getText());
-				
-				//llamar al sistema para generar el alquiler.
-				
-				
-				
-			}
-		});
-		btnAlquilar.setBounds(417, 467, 117, 29);
-		frmAlquilerAlta.getContentPane().add(btnAlquilar);
-		
-		JLabel lblComision = new JLabel("Comision");
+		JLabel lblComision = new JLabel("Comisión:");
 		lblComision.setBounds(245, 218, 61, 16);
 		frmAlquilerAlta.getContentPane().add(lblComision);
 		
-		JLabel lblGastoSellado = new JLabel("Gasto sellado");
+		JLabel lblGastoSellado = new JLabel("Gasto sellado:");
 		lblGastoSellado.setBounds(245, 283, 90, 16);
 		frmAlquilerAlta.getContentPane().add(lblGastoSellado);
 		
@@ -153,7 +108,33 @@ public class AlquilerAlta {
 		JLabel lblPersona = new JLabel("Persona");
 		lblPersona.setBounds(213, 332, 61, 16);
 		frmAlquilerAlta.getContentPane().add(lblPersona);
+		
+		JButton btnAlquilar = new JButton("Alquilar");
+		
+		btnAlquilar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					Date fdesde = new SimpleDateFormat("yyyy-MM-dd").parse(textFechaDesde.getText());
+					Date fhasta = new SimpleDateFormat("yyyy-MM-dd").parse(textFechaHasta.getText());
+					
+					float gestion = Float.parseFloat(textComision.getText());
+					float sellado = Float.parseFloat(textSellado.getText());
+					
+					/**
+					 * Agregamos el alquiler
+					 */
+					sistema.addAlquiler(fdesde, fhasta, gestion, sellado, LocalDate.now(), prop.getNroPartida(), pers.getCuil_cuit());
+					
+				} catch (ParseException e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
+		
+		btnAlquilar.setBounds(417, 467, 117, 29);
+		frmAlquilerAlta.getContentPane().add(btnAlquilar);
 	}
+	
 	private List<Propiedad> buscarPropiedad() {
 		propiedades = new ArrayList<>(sistema.getPropiedades());
 		return propiedades;
@@ -166,22 +147,23 @@ public class AlquilerAlta {
 		
 		if (propiedades != null) {
 			
-			for(Propiedad p: propiedades) 
-				if(p.getValorAlquiler()>0) {
+			for (Propiedad p: propiedades) 
+				if (p.getValorAlquiler()>0) {
 					model.addRow(new Object[]{
-							p.getCalle(),
-							p.getPropietario().getNombre_razon(),
+						p.getCalle(),
+						p.getPropietario().getNombre_razon(),
 					});
 				}
 
 			table.addMouseListener(new java.awt.event.MouseAdapter() {
-			    @Override
 			    public void mouseClicked(java.awt.event.MouseEvent evt) {
 			        int row = table.rowAtPoint(evt.getPoint());
 			        int col = table.columnAtPoint(evt.getPoint());
 			        if (row >= 0 && col >= 0) {
-			        		 prop = propiedades.get(row);
-			        			//Propiedad seleccionada para desp pasar a alquilada.
+			        	/**
+			        	 * Propiedad seleccionada para luego alquilarla
+			        	 **/
+			        	prop = propiedades.get(row);
 			        }
 			    }
 			});
@@ -202,21 +184,22 @@ public class AlquilerAlta {
 		
 		if (personas != null) {
 			
-			for(Persona p: personas) 			
-					model.addRow(new Object[]{
-							p.getNombre_razon(),
-							p.getCuil_cuit()
-					});
-				
+			for (Persona p: personas) {		
+				model.addRow(new Object[]{
+					p.getNombre_razon(),
+					p.getCuil_cuit()
+				});
+			}
 
 			table.addMouseListener(new java.awt.event.MouseAdapter() {
-			    @Override
 			    public void mouseClicked(java.awt.event.MouseEvent evt) {
 			        int row = table.rowAtPoint(evt.getPoint());
 			        int col = table.columnAtPoint(evt.getPoint());
 			        if (row >= 0 && col >= 0) {
-			        		 pers = personas.get(row);
-			        			//Persona seleccionada para hacer el alquiler.
+			        	/**
+			        	 * Persona seleccionada para hacer el alquiler.
+			        	 */
+			        	pers = personas.get(row);
 			        }
 			    }
 			});

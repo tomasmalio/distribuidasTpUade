@@ -11,8 +11,8 @@ public class InicioConsole {
 	 */
 	public static void main(String[] args) {
 		SistemaInmobiliaria sistema = new SistemaInmobiliaria();
-		//sistema.addPersona("11234567890", "pepe");
-		//sistema.addPersona("22222222222", "juan");
+		sistema.addPersona("11234567890", "pepe", "asd", "asd", "asd");
+		sistema.addPersona("22222222222", "juan", "asd", "asd", "asd");
 		//sistema.grabarPersonas(sistema.getPersonas());
 		System.out.println("Still working...");
 		

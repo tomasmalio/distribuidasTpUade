@@ -12,6 +12,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 
 public class AlquilerBaja extends javax.swing.JFrame {
 
@@ -21,7 +22,7 @@ public class AlquilerBaja extends javax.swing.JFrame {
 	
 	List<Alquiler> alquileres;
 	private Alquiler alquiler;
-	
+	private JFrame frmAlquilerBaja;
 	private JTable table;
 	private JButton btnBajaAlquiler;
 
@@ -36,7 +37,11 @@ public class AlquilerBaja extends javax.swing.JFrame {
 	
 	@SuppressWarnings("serial")
 	private void initialize () {
-		getContentPane().setLayout(null);	
+		
+		frmAlquilerBaja = new JFrame();
+		frmAlquilerBaja.setBounds(100, 100, 682, 632);
+		frmAlquilerBaja.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmAlquilerBaja.getContentPane().setLayout(null);
 
 		String[] columnNames = {"Calle", "Nombre"};
 		table = new JTable();
@@ -55,7 +60,7 @@ public class AlquilerBaja extends javax.swing.JFrame {
 		JScrollPane scrollPaneAlquileres = new JScrollPane(table);
 		scrollPaneAlquileres.setBounds(71, 46, 283, 152);
 		table.setFillsViewportHeight(true);
-		getContentPane().add(scrollPaneAlquileres);
+		frmAlquilerBaja.getContentPane().add(scrollPaneAlquileres);
 		
 		btnBajaAlquiler = new JButton("Baja Alquiler");
 		btnBajaAlquiler.addActionListener(new ActionListener() {
@@ -64,7 +69,7 @@ public class AlquilerBaja extends javax.swing.JFrame {
 			}
 		});
 		btnBajaAlquiler.setBounds(165, 246, 117, 29);
-		getContentPane().add(btnBajaAlquiler);
+		frmAlquilerBaja.getContentPane().add(btnBajaAlquiler);
 	}
 	
 	/**
@@ -106,5 +111,7 @@ public class AlquilerBaja extends javax.swing.JFrame {
 			JOptionPane.showMessageDialog(null, "No se encontraron coincidencias");
 		}
 	}
-	
+	public void setVisible(boolean isVisible) {
+		this.frmAlquilerBaja.setVisible(isVisible);
+	}
 }

@@ -20,7 +20,14 @@ public class Servicio {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	private Date fecha;
+	
+
+	@OneToOne(cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
 	private Propiedad propiedad;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
 	private Persona interesado;
 	
 	public Date getFecha() {
@@ -30,8 +37,6 @@ public class Servicio {
 		this.fecha = fecha;
 	}
 	
-	@OneToOne(cascade = CascadeType.ALL)
-    @PrimaryKeyJoinColumn
 	public Propiedad getPropiedad() {
 		return propiedad;
 	}
@@ -39,8 +44,6 @@ public class Servicio {
 		this.propiedad = propiedad;
 	}
 	
-	@OneToOne(cascade = CascadeType.ALL)
-    @PrimaryKeyJoinColumn
 	public Persona getInteresado() {
 		return interesado;
 	}

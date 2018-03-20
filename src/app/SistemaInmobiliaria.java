@@ -42,9 +42,23 @@ public class SistemaInmobiliaria {
 		return propiedades.getPropiedades();
 	}
 	
-	public void addPropiedad(String calle) {
+	public void addPropiedad(String calle, String ciudad, String cantAmb, String departamento, 
+	  Double expensas, Double impuestos, Double metrosCubiertos, String nroPartida, int numero,
+	  Persona propietario, double servicios, double valorAlquiler, double valorVenta) {
 		Propiedad propiedad = new Propiedad();
 		propiedad.setCalle(calle);
+		propiedad.setCiudad(ciudad);
+		propiedad.setCantidadAmbientes(cantAmb);
+		propiedad.setDepartamento(departamento);
+		propiedad.setExpensas(expensas);
+		propiedad.setImpuestos(impuestos);
+		propiedad.setMetrosCubiertos(metrosCubiertos);
+		propiedad.setNroPartida(nroPartida);
+		propiedad.setNumero(numero);
+		propiedad.setPropietario(propietario);
+		propiedad.setServicios(servicios);
+		propiedad.setValorAlquiler(valorAlquiler);
+		propiedad.setValorVenta(valorVenta);
 		propiedades.addPropiedad(propiedad);
 	}
 	

@@ -18,6 +18,9 @@ import javax.swing.event.MenuListener;
 
 import views.AlquilerAlta;
 import views.AlquilerModificar;
+import views.VentaAlta;
+import views.VentaBaja;
+import views.VentaModificar;
 import views.AlquilerBaja;
 
 public class Inicio extends JFrame {
@@ -158,7 +161,11 @@ public class Inicio extends JFrame {
 				jMenuAltaVenta.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent evt)
 					{
-						
+						if (inmobiliariaController != null) {
+							VentaAlta ventaAlta = new VentaAlta(inmobiliariaController);
+							ventaAlta.setVisible(true);
+							toFront();
+						}
 					}
 				});
 				
@@ -171,7 +178,11 @@ public class Inicio extends JFrame {
 				jMenuModificarVenta.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent evt)
 					{
-						
+						if (inmobiliariaController != null) {
+							VentaModificar ventaModificar = new VentaModificar(inmobiliariaController);
+							ventaModificar.setVisible(true);
+							toFront();
+						}
 					}
 				});
 				
@@ -184,7 +195,11 @@ public class Inicio extends JFrame {
 				jMenuBajaVenta.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent evt)
 					{
-						
+						if (inmobiliariaController != null) {
+							VentaBaja ventaBaja = new VentaBaja(inmobiliariaController);
+							ventaBaja.setVisible(true);
+							toFront();
+						}
 					}
 				});
 				

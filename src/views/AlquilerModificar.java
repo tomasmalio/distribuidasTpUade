@@ -50,16 +50,16 @@ public class AlquilerModificar extends javax.swing.JFrame {
 		getContentPane().setLayout(null);
 		
 		JLabel lblAlquileres = new JLabel("Alquileres");
-		lblAlquileres.setBounds(180, 23, 80, 16);
+		lblAlquileres.setBounds(212, 23, 80, 16);
 		getContentPane().add(lblAlquileres);
 		
 		lblComision.setEnabled(false);
-		lblComision.setBounds(33, 220, 117, 16);
+		lblComision.setBounds(33, 312, 117, 16);
 		getContentPane().add(lblComision);
 		
 
 		lblSellado.setEnabled(false);
-		lblSellado.setBounds(33, 274, 117, 16);
+		lblSellado.setBounds(33, 359, 117, 16);
 		getContentPane().add(lblSellado);
 		
 		String[] columnNames = {"Calle", "Nombre"};
@@ -74,11 +74,11 @@ public class AlquilerModificar extends javax.swing.JFrame {
 		});
 		table.setAutoCreateRowSorter(true);
 		table.setRowHeight(20);
-		table.getColumnModel().getColumn(0).setMaxWidth(32);
-		table.getColumnModel().getColumn(1).setMaxWidth(100);
+		table.getColumnModel().getColumn(0).setMaxWidth(200);
+		table.getColumnModel().getColumn(1).setMaxWidth(200);
 
 		JScrollPane scrollPanePublicaciones = new JScrollPane(table);
-		scrollPanePublicaciones.setBounds(10, 120, 480, 300);
+		scrollPanePublicaciones.setBounds(93, 51, 352, 236);
 		table.setFillsViewportHeight(true);
 		getContentPane().add(scrollPanePublicaciones);
 		
@@ -91,7 +91,7 @@ public class AlquilerModificar extends javax.swing.JFrame {
 				sistema.modifyService(alquiler); 
 			}
 		});
-		btnModificar.setBounds(378, 327, 117, 29);
+		btnModificar.setBounds(422, 419, 117, 29);
 		getContentPane().add(btnModificar);
 		
 		txtComision = new JTextField();
@@ -102,7 +102,7 @@ public class AlquilerModificar extends javax.swing.JFrame {
 		});
 		txtComision.setEditable(false);
 		txtComision.setEnabled(false);
-		txtComision.setBounds(173, 215, 130, 26);
+		txtComision.setBounds(162, 307, 130, 26);
 		getContentPane().add(txtComision);
 		txtComision.setColumns(10);
 		
@@ -114,7 +114,7 @@ public class AlquilerModificar extends javax.swing.JFrame {
 		});
 		txtSellado.setEnabled(false);
 		txtSellado.setEditable(false);
-		txtSellado.setBounds(173, 269, 130, 26);
+		txtSellado.setBounds(162, 354, 130, 26);
 		getContentPane().add(txtSellado);
 		txtSellado.setColumns(10);
 	}

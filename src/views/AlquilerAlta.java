@@ -1,7 +1,5 @@
 package views;
 
-import java.awt.EventQueue;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -13,7 +11,6 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 import app.SistemaInmobiliaria;
-import bean.Alquiler;
 import bean.Persona;
 import bean.Propiedad;
 
@@ -21,7 +18,6 @@ import javax.swing.JTable;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.awt.event.ActionEvent;
 
 import java.text.DateFormat;
@@ -30,7 +26,7 @@ import java.text.ParseException;
 import javax.swing.JFormattedTextField;
 
 public class AlquilerAlta {
-
+	private static final long serialVersionUID = 1L;
 	private JFrame frmAlquilerAlta;
 	private JTextField textFechaDesde;
 	private JTextField textFechaHasta;
@@ -62,10 +58,14 @@ public class AlquilerAlta {
 	/**
 	 * Initialize the contents of the frame.
 	 */
+	/**
+	 * 
+	 */
+	@SuppressWarnings("serial")
 	private void initialize() {
 		
 		frmAlquilerAlta = new JFrame();
-		frmAlquilerAlta.setBounds(100, 100, 551, 524);
+		frmAlquilerAlta.setBounds(100, 100, 682, 632);
 		frmAlquilerAlta.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmAlquilerAlta.getContentPane().setLayout(null);
 		
@@ -93,7 +93,7 @@ public class AlquilerAlta {
 		frmAlquilerAlta.getContentPane().add(lblPropiedad);
 		
 		JLabel lblComision = new JLabel("Comisión:");
-		lblComision.setBounds(245, 218, 61, 16);
+		lblComision.setBounds(245, 218, 90, 16);
 		frmAlquilerAlta.getContentPane().add(lblComision);
 		
 		JLabel lblGastoSellado = new JLabel("Gasto Sellado:");
@@ -113,7 +113,7 @@ public class AlquilerAlta {
 		String[] columnNames = {"Calle", "Propietario"};
 		tablePropiedades = new JTable();
 		tablePropiedades.setModel(new DefaultTableModel(new Object[][] {}, columnNames) {
-			 @Override
+
 			    public Class<?> getColumnClass(int column) {
 			        switch(column) {
 			            default: return Object.class;
@@ -122,11 +122,11 @@ public class AlquilerAlta {
 		});
 		tablePropiedades.setAutoCreateRowSorter(true);
 		tablePropiedades.setRowHeight(20);
-		tablePropiedades.getColumnModel().getColumn(0).setMaxWidth(32);
+		tablePropiedades.getColumnModel().getColumn(0).setMaxWidth(100);
 		tablePropiedades.getColumnModel().getColumn(1).setMaxWidth(100);
 
 		JScrollPane scrollPanePropiedades = new JScrollPane(tablePropiedades);
-		scrollPanePropiedades.setBounds(10, 120, 480, 300);
+		scrollPanePropiedades.setBounds(159, 60, 245, 133);
 		tablePropiedades.setFillsViewportHeight(true);
 		frmAlquilerAlta.getContentPane().add(scrollPanePropiedades);
 		
@@ -136,8 +136,7 @@ public class AlquilerAlta {
 		
 		String[] columnNamesPers = {"Nombre", "CUIT"};
 		tablePersonas = new JTable();
-		tablePersonas.setModel(new DefaultTableModel(new Object[][] {}, columnNames) {
-			 @Override
+		tablePersonas.setModel(new DefaultTableModel(new Object[][] {}, columnNamesPers) {
 			    public Class<?> getColumnClass(int column) {
 			        switch(column) {
 			            default: return Object.class;
@@ -146,11 +145,11 @@ public class AlquilerAlta {
 		});
 		tablePersonas.setAutoCreateRowSorter(true);
 		tablePersonas.setRowHeight(20);
-		tablePersonas.getColumnModel().getColumn(0).setMaxWidth(32);
+		tablePersonas.getColumnModel().getColumn(0).setMaxWidth(100);
 		tablePersonas.getColumnModel().getColumn(1).setMaxWidth(100);
 
 		JScrollPane scrollPanePersonas = new JScrollPane(tablePersonas);
-		scrollPanePersonas.setBounds(10, 120, 480, 300);
+		scrollPanePersonas.setBounds(159, 374, 209, 149);
 		tablePersonas.setFillsViewportHeight(true);
 		frmAlquilerAlta.getContentPane().add(scrollPanePersonas);
 		
@@ -178,7 +177,7 @@ public class AlquilerAlta {
 			}
 		});
 		
-		btnAlquilar.setBounds(417, 467, 117, 29);
+		btnAlquilar.setBounds(559, 575, 117, 29);
 		frmAlquilerAlta.getContentPane().add(btnAlquilar);
 	}
 	

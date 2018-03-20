@@ -23,7 +23,7 @@ public class HibernatePropiedadDAO {
 		Session session = sf.openSession();
 		session.beginTransaction();
 		for(Propiedad propiedad:propiedades)
-			session.persist(propiedad);
+			session.saveOrUpdate(propiedad);
 		session.flush();
 		session.getTransaction().commit();
 		session.close();

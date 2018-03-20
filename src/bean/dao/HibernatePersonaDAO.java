@@ -23,7 +23,7 @@ public class HibernatePersonaDAO {
 		Session session = sf.openSession();
 		session.beginTransaction();
 		for(Persona persona:personas)
-			session.persist(persona);
+			session.saveOrUpdate(persona);
 		session.flush();
 		session.getTransaction().commit();
 		session.close();

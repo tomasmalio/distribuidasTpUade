@@ -45,4 +45,13 @@ public class HibernateServicioDAO {
 		session.getTransaction().commit();
 		session.close();
 	}
+	
+	public void borrarServicio(Servicio servicio){
+		Session session = sf.openSession();
+		session.beginTransaction();
+		session.remove(servicio);
+		session.flush();
+		session.getTransaction().commit();
+		session.close();
+	}
 }

@@ -157,24 +157,7 @@ public class AlquilerAlta {
 		
 		btnAlquilar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				try {
-					Date fdesde = new SimpleDateFormat("yyyy-MM-dd").parse(textFechaDesde.getText());
-					Date fhasta = new SimpleDateFormat("yyyy-MM-dd").parse(textFechaHasta.getText());
-					
-					float gestion = Float.parseFloat(textComision.getText());
-					float sellado = Float.parseFloat(textSellado.getText());
-					
-					/**
-					 * Agregamos el alquiler
-					 */
-					Date dateNow = new Date();
-					sistema.addAlquiler(fdesde, fhasta, gestion, sellado, dateNow, prop, pers);
-					sistema.grabarAlquileres(sistema.getAlquileres());
-					frmAlquilerAlta.dispose();
-					
-				} catch (ParseException e1) {
-					e1.printStackTrace();
-				}
+				onSubmit();
 			}
 		});
 		
@@ -258,5 +241,33 @@ public class AlquilerAlta {
 	
 	public void setVisible(boolean isVisible) {
 		this.frmAlquilerAlta.setVisible(isVisible);
+	}
+	
+	public void onSubmit() {
+		try {
+			Date fdesde = new SimpleDateFormat("yyyy-MM-dd").parse(textFechaDesde.getText());
+			Date fhasta = new SimpleDateFormat("yyyy-MM-dd").parse(textFechaHasta.getText());
+			
+			float gestion = Float.parseFloat(textComision.getText());
+			float sellado = Float.parseFloat(textSellado.getText());
+			
+			// TODO: HARDCODE TIME!
+//			Date fdesde = new SimpleDateFormat("yyyy-MM-dd").parse("2010-10-10");
+//			Date fhasta = new SimpleDateFormat("yyyy-MM-dd").parse("2014-10-10");
+//			float gestion = Float.parseFloat("10");
+//			float sellado = Float.parseFloat("10");
+			
+			/**
+			 * Agregamos el alquiler
+			 */
+			Date dateNow = new Date();
+			sistema.addAlquiler(fdesde, fhasta, gestion, sellado, dateNow, prop, pers);
+			sistema.grabarAlquileres(sistema.getAlquileres());
+			frmAlquilerAlta.setVisible(false);
+			JOptionPane.showMessageDialog(null, "Alquiler Publicado Exitosamente!");
+			
+		} catch (ParseException e1) {
+			e1.printStackTrace();
+		}
 	}
 }

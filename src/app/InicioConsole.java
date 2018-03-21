@@ -13,7 +13,7 @@ public class InicioConsole {
 		SistemaInmobiliaria sistema = new SistemaInmobiliaria();
 		sistema.addPersona("11234567890", "pepe", "asd", "asd", "asd");
 		sistema.addPersona("20331114821", "Lima 123", "tomasmalio@gmail.com", "Tomás", "1158259693");
-		//sistema.grabarPersonas(sistema.getPersonas());
+		sistema.grabarPersonas(sistema.getPersonas());
 		System.out.println("Still working...");
 		
 		sistema.addPropiedad("Rivadavia", sistema.getPersonas().get(1));

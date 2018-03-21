@@ -174,7 +174,7 @@ public class AlquilerModificar extends javax.swing.JFrame {
 		alquiler.setComisionGestion(Float.parseFloat(txtComision.getText()));
 		alquiler.setGastosSellado(Float.parseFloat(txtSellado.getText()));
 		sistema.grabarAlquiler(alquiler);
+		setVisible(false);
 		JOptionPane.showMessageDialog(null, "Alquiler modificado exitosamente!");
-		frmAlquilerModificar.dispose();
 	}
 }

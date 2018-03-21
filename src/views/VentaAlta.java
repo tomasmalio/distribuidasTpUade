@@ -256,8 +256,8 @@ public class VentaAlta extends javax.swing.JFrame {
 			Date dateNow = new Date();
 			Venta venta = sistema.addVenta(fEscritura, vEscritura, cVenta, gEscritura, dateNow, prop, pers);
 			sistema.grabarVenta(venta);
+			setVisible(false);
 			JOptionPane.showMessageDialog(null, "Venta Publicada Exitosamente!");
-			frmVentaAlta.dispose();
 			
 		} catch (ParseException e1) {
 			e1.printStackTrace();

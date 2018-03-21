@@ -47,16 +47,7 @@ public class VentaBaja extends javax.swing.JFrame {
 		btnBajaVenta = new JButton("Baja Venta");
 		btnBajaVenta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				/**
-				 * Llama al sistema para que se baje la venta
-				 */				
-				try {
-					sistema.deleteService(venta);
-					JOptionPane.showMessageDialog(null, "Alquiler borrado exitosamente!");
-					frmVentaBaja.dispose();
-				} catch (Exception e1) {
-					e1.printStackTrace();
-				}
+				onSubmit();
 			}
 		});
 		btnBajaVenta.setBounds(175, 246, 117, 29);
@@ -130,5 +121,18 @@ public class VentaBaja extends javax.swing.JFrame {
 	
 	public void setVisible(boolean isVisible) {
 		this.frmVentaBaja.setVisible(isVisible);
+	}
+	
+	public void onSubmit() {
+		/**
+		 * Llama al sistema para que se baje la venta
+		 */				
+		try {
+			sistema.deleteService(venta);
+			setVisible(false);
+			JOptionPane.showMessageDialog(null, "Alquiler borrado exitosamente!");
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
 	}
 }

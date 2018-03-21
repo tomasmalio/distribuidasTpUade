@@ -204,7 +204,7 @@ public class VentaModificar extends javax.swing.JFrame {
 		venta.setValorEscritura(Float.parseFloat(txtValorEscritura.getText()));
 		venta.setGastosEscritura(Float.parseFloat(txtGastoEscritura.getText()));
 		sistema.grabarVenta(venta);
-		JOptionPane.showMessageDialog(null, "Venta modificada exitosamente!");
 		setVisible(false);
+		JOptionPane.showMessageDialog(null, "Venta modificada exitosamente!");
 	}
 }

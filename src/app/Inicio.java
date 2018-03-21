@@ -12,11 +12,16 @@ package app;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.swing.*;
 import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
 
 import bean.Persona;
+import bean.Propiedad;
 import views.AlquilerAlta;
 import views.AlquilerModificar;
 import views.VentaAlta;
@@ -74,6 +79,17 @@ public class Inicio extends JFrame {
 		inmobiliariaController.addPropiedad("2", "Juramento", 2060, "15", "B", "Buenos Aires", "5", 320, 26000, 2000000, 2030, 150, 1500, inmobiliariaController.buscarPersona("12345"));
 		inmobiliariaController.addPropiedad("3", "Av. Lacroze", 460, "5", "D", "Buenos Aires", "1", 90, 8000, 750000, 80, 60, 300, inmobiliariaController.buscarPersona("12346"));
 		inmobiliariaController.grabarPropiedades(inmobiliariaController.getPropiedades());
+		
+		try {
+			Date fechaRegServicio 	= new SimpleDateFormat("yyyy-MM-dd").parse("2017-12-10");
+			Date fechaDesde 			= new SimpleDateFormat("yyyy-MM-dd").parse("2018-01-01");
+			Date fechaHasta 			= new SimpleDateFormat("yyyy-MM-dd").parse("2019-01-01");
+			
+			inmobiliariaController.addAlquiler(fechaDesde, fechaHasta, 1550, 3000, fechaRegServicio, inmobiliariaController.buscarPropiedad("1"), inmobiliariaController.buscarPersona("12346"));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		
     }
    
     private void initGUI() {

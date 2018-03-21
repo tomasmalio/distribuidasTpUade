@@ -23,6 +23,7 @@ import javax.swing.table.DefaultTableModel;
 import app.SistemaInmobiliaria;
 import bean.Persona;
 import bean.Propiedad;
+import bean.Venta;
 
 public class VentaAlta extends javax.swing.JFrame {
 
@@ -150,29 +151,7 @@ public class VentaAlta extends javax.swing.JFrame {
 		
 		btnVenta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				try {
-					Date fEscritura = new SimpleDateFormat("yyyy-MM-dd").parse(fechaEscritura.getText());
-					float vEscritura = Float.parseFloat(valorEscritura.getText());
-					float cVenta = Float.parseFloat(comisionVenta.getText());
-					float gEscritura = Float.parseFloat(gastosEscritura.getText());
-					
-					/**
-					 * Agregamos una nueva venta
-					 */
-					Date dateNow = new Date();
-					sistema.addVenta(fEscritura, 
-									vEscritura,
-									cVenta,
-									gEscritura,
-									dateNow, 
-									prop, 
-									pers
-								);
-					frmVentaAlta.dispose();
-					
-				} catch (ParseException e1) {
-					e1.printStackTrace();
-				}
+				onSubmit();
 			}
 		});
 		
@@ -263,5 +242,32 @@ public class VentaAlta extends javax.swing.JFrame {
 	}
 	public void setVisible(boolean isVisible) {
 		this.frmVentaAlta.setVisible(isVisible);
+	}
+	
+	public void onSubmit() {
+		try {
+			Date fEscritura = new SimpleDateFormat("yyyy-MM-dd").parse(fechaEscritura.getText());
+			float vEscritura = Float.parseFloat(valorEscritura.getText());
+			float cVenta = Float.parseFloat(comisionVenta.getText());
+			float gEscritura = Float.parseFloat(gastosEscritura.getText());
+			
+			// TODO: HARDCODE TIME!
+//			Date fEscritura = new SimpleDateFormat("yyyy-MM-dd").parse("2010-10-10");
+//			float vEscritura = Float.parseFloat("10");
+//			float cVenta = Float.parseFloat("10");
+//			float gEscritura = Float.parseFloat("10");
+			
+			/**
+			 * Agregamos una nueva venta
+			 */
+			Date dateNow = new Date();
+			Venta venta = sistema.addVenta(fEscritura, vEscritura, cVenta, gEscritura, dateNow, prop, pers);
+			sistema.grabarVenta(venta);
+			JOptionPane.showMessageDialog(null, "Venta Publicada Exitosamente!");
+			frmVentaAlta.dispose();
+			
+		} catch (ParseException e1) {
+			e1.printStackTrace();
+		}
 	}
 }

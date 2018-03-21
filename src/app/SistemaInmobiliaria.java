@@ -165,7 +165,7 @@ public class SistemaInmobiliaria {
 		new ServicioSRV().grabarVenta(servicio);
 	}
 
-	public void addAlquiler(Date fechaDesde, Date fechaHasta, float comisionGestion, float gastosSellado, Date fecha, Propiedad propiedad,
+	public Alquiler addAlquiler(Date fechaDesde, Date fechaHasta, float comisionGestion, float gastosSellado, Date fecha, Propiedad propiedad,
 			Persona interesado) {
 		Alquiler alquiler = new Alquiler();
 		alquiler.setFechaDesde(fechaDesde);
@@ -176,9 +176,10 @@ public class SistemaInmobiliaria {
 		alquiler.setPropiedad(propiedad);
 		alquiler.setInteresado(interesado);
 		alquileres.addAlquiler(alquiler);
+		return alquiler;
 	}
 
-	public void addVenta(Date fechaEscritura, float valorEscritura, float comisionVenta, float gastosEscritura, Date fecha,
+	public Venta addVenta(Date fechaEscritura, float valorEscritura, float comisionVenta, float gastosEscritura, Date fecha,
 			Propiedad propiedad, Persona interesado) {
 		Venta servicio = new Venta();
 		servicio.setFechaEscritura(fechaEscritura);
@@ -189,6 +190,7 @@ public class SistemaInmobiliaria {
 		servicio.setPropiedad(propiedad);
 		servicio.setInteresado(interesado);
 		ventas.addVenta(servicio);
+		return servicio;
 	}
 
 	/**

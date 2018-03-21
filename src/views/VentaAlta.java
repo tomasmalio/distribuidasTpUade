@@ -57,23 +57,13 @@ public class VentaAlta extends javax.swing.JFrame {
 	@SuppressWarnings("serial")
 	private void initialize() {
 		frmVentaAlta = new JFrame();
-		frmVentaAlta.setBounds(100, 100, 600, 600);
+		frmVentaAlta.setBounds(100, 100, 320, 600);
 		frmVentaAlta.setAlwaysOnTop(true);
 		frmVentaAlta.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmVentaAlta.getContentPane().setLayout(null);
 		
-		JLabel lblFechaEscritura = new JLabel("Fecha Escritura:");
-		lblFechaEscritura.setBounds(6, 218, 108, 16);
-		frmVentaAlta.getContentPane().add(lblFechaEscritura);
-		
-		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		fechaEscritura = new JFormattedTextField(dateFormat);
-		fechaEscritura.setBounds(126, 213, 130, 26);
-		frmVentaAlta.getContentPane().add(fechaEscritura);
-		fechaEscritura.setColumns(10);
-		
 		JLabel lblPropiedad = new JLabel("Propiedad:");
-		lblPropiedad.setBounds(213, 6, 80, 16);
+		lblPropiedad.setBounds(33, 6, 80, 16);
 		frmVentaAlta.getContentPane().add(lblPropiedad);
 		
 		String[] columnNames = {"Calle", "Propietario"};
@@ -91,41 +81,50 @@ public class VentaAlta extends javax.swing.JFrame {
 		tableProp.getColumnModel().getColumn(1).setMaxWidth(100);
 
 		JScrollPane scrollPaneVentas = new JScrollPane(tableProp);
-		scrollPaneVentas.setBounds(142, 47, 209, 149);
+		scrollPaneVentas.setBounds(33, 25, 250, 150);
 		tableProp.setFillsViewportHeight(true);
 		frmVentaAlta.getContentPane().add(scrollPaneVentas);
 		
+		JLabel lblFechaEscritura = new JLabel("Fecha Escritura:");
+		lblFechaEscritura.setBounds(33, 198, 108, 16);
+		frmVentaAlta.getContentPane().add(lblFechaEscritura);
+		
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		fechaEscritura = new JFormattedTextField(dateFormat);
+		fechaEscritura.setBounds(150, 193, 130, 26);
+		frmVentaAlta.getContentPane().add(fechaEscritura);
+		fechaEscritura.setColumns(10);
+		
 		JLabel lblComisionVenta = new JLabel("Comisión Venta:");
-		lblComisionVenta.setBounds(304, 218, 106, 16);
+		lblComisionVenta.setBounds(33, 230, 106, 16);
 		frmVentaAlta.getContentPane().add(lblComisionVenta);
 		
 		comisionVenta = new JTextField();
-		comisionVenta.setBounds(426, 213, 130, 26);
+		comisionVenta.setBounds(150, 230, 130, 26);
 		frmVentaAlta.getContentPane().add(comisionVenta);
 		comisionVenta.setColumns(10);
 		
 		JLabel lblGastosEscritura = new JLabel("Gastos Escritura:");
-		lblGastosEscritura.setBounds(6, 283, 106, 16);
+		lblGastosEscritura.setBounds(33, 270, 106, 16);
 		frmVentaAlta.getContentPane().add(lblGastosEscritura);
 		
 		gastosEscritura = new JTextField();
-		gastosEscritura.setBounds(426, 278, 130, 26);
+		gastosEscritura.setBounds(150, 270, 130, 26);
 		frmVentaAlta.getContentPane().add(gastosEscritura);
 		gastosEscritura.setColumns(10);
 		
 		JLabel lblValorEscritura = new JLabel("Valor Escritura:");
-		lblValorEscritura.setBounds(304, 283, 106, 16);
+		lblValorEscritura.setBounds(33, 310, 106, 16);
 		frmVentaAlta.getContentPane().add(lblValorEscritura);
 		
 		valorEscritura = new JTextField();
-		valorEscritura.setBounds(126, 278, 130, 26);
+		valorEscritura.setBounds(150, 310, 130, 26);
 		frmVentaAlta.getContentPane().add(valorEscritura);
 		valorEscritura.setColumns(10);
 		
-		JLabel lblPersona = new JLabel("Persona");
-		lblPersona.setBounds(213, 332, 61, 16);
+		JLabel lblPersona = new JLabel("Persona:");
+		lblPersona.setBounds(33, 340, 61, 16);
 		frmVentaAlta.getContentPane().add(lblPersona);
-		
 		
 		String[] columnNamesPers = {"Nombre", "CUIT"};
 		tableP = new JTable();
@@ -142,7 +141,7 @@ public class VentaAlta extends javax.swing.JFrame {
 		tableP.getColumnModel().getColumn(1).setMaxWidth(100);
 
 		JScrollPane scrollPanePersonas = new JScrollPane(tableP);
-		scrollPanePersonas.setBounds(159, 374, 209, 149);
+		scrollPanePersonas.setBounds(33, 364, 250, 149);
 		tableP.setFillsViewportHeight(true);
 		frmVentaAlta.getContentPane().add(scrollPanePersonas);
 		
@@ -154,7 +153,7 @@ public class VentaAlta extends javax.swing.JFrame {
 			}
 		});
 		
-		btnVenta.setBounds(417, 467, 117, 29);
+		btnVenta.setBounds(175, 530, 117, 29);
 		frmVentaAlta.getContentPane().add(btnVenta);
 	}
 	

@@ -37,13 +37,30 @@ public class SistemaInmobiliaria {
 	public float calcularComisiones(LocalDate fechaDesde, LocalDate fechaHasta ) {
 		return 1;
 	}
-	//////////////
-	// PERSONAS //
-	//////////////
+	
+	/**************************************************************
+	 * 						PERSONAS
+	 *************************************************************/
+	/**
+	 * get Personas
+	 * 
+	 * @return List<Persona>
+	 */
 	public List<Persona> getPersonas(){
 		return personas.getPersonas();
 	}
 	
+	/**
+	 * Add Persona
+	 * 
+	 * @param cuil_cuit
+	 * @param nombre_razon
+	 * @param domicilio
+	 * @param telefono
+	 * @param mail
+	 * 
+	 * @return Persona
+	 */
 	public Persona addPersona(String cuil_cuit, String nombre_razon, String domicilio, String telefono, String mail) {
 		Persona persona = new Persona();
 		persona.setCuil_cuit(cuil_cuit);
@@ -55,55 +72,56 @@ public class SistemaInmobiliaria {
 		return persona;
 	}
 	
+	/**
+	 * Buscar Persona 
+	 * 
+	 * @param cuit
+	 * @return Persona
+	 */
 	public Persona buscarPersona(String cuit){
 	    return personas.getPersonaPorCuit(cuit);
 	}
 	
+	/**
+	 * Grabar Personas
+	 * 
+	 * @param void
+	 */
 	public void grabarPersonas(List<Persona> personas){
 	    new PersonaSRV().grabarPersona(personas);
 	}
 	
-	/////////////////
-	// PROPIEDADES //
-	/////////////////
+	/**************************************************************
+	 * 						PROPIEDADES
+	 *************************************************************/
+	/**
+	 * get Propiedades
+	 * 
+	 * @return List<Propiedad>
+	 */
 	public List<Propiedad> getPropiedades(){
 		return propiedades.getPropiedades();
 	}
 	
-	public void addPropiedad(String calle, Persona propietario) {
-		Propiedad propiedad = new Propiedad();
-		propiedad.setCalle(calle);
-		propiedad.setCiudad("asd");
-		propiedad.setCantidadAmbientes("2");
-		propiedad.setDepartamento("asd");
-		propiedad.setExpensas(1);
-		propiedad.setImpuestos(1);
-		propiedad.setPiso("a");
-		propiedad.setMetrosCubiertos(1);
-		propiedad.setNroPartida("asd");
-		propiedad.setNumero(1);
-		propiedad.setPropietario(propietario);
-		propiedad.setServicios(1);
-		propiedad.setValorAlquiler(1);
-		propiedad.setValorVenta(10);
-		propiedades.addPropiedad(propiedad);
-	}
-	
-	public void addPropiedad (String nroPartida, 
-							String calle, 
-							int numero, 
-							String piso,
-							String departamento,
-							String ciudad, 
-							String cantAmb, 
-							float metrosCubiertos, 
-							float valorAlquiler, 
-							float valorVenta,
-							float impuestos,
-							float servicios,
-							float expensas, 
-							Persona propietario
-							) {
+	/**
+	 * add Propiedad
+	 * 
+	 * @param nroPartida
+	 * @param calle
+	 * @param numero
+	 * @param piso
+	 * @param departamento
+	 * @param ciudad
+	 * @param cantAmb
+	 * @param metrosCubiertos
+	 * @param valorAlquiler
+	 * @param valorVenta
+	 * @param impuestos
+	 * @param servicios
+	 * @param expensas
+	 * @param propietario
+	 */
+	public void addPropiedad (String nroPartida, String calle, int numero, String piso, String departamento, String ciudad, String cantAmb,  float metrosCubiertos,  float valorAlquiler,  float valorVenta, float impuestos, float servicios, float expensas, Persona propietario) {
 		Propiedad propiedad = new Propiedad();
 		propiedad.setNroPartida(nroPartida);
 		propiedad.setCalle(calle);
@@ -122,21 +140,45 @@ public class SistemaInmobiliaria {
 		propiedades.addPropiedad(propiedad);
 	}
 	
+	/**
+	 * grabar Propiedades
+	 * 
+	 * @param propiedades
+	 */
 	public void grabarPropiedades(List<Propiedad> propiedades){
 		new PropiedadSRV().grabarPropiedad(propiedades);
 	}
 	
+	/**
+	 * buscar Propiedad
+	 * 
+	 * @param nroPartida
+	 * @return Propiedad
+	 */
 	public Propiedad buscarPropiedad(String nroPartida) {
 		return propiedades.getPropiedadPorNroPartida(nroPartida);
 	}
 	
-	///////////////
-	// SERVICIOS //
-	///////////////
+	/**************************************************************
+	 * 						SERVICIOS
+	 * 					ALQUILERES | VENTA
+	 *************************************************************/
+	/**
+	 * get Servicios
+	 * 
+	 * @return List<Servicio>
+	 */
 	public List<Servicio> getServicios(){
 		return servicios.getServicios();
 	}
 	
+	/**
+	 * add Servicio
+	 * 
+	 * @param fecha
+	 * @param propiedad
+	 * @param interesado
+	 */
 	public void addServicio(Date fecha, Propiedad propiedad, Persona interesado) {
 		Servicio servicio = new Servicio();
 		servicio.setFecha(fecha);
@@ -145,30 +187,73 @@ public class SistemaInmobiliaria {
 		servicios.addServicio(servicio);
 	}
 	
+	/**
+	 * grabar Alquileres
+	 * 
+	 * @param servicios
+	 */
 	public void grabarAlquileres(List<Alquiler> servicios) {
 		new ServicioSRV().grabarAlquileres(servicios);
 	}
 	
+	/**
+	 * grabar Alquiler
+	 * 
+	 * @param servicio
+	 */
 	public void grabarAlquiler(Alquiler servicio) {
 		new ServicioSRV().grabarAlquiler(servicio);
 	}
 	
+	/**
+	 * borrar Servicio
+	 * 
+	 * @param alquiler
+	 */
 	public void borrarServicio (Alquiler alquiler) {
 		new ServicioSRV().borrarServicio(alquiler);
 	}
 	
+	/**
+	 * grabar Ventas
+	 * 
+	 * @param servicios
+	 */
 	public void grabarVentas(List<Venta> servicios) {
 		new ServicioSRV().grabarVentas(servicios);
 	}
 	
+	/**
+	 * grabar Venta
+	 * 
+	 * @param servicio
+	 */
 	public void grabarVenta(Venta servicio) {
 		new ServicioSRV().grabarVenta(servicio);
 	}
 	
+	/**
+	 * Borrar Servicio
+	 * 
+	 * @param venta
+	 */
 	public void borrarServicio (Venta venta) {
 		new ServicioSRV().borrarServicio(venta);
 	}
 
+	/**
+	 * add Alquiler
+	 * 
+	 * @param fechaDesde
+	 * @param fechaHasta
+	 * @param comisionGestion
+	 * @param gastosSellado
+	 * @param fecha
+	 * @param propiedad
+	 * @param interesado
+	 * 
+	 * @return Alquiler
+	 */
 	public Alquiler addAlquiler(Date fechaDesde, Date fechaHasta, float comisionGestion, float gastosSellado, Date fecha, Propiedad propiedad,
 			Persona interesado) {
 		Alquiler alquiler = new Alquiler();
@@ -183,6 +268,19 @@ public class SistemaInmobiliaria {
 		return alquiler;
 	}
 
+	/**
+	 * add Venta
+	 * 
+	 * @param fechaEscritura
+	 * @param valorEscritura
+	 * @param comisionVenta
+	 * @param gastosEscritura
+	 * @param fecha
+	 * @param propiedad
+	 * @param interesado
+	 * 
+	 * @return Venta
+	 */
 	public Venta addVenta(Date fechaEscritura, float valorEscritura, float comisionVenta, float gastosEscritura, Date fecha,
 			Propiedad propiedad, Persona interesado) {
 		Venta servicio = new Venta();
@@ -198,7 +296,7 @@ public class SistemaInmobiliaria {
 	}
 
 	/**
-	 * Delete Service for Alquiler
+	 * delete Service
 	 * 
 	 * @param alquiler
 	 */
@@ -208,7 +306,7 @@ public class SistemaInmobiliaria {
 	}
 	
 	/**
-	 * Delete Service for Venta
+	 * delete Service for Venta
 	 * 
 	 * @param venta
 	 */
@@ -218,7 +316,7 @@ public class SistemaInmobiliaria {
 	}
 
 	/**
-	 * getAlquileres
+	 * get Alquileres
 	 * 
 	 * Listado de propiedades
 	 * que están alquiladas
@@ -230,7 +328,7 @@ public class SistemaInmobiliaria {
 	}
 
 	/**
-	 * getVentas
+	 * get Ventas
 	 * 
 	 * Listado de propiedades que están en venta
 	 * 
@@ -238,13 +336,5 @@ public class SistemaInmobiliaria {
 	 */
 	public List<Venta> getVentas() {
 		return ventas.getVentas();
-	}
-	
-	/**
-	 * Modifiy Service for Venta
-	 * @param venta
-	 */
-	public void editService(Venta venta) {
-		
 	}
 }

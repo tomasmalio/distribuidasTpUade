@@ -8,17 +8,24 @@ public class Setup {
 	
 	private SistemaInmobiliaria sistema;
 	
-	public Setup  (SistemaInmobiliaria s) {
+	public Setup  (SistemaInmobiliaria s, boolean cargaAlquileres, boolean cargaVenta) {
 		super();
 		sistema = s;
+		cargaDePersonas();
+		cargaDePropiedades();
+		if (cargaAlquileres)
+			cargaAlquier();
+		if (cargaVenta)
+			cargaVenta();
 	}
 	
 	public void cargaDePersonas () {
 		sistema.addPersona("12348", "Tomás", "Lima 123", "1158259693", "tomasmalio@gmail.com" );
+		sistema.addPersona("12349", "Ramon", "Julian Alvarez 32", "1590901010", "ramon@gmail.com");
 		sistema.grabarPersonas(sistema.getPersonas());
 		
 		sistema.addPersona("12345", "Martín", "Av. Cabildo 1000", "1150001000", "martin.sacco@gmail.com");
-		sistema.addPersona("12346", "Juan", "Av. Monroe 4000", "1520004444", "juan.pedro@gmail.com");
+		sistema.addPersona("12346", "Florencia", "Av. Monroe 4000", "1520004444", "florencia.otero@gmail.com");
 	}	
 
 	public void cargaDePropiedades () {

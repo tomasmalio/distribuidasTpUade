@@ -10,6 +10,7 @@
  ****************************************************/
 package app;
 
+import app.Setup;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
@@ -49,15 +50,20 @@ public class Inicio extends JFrame {
 	private JMenu jMenuSalir;
 	
 	private SistemaInmobiliaria inmobiliariaController;
-	
 	public Inicio() {
 		super();
 		inmobiliariaController = SistemaInmobiliaria.getInstance();
-		Setup setup = new Setup();
+		
+		/**
+		 * Carga automática de valores
+		 * 
+		 * @params Sistema, boolean (cargaDeAlquileres), boolean (cargaDeVentas)
+		 */
+		new Setup(inmobiliariaController, true, true);
 		initGUI();
 	}
-	
-    public static void main(String[] args) {
+
+	public static void main(String[] args) {
 	    	Inicio inicio = new Inicio();
 	    	inicio.setVisible(true);
     }

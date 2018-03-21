@@ -39,7 +39,7 @@ public class VentaBaja extends javax.swing.JFrame {
 	private void initialize () {
 		
 		frmVentaBaja = new JFrame();
-		frmVentaBaja.setBounds(100, 100, 600, 600);
+		frmVentaBaja.setBounds(100, 100, 320, 320);
 		frmVentaBaja.setAlwaysOnTop(true);
 		frmVentaBaja.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmVentaBaja.getContentPane().setLayout(null);
@@ -59,7 +59,7 @@ public class VentaBaja extends javax.swing.JFrame {
 				}
 			}
 		});
-		btnBajaVenta.setBounds(220, 246, 117, 29);
+		btnBajaVenta.setBounds(175, 246, 117, 29);
 		frmVentaBaja.getContentPane().add(btnBajaVenta);
 		
 		String[] columnNames = {"Calle", "Nombre"};
@@ -77,7 +77,7 @@ public class VentaBaja extends javax.swing.JFrame {
 		table.getColumnModel().getColumn(1).setMaxWidth(200);
 
 		JScrollPane scrollPaneVenta = new JScrollPane(table);
-		scrollPaneVenta.setBounds(48, 19, 280, 215);
+		scrollPaneVenta.setBounds(33, 51, 250, 180);
 		table.setFillsViewportHeight(true);
 		frmVentaBaja.getContentPane().add(scrollPaneVenta);
 	}
@@ -109,8 +109,8 @@ public class VentaBaja extends javax.swing.JFrame {
 			
 			for (Venta v: ventas) {
 				model.addRow(new Object[]{
-						v.getPropiedad(),
-						v.getInteresado()
+						v.getPropiedad().getCalle(),
+						v.getInteresado().getNombre_razon()
 				});
 			}
 			

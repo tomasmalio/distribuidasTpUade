@@ -46,14 +46,14 @@ public class AlquilerModificar extends javax.swing.JFrame {
 	private void initialize () {
 		
 		frmAlquilerModificar = new JFrame();
-		frmAlquilerModificar.setBounds(100, 100, 600, 600);
+		frmAlquilerModificar.setBounds(100, 100, 320, 480);
 		frmAlquilerModificar.setAlwaysOnTop(true);
 		frmAlquilerModificar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmAlquilerModificar.getContentPane().setLayout(null);
 		getContentPane().setLayout(null);
 		
 		JLabel lblAlquileres = new JLabel("Alquileres");
-		lblAlquileres.setBounds(212, 23, 80, 16);
+		lblAlquileres.setBounds(33, 23, 80, 16);
 		getContentPane().add(lblAlquileres);
 		frmAlquilerModificar.getContentPane().add(lblAlquileres);
 		
@@ -61,7 +61,6 @@ public class AlquilerModificar extends javax.swing.JFrame {
 		lblComision.setBounds(33, 312, 117, 16);
 		getContentPane().add(lblComision);
 		frmAlquilerModificar.getContentPane().add(lblComision);
-		
 
 		lblSellado.setEnabled(false);
 		lblSellado.setBounds(33, 359, 117, 16);
@@ -84,12 +83,10 @@ public class AlquilerModificar extends javax.swing.JFrame {
 		table.getColumnModel().getColumn(1).setMaxWidth(200);
 
 		JScrollPane scrollPanePublicaciones = new JScrollPane(table);
-		scrollPanePublicaciones.setBounds(93, 51, 352, 236);
+		scrollPanePublicaciones.setBounds(33, 51, 250, 236);
 		table.setFillsViewportHeight(true);
 		getContentPane().add(scrollPanePublicaciones);
 		frmAlquilerModificar.getContentPane().add(scrollPanePublicaciones);
-		
-		
 		
 		JButton btnModificar = new JButton("Modificar");
 		btnModificar.addActionListener(new ActionListener() {
@@ -97,7 +94,7 @@ public class AlquilerModificar extends javax.swing.JFrame {
 				onSubmit();
 			}
 		});
-		btnModificar.setBounds(422, 419, 117, 29);
+		btnModificar.setBounds(175, 400, 117, 29);
 		getContentPane().add(btnModificar);
 		frmAlquilerModificar.getContentPane().add(btnModificar);
 		

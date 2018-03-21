@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
@@ -28,7 +29,7 @@ public class AlquilerModificar extends javax.swing.JFrame {
 	private JTextField txtComision;
 	private JTextField txtSellado;
 	private JTextField txtBajaAlquiler;
-	
+	private JFrame frmAlquilerModificar;
 	private List<Alquiler> alquileres;
 	private Alquiler alquiler;
 	
@@ -47,20 +48,28 @@ public class AlquilerModificar extends javax.swing.JFrame {
 	}
 	
 	private void initialize () {
+		
+		frmAlquilerModificar = new JFrame();
+		frmAlquilerModificar.setBounds(100, 100, 380, 300);
+		frmAlquilerModificar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmAlquilerModificar.getContentPane().setLayout(null);
 		getContentPane().setLayout(null);
 		
 		JLabel lblAlquileres = new JLabel("Alquileres");
 		lblAlquileres.setBounds(212, 23, 80, 16);
 		getContentPane().add(lblAlquileres);
+		frmAlquilerModificar.getContentPane().add(lblAlquileres);
 		
 		lblComision.setEnabled(false);
 		lblComision.setBounds(33, 312, 117, 16);
 		getContentPane().add(lblComision);
+		frmAlquilerModificar.getContentPane().add(lblComision);
 		
 
 		lblSellado.setEnabled(false);
 		lblSellado.setBounds(33, 359, 117, 16);
 		getContentPane().add(lblSellado);
+		frmAlquilerModificar.getContentPane().add(lblSellado);
 		
 		String[] columnNames = {"Calle", "Nombre"};
 		table = new JTable();
@@ -81,6 +90,7 @@ public class AlquilerModificar extends javax.swing.JFrame {
 		scrollPanePublicaciones.setBounds(93, 51, 352, 236);
 		table.setFillsViewportHeight(true);
 		getContentPane().add(scrollPanePublicaciones);
+		frmAlquilerModificar.getContentPane().add(scrollPanePublicaciones);
 		
 		
 		
@@ -88,11 +98,17 @@ public class AlquilerModificar extends javax.swing.JFrame {
 		btnModificar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//hacer que el sist tome datos de los text fields y modifique el alquiler
-				sistema.modifyService(alquiler); 
+				try {
+					sistema.modifyService(alquiler); 
+					JOptionPane.showMessageDialog(null, "Alquiler modificado exitosamente!");
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
 			}
 		});
 		btnModificar.setBounds(422, 419, 117, 29);
 		getContentPane().add(btnModificar);
+		frmAlquilerModificar.getContentPane().add(btnModificar);
 		
 		txtComision = new JTextField();
 		txtComision.addKeyListener(new KeyAdapter() {
@@ -104,6 +120,7 @@ public class AlquilerModificar extends javax.swing.JFrame {
 		txtComision.setEnabled(false);
 		txtComision.setBounds(162, 307, 130, 26);
 		getContentPane().add(txtComision);
+		frmAlquilerModificar.getContentPane().add(txtComision);
 		txtComision.setColumns(10);
 		
 		txtSellado = new JTextField();
@@ -116,6 +133,7 @@ public class AlquilerModificar extends javax.swing.JFrame {
 		txtSellado.setEditable(false);
 		txtSellado.setBounds(162, 354, 130, 26);
 		getContentPane().add(txtSellado);
+		frmAlquilerModificar.getContentPane().add(txtSellado);
 		txtSellado.setColumns(10);
 	}
 	
@@ -144,8 +162,10 @@ public class AlquilerModificar extends javax.swing.JFrame {
 			        int col = table.columnAtPoint(evt.getPoint());
 			        if (row >= 0 && col >= 0) {
 			        	alquiler = alquileres.get(row);
-						txtComision.setVisible(true);
-						txtSellado.setVisible(true);
+				    		txtComision.setEditable(true);
+				    		txtComision.setEnabled(true);
+				    		txtSellado.setEnabled(true);
+				    		txtSellado.setEditable(true);
 						lblComision.setVisible(true);
 						lblSellado.setVisible(true);
 						txtComision.setText(Float.toString(alquiler.getComisionGestion()));
@@ -156,5 +176,8 @@ public class AlquilerModificar extends javax.swing.JFrame {
 		} else {
 			JOptionPane.showMessageDialog(null, "No se encontraron coincidencias");
 		}
+	}
+	public void setVisible(boolean isVisible) {
+		this.frmAlquilerModificar.setVisible(isVisible);
 	}
 }

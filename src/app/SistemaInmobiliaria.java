@@ -126,6 +126,10 @@ public class SistemaInmobiliaria {
 		new PropiedadSRV().grabarPropiedad(propiedades);
 	}
 	
+	public Propiedad buscarPropiedad(String nroPartida) {
+		return propiedades.getPropiedadPorNroPartida(nroPartida);
+	}
+	
 	///////////////
 	// SERVICIOS //
 	///////////////

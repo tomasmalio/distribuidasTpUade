@@ -10,6 +10,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -65,7 +66,12 @@ public class AlquilerBaja extends javax.swing.JFrame {
 		btnBajaAlquiler = new JButton("Baja Alquiler");
 		btnBajaAlquiler.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				sistema.deleteService(alquiler);
+				try {
+					sistema.deleteService(alquiler);
+					JOptionPane.showMessageDialog(null, "Alquiler borrado exitosamente!");
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
 			}
 		});
 		btnBajaAlquiler.setBounds(220, 246, 117, 29);

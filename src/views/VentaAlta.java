@@ -59,7 +59,6 @@ public class VentaAlta extends javax.swing.JFrame {
 		frmVentaAlta = new JFrame();
 		frmVentaAlta.setBounds(100, 100, 320, 600);
 		frmVentaAlta.setAlwaysOnTop(true);
-		frmVentaAlta.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmVentaAlta.getContentPane().setLayout(null);
 		
 		JLabel lblPropiedad = new JLabel("Propiedad:");

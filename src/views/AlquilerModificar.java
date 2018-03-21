@@ -48,7 +48,6 @@ public class AlquilerModificar extends javax.swing.JFrame {
 		frmAlquilerModificar = new JFrame();
 		frmAlquilerModificar.setBounds(100, 100, 320, 480);
 		frmAlquilerModificar.setAlwaysOnTop(true);
-		frmAlquilerModificar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmAlquilerModificar.getContentPane().setLayout(null);
 		getContentPane().setLayout(null);
 		

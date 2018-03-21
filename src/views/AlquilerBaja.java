@@ -41,7 +41,6 @@ public class AlquilerBaja extends javax.swing.JFrame {
 		frmAlquilerBaja = new JFrame();
 		frmAlquilerBaja.setBounds(100, 100, 320, 320);
 		frmAlquilerBaja.setAlwaysOnTop(true);
-		frmAlquilerBaja.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmAlquilerBaja.getContentPane().setLayout(null);
 
 		String[] columnNames = {"Calle", "Nombre"};

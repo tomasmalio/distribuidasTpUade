@@ -41,7 +41,6 @@ public class VentaBaja extends javax.swing.JFrame {
 		frmVentaBaja = new JFrame();
 		frmVentaBaja.setBounds(100, 100, 320, 320);
 		frmVentaBaja.setAlwaysOnTop(true);
-		frmVentaBaja.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmVentaBaja.getContentPane().setLayout(null);
 		
 		btnBajaVenta = new JButton("Baja Venta");

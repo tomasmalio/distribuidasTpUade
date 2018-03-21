@@ -54,7 +54,6 @@ public class VentaModificar extends javax.swing.JFrame {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 320, 480);
 		frame.setAlwaysOnTop(true);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		lblVentas = new JLabel("Ventas");
@@ -204,7 +203,7 @@ public class VentaModificar extends javax.swing.JFrame {
 		venta.setValorEscritura(Float.parseFloat(txtValorEscritura.getText()));
 		venta.setGastosEscritura(Float.parseFloat(txtGastoEscritura.getText()));
 		sistema.grabarVenta(venta);
-		JOptionPane.showMessageDialog(null, "Venta modificada exitosamente!");
 		setVisible(false);
+		JOptionPane.showMessageDialog(null, "Venta modificada exitosamente!");
 	}
 }

@@ -41,7 +41,6 @@ public class AlquilerBaja extends javax.swing.JFrame {
 		frmAlquilerBaja = new JFrame();
 		frmAlquilerBaja.setBounds(100, 100, 320, 320);
 		frmAlquilerBaja.setAlwaysOnTop(true);
-		frmAlquilerBaja.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmAlquilerBaja.getContentPane().setLayout(null);
 
 		String[] columnNames = {"Calle", "Nombre"};
@@ -66,13 +65,7 @@ public class AlquilerBaja extends javax.swing.JFrame {
 		btnBajaAlquiler = new JButton("Baja Alquiler");
 		btnBajaAlquiler.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				try {
-					sistema.deleteService(alquiler);
-					JOptionPane.showMessageDialog(null, "Alquiler borrado exitosamente!");
-					frmAlquilerBaja.dispose();
-				} catch (Exception e1) {
-					e1.printStackTrace();
-				}
+				onSubmit();
 			}
 		});
 		btnBajaAlquiler.setBounds(175, 246, 117, 29);
@@ -120,5 +113,15 @@ public class AlquilerBaja extends javax.swing.JFrame {
 	}
 	public void setVisible(boolean isVisible) {
 		this.frmAlquilerBaja.setVisible(isVisible);
+	}
+	
+	public void onSubmit() {
+		try {
+			sistema.deleteService(alquiler);
+			setVisible(false);
+			JOptionPane.showMessageDialog(null, "Alquiler borrado exitosamente!");
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
 	}
 }

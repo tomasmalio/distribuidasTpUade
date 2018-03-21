@@ -63,10 +63,10 @@ public class AlquilerAlta {
 	@SuppressWarnings("serial")
 	private void initialize() {
 		
+		
 		frmAlquilerAlta = new JFrame();
 		frmAlquilerAlta.setBounds(100, 100, 320, 600);
 		frmAlquilerAlta.setAlwaysOnTop(true);
-		frmAlquilerAlta.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmAlquilerAlta.getContentPane().setLayout(null);
 		
 		JLabel lblPropiedad = new JLabel("Propiedad:");

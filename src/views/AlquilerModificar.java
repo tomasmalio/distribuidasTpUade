@@ -48,7 +48,6 @@ public class AlquilerModificar extends javax.swing.JFrame {
 		frmAlquilerModificar = new JFrame();
 		frmAlquilerModificar.setBounds(100, 100, 320, 480);
 		frmAlquilerModificar.setAlwaysOnTop(true);
-		frmAlquilerModificar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmAlquilerModificar.getContentPane().setLayout(null);
 		getContentPane().setLayout(null);
 		
@@ -174,7 +173,7 @@ public class AlquilerModificar extends javax.swing.JFrame {
 		alquiler.setComisionGestion(Float.parseFloat(txtComision.getText()));
 		alquiler.setGastosSellado(Float.parseFloat(txtSellado.getText()));
 		sistema.grabarAlquiler(alquiler);
+		setVisible(false);
 		JOptionPane.showMessageDialog(null, "Alquiler modificado exitosamente!");
-		frmAlquilerModificar.dispose();
 	}
 }

@@ -59,7 +59,6 @@ public class VentaAlta extends javax.swing.JFrame {
 		frmVentaAlta = new JFrame();
 		frmVentaAlta.setBounds(100, 100, 320, 600);
 		frmVentaAlta.setAlwaysOnTop(true);
-		frmVentaAlta.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmVentaAlta.getContentPane().setLayout(null);
 		
 		JLabel lblPropiedad = new JLabel("Propiedad:");
@@ -255,8 +254,8 @@ public class VentaAlta extends javax.swing.JFrame {
 			Date dateNow = new Date();
 			Venta venta = sistema.addVenta(fEscritura, vEscritura, cVenta, gEscritura, dateNow, prop, pers);
 			sistema.grabarVenta(venta);
+			setVisible(false);
 			JOptionPane.showMessageDialog(null, "Venta Publicada Exitosamente!");
-			frmVentaAlta.dispose();
 			
 		} catch (ParseException e1) {
 			e1.printStackTrace();

@@ -6,6 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import bean.Alquiler;
+import bean.Servicio;
 import bean.Venta;
 
 public class HibernateServicioDAO {
@@ -18,6 +19,15 @@ public class HibernateServicioDAO {
 			instancia = new HibernateServicioDAO();
 		} 
 		return instancia;
+	}
+	
+	public void borrarServicio (Servicio servicio){
+		Session session = sf.openSession();
+		session.beginTransaction();
+		session.remove(servicio);
+		session.flush();
+		session.getTransaction().commit();
+		session.close();
 	}
 	
 	public void grabarAlquileres(List<Alquiler> servicios) {

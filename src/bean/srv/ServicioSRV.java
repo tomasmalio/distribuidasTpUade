@@ -27,4 +27,12 @@ public class ServicioSRV {
 	public void grabarVenta(Venta servicios) {
 		dao.grabarVenta(servicios);	
 	}
+	
+	public void borrarServicio (Alquiler alquiler) {
+		dao.borrarServicio(alquiler);
+	}
+	
+	public void borrarServicio (Venta venta) {
+		dao.borrarServicio(venta);
+	}
 }

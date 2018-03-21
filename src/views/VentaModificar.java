@@ -7,6 +7,7 @@ import java.awt.event.KeyEvent;
 import java.util.List;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
@@ -31,6 +32,7 @@ public class VentaModificar extends javax.swing.JFrame {
 	private JLabel lblComision;
 	private JLabel lblGastoEscritura;
 	private JLabel lblValorEscritura;
+	private JFrame frame;
 	private JButton btnModificar;
 	
 	private List<Venta> ventas;
@@ -48,8 +50,12 @@ public class VentaModificar extends javax.swing.JFrame {
 	@SuppressWarnings("serial")
 	private void initialize () {
 		buscarVentas();
-		createTableAlquileres();
 		setVisible(true);
+		
+		frame = new JFrame();
+		frame.setBounds(100, 100, 380, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
 		getContentPane().setLayout(null);
 		
 		lblVentas = new JLabel("Ventas");
@@ -74,10 +80,7 @@ public class VentaModificar extends javax.swing.JFrame {
 		btnModificar = new JButton("Modificar");
 		btnModificar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				/**
-				 * El sistema inmobiliario obtiene los datos y los modifica
-				 */
-				sistema.modifyService(venta); 
+				onSubmit(); 
 			}
 		});
 		btnModificar.setBounds(378, 368, 117, 29);
@@ -179,5 +182,13 @@ public class VentaModificar extends javax.swing.JFrame {
 		} else {
 			JOptionPane.showMessageDialog(null, "No se encontraron coincidencias");
 		}
+	}
+	
+	public void onSubmit() {
+		venta.setValorEscritura(Float.parseFloat(txtValorEscritura.getText()));
+		venta.setGastosEscritura(Float.parseFloat(txtGastoEscritura.getText()));
+		sistema.grabarVenta(venta);
+		JOptionPane.showMessageDialog(null, "Venta modificada exitosamente!");
+		frame.dispose();
 	}
 }

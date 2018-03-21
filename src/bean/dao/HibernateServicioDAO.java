@@ -6,7 +6,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import bean.Alquiler;
-import bean.Servicio;
 import bean.Venta;
 
 public class HibernateServicioDAO {
@@ -19,42 +18,6 @@ public class HibernateServicioDAO {
 			instancia = new HibernateServicioDAO();
 		} 
 		return instancia;
-	}
-	/*
-	public void grabarServicio(List<Servicio> servicios){
-		Session session = sf.openSession();
-		session.beginTransaction();
-		for(Servicio servicio:servicios)
-			session.saveOrUpdate(servicio);
-		session.flush();
-		session.getTransaction().commit();
-		session.close();
-	}
-	
-	@SuppressWarnings("unchecked")
-	public List<Servicio> listarServicios() {
-		Session session = sf.openSession();
-		List<Servicio> list = session.createQuery("from servicio").list();
-		session.close();
-		return list;
-	}
-	
-	public void actualizarServicio(Servicio servicio){
-		Session session = sf.openSession();
-		session.beginTransaction();
-		session.update(servicio);
-		session.flush();
-		session.getTransaction().commit();
-		session.close();
-	}*/
-	
-	public void borrarServicio (Servicio servicio){
-		Session session = sf.openSession();
-		session.beginTransaction();
-		session.remove(servicio);
-		session.flush();
-		session.getTransaction().commit();
-		session.close();
 	}
 	
 	public void grabarAlquileres(List<Alquiler> servicios) {

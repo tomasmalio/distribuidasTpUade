@@ -15,8 +15,6 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 import app.SistemaInmobiliaria;
-import bean.Alquiler;
-import bean.Servicio;
 import bean.Venta;
 
 public class VentaModificar extends javax.swing.JFrame {
@@ -29,9 +27,11 @@ public class VentaModificar extends javax.swing.JFrame {
 	private JTextField txtValorEscritura;
 
 	private JTable table;
+	private JLabel lblVentas;
 	private JLabel lblComision;
 	private JLabel lblGastoEscritura;
 	private JLabel lblValorEscritura;
+	private JButton btnModificar;
 	
 	private List<Venta> ventas;
 	private Venta venta;
@@ -45,35 +45,38 @@ public class VentaModificar extends javax.swing.JFrame {
 		setVisible(true);
 	}
 	
+	@SuppressWarnings("serial")
 	private void initialize () {
 		buscarVentas();
 		createTableAlquileres();
 		setVisible(true);
 		getContentPane().setLayout(null);
 		
-		JLabel lblVentas = new JLabel("Ventas");
+		lblVentas = new JLabel("Ventas");
 		lblVentas.setBounds(223, 6, 80, 16);
 		getContentPane().add(lblVentas);
 		
-		JLabel lblComision = new JLabel("Comisión Venta:");
+		lblComision = new JLabel("Comisión Venta:");
 		lblComision.setEnabled(false);
 		lblComision.setBounds(33, 252, 117, 16);
 		getContentPane().add(lblComision);
 
-		JLabel lblGastoEscritura = new JLabel("Gastos Escritura");
+		lblGastoEscritura = new JLabel("Gastos Escritura");
 		lblGastoEscritura.setEnabled(false);
 		lblGastoEscritura.setBounds(33, 298, 117, 16);
 		getContentPane().add(lblGastoEscritura);
 		
-		JLabel lblValorEscritura = new JLabel("Valor Escritura");
+		lblValorEscritura = new JLabel("Valor Escritura");
 		lblValorEscritura.setEnabled(false);
 		lblValorEscritura.setBounds(33, 339, 117, 16);
 		getContentPane().add(lblValorEscritura);
 		
-		JButton btnModificar = new JButton("Modificar");
+		btnModificar = new JButton("Modificar");
 		btnModificar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//hacer que el sist tome datos de los text fields y modifique el alquiler
+				/**
+				 * El sistema inmobiliario obtiene los datos y los modifica
+				 */
 				sistema.modifyService(venta); 
 			}
 		});
@@ -82,7 +85,7 @@ public class VentaModificar extends javax.swing.JFrame {
 		String[] columnNames = {"Calle", "Nombre"};
 		table = new JTable();
 		table.setModel(new DefaultTableModel(new Object[][] {}, columnNames) {
-			 @Override
+			@Override
 			    public Class<?> getColumnClass(int column) {
 			        switch(column) {
 			            default: return Object.class;

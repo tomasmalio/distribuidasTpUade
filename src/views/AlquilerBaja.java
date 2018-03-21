@@ -29,7 +29,7 @@ public class AlquilerBaja extends javax.swing.JFrame {
 	public AlquilerBaja  (SistemaInmobiliaria s) {
 		super();	
 		sistema = s;
-		alquileres= buscarAlquileres();	
+		alquileres = buscarAlquileres();	
 		initialize();
 		createTableAlquileres();
 		setVisible(true);
@@ -39,7 +39,7 @@ public class AlquilerBaja extends javax.swing.JFrame {
 	private void initialize () {
 		
 		frmAlquilerBaja = new JFrame();
-		frmAlquilerBaja.setBounds(100, 100, 682, 632);
+		frmAlquilerBaja.setBounds(100, 100, 380, 300);
 		frmAlquilerBaja.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmAlquilerBaja.getContentPane().setLayout(null);
 
@@ -58,7 +58,7 @@ public class AlquilerBaja extends javax.swing.JFrame {
 		table.getColumnModel().getColumn(1).setMaxWidth(130);
 
 		JScrollPane scrollPaneAlquileres = new JScrollPane(table);
-		scrollPaneAlquileres.setBounds(71, 46, 283, 152);
+		scrollPaneAlquileres.setBounds(48, 19, 280, 215);
 		table.setFillsViewportHeight(true);
 		frmAlquilerBaja.getContentPane().add(scrollPaneAlquileres);
 		
@@ -68,7 +68,7 @@ public class AlquilerBaja extends javax.swing.JFrame {
 				sistema.deleteService(alquiler);
 			}
 		});
-		btnBajaAlquiler.setBounds(165, 246, 117, 29);
+		btnBajaAlquiler.setBounds(220, 246, 117, 29);
 		frmAlquilerBaja.getContentPane().add(btnBajaAlquiler);
 	}
 	

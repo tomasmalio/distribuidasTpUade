@@ -40,7 +40,7 @@ public class VentaBaja extends javax.swing.JFrame {
 	private void initialize () {
 		
 		frmVentaBaja = new JFrame();
-		frmVentaBaja.setBounds(100, 100, 682, 632);
+		frmVentaBaja.setBounds(100, 100, 380, 300);
 		frmVentaBaja.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmVentaBaja.getContentPane().setLayout(null);
 		
@@ -53,7 +53,7 @@ public class VentaBaja extends javax.swing.JFrame {
 				sistema.deleteService(venta);
 			}
 		});
-		btnBajaVenta.setBounds(165, 246, 117, 29);
+		btnBajaVenta.setBounds(220, 246, 117, 29);
 		frmVentaBaja.getContentPane().add(btnBajaVenta);
 		
 		String[] columnNames = {"Calle", "Nombre"};
@@ -71,7 +71,7 @@ public class VentaBaja extends javax.swing.JFrame {
 		table.getColumnModel().getColumn(1).setMaxWidth(200);
 
 		JScrollPane scrollPaneVenta = new JScrollPane(table);
-		scrollPaneVenta.setBounds(48, 19, 359, 215);
+		scrollPaneVenta.setBounds(48, 19, 280, 215);
 		table.setFillsViewportHeight(true);
 		frmVentaBaja.getContentPane().add(scrollPaneVenta);
 	}

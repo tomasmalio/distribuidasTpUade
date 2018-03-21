@@ -24,12 +24,12 @@ public class PropiedadList {
 		return propiedades.remove(propiedad);
 	}
 	
-//	public Propiedad getPropiedadPorId(int id){
-//		for(Propiedad u : propiedades){
-//			if(u.getId()==id) return u;
-//		}
-//		return null;
-//	}
+	public Propiedad getPropiedadPorNroPartida(String nroPartida) {
+		for(Propiedad p : propiedades){
+			if (p.getNroPartida().equals(nroPartida)) return p;
+		}
+		return null;
+	}
 	
 	public int cantidadPropiedades(){
 		return propiedades.size();

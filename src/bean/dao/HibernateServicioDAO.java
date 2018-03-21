@@ -20,7 +20,7 @@ public class HibernateServicioDAO {
 		} 
 		return instancia;
 	}
-
+	/*
 	public void grabarServicio(List<Servicio> servicios){
 		Session session = sf.openSession();
 		session.beginTransaction();
@@ -46,9 +46,9 @@ public class HibernateServicioDAO {
 		session.flush();
 		session.getTransaction().commit();
 		session.close();
-	}
+	}*/
 	
-	public void borrarServicio(Servicio servicio){
+	public void borrarServicio (Servicio servicio){
 		Session session = sf.openSession();
 		session.beginTransaction();
 		session.remove(servicio);

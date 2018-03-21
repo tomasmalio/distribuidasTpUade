@@ -141,24 +141,28 @@ public class SistemaInmobiliaria {
 		servicios.addServicio(servicio);
 	}
 	
-	public void grabarServicio(List<Servicio> servicios){
-		new ServicioSRV().grabarServicio(servicios);
-	}
-	
-	public void grabarAlquileres(List<Alquiler> servicios){
+	public void grabarAlquileres(List<Alquiler> servicios) {
 		new ServicioSRV().grabarAlquileres(servicios);
 	}
 	
-	public void grabarAlquiler(Alquiler servicio){
+	public void grabarAlquiler(Alquiler servicio) {
 		new ServicioSRV().grabarAlquiler(servicio);
 	}
 	
-	public void grabarVentas(List<Venta> servicios){
+	public void borrarServicio (Alquiler alquiler) {
+		new ServicioSRV().borrarServicio(alquiler);
+	}
+	
+	public void grabarVentas(List<Venta> servicios) {
 		new ServicioSRV().grabarVentas(servicios);
 	}
 	
-	public void grabarVenta(Venta servicio){
+	public void grabarVenta(Venta servicio) {
 		new ServicioSRV().grabarVenta(servicio);
+	}
+	
+	public void borrarServicio (Venta venta) {
+		new ServicioSRV().borrarServicio(venta);
 	}
 
 	public Alquiler addAlquiler(Date fechaDesde, Date fechaHasta, float comisionGestion, float gastosSellado, Date fecha, Propiedad propiedad,
@@ -196,6 +200,7 @@ public class SistemaInmobiliaria {
 	 */
 	public void deleteService(Alquiler alquiler) {
 		alquileres.removeAlquiler(alquiler);
+		borrarServicio(alquiler);
 	}
 	
 	/**
@@ -205,6 +210,7 @@ public class SistemaInmobiliaria {
 	 */
 	public void deleteService(Venta venta) {
 		ventas.removeVenta(venta);
+		borrarServicio(venta);
 	}
 
 	/**

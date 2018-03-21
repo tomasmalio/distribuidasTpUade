@@ -13,6 +13,7 @@ public class ServicioSRV {
 		dao = HibernateServicioDAO.getInstancia();
 	}
 	
+	/*
 	public void grabarServicio(List<Servicio> servicios){
 		dao.grabarServicio(servicios);
 	}
@@ -23,7 +24,7 @@ public class ServicioSRV {
 	
 	public void actualizarServicio(Servicio servicio) {
 		dao.actualizarServicio(servicio);
-	}
+	}*/
 	
 	public void borrarServicio(Servicio servicio) {
 		dao.borrarServicio(servicio);

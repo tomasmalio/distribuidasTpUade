@@ -44,13 +44,19 @@ public class VentaBaja extends javax.swing.JFrame {
 		frmVentaBaja.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmVentaBaja.getContentPane().setLayout(null);
 		
-		btnBajaVenta = new JButton("Baja Alquiler");
+		btnBajaVenta = new JButton("Baja Venta");
 		btnBajaVenta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				/**
 				 * Llama al sistema para que se baje la venta
-				 */
-				sistema.deleteService(venta);
+				 */				
+				try {
+					sistema.deleteService(venta);
+					JOptionPane.showMessageDialog(null, "Alquiler borrado exitosamente!");
+					frmVentaBaja.dispose();
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
 			}
 		});
 		btnBajaVenta.setBounds(220, 246, 117, 29);

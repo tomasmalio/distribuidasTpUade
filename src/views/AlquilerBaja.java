@@ -69,6 +69,7 @@ public class AlquilerBaja extends javax.swing.JFrame {
 				try {
 					sistema.deleteService(alquiler);
 					JOptionPane.showMessageDialog(null, "Alquiler borrado exitosamente!");
+					frmAlquilerBaja.dispose();
 				} catch (Exception e1) {
 					e1.printStackTrace();
 				}

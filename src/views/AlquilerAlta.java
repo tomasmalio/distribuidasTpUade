@@ -54,16 +54,9 @@ public class AlquilerAlta {
 		setVisible(true);
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	/**
-	 * 
-	 */
 	@SuppressWarnings("serial")
 	private void initialize() {
-		
-		
+
 		frmAlquilerAlta = new JFrame();
 		frmAlquilerAlta.setBounds(100, 100, 320, 600);
 		frmAlquilerAlta.setAlwaysOnTop(true);

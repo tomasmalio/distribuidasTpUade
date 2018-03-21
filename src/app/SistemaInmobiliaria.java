@@ -153,6 +153,11 @@ public class SistemaInmobiliaria {
 		new ServicioSRV().grabarAlquiler(servicio);
 	}
 	
+	/**
+	 * Borrar Servicio for Alquiler
+	 * 
+	 * @param alquiler
+	 */
 	public void borrarServicio (Alquiler alquiler) {
 		new ServicioSRV().borrarServicio(alquiler);
 	}
@@ -165,6 +170,11 @@ public class SistemaInmobiliaria {
 		new ServicioSRV().grabarVenta(servicio);
 	}
 	
+	/**
+	 * Borrar Servicio for Venta
+	 * 
+	 * @param venta
+	 */
 	public void borrarServicio (Venta venta) {
 		new ServicioSRV().borrarServicio(venta);
 	}
@@ -239,12 +249,5 @@ public class SistemaInmobiliaria {
 	public List<Venta> getVentas() {
 		return ventas.getVentas();
 	}
-	
-	/**
-	 * Modifiy Service for Venta
-	 * @param venta
-	 */
-	public void editService(Venta venta) {
-		
-	}
+
 }

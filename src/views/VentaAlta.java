@@ -59,7 +59,8 @@ public class VentaAlta extends javax.swing.JFrame {
 	@SuppressWarnings("serial")
 	private void initialize() {
 		frmVentaAlta = new JFrame();
-		frmVentaAlta.setBounds(100, 100, 608, 524);
+		frmVentaAlta.setBounds(100, 100, 600, 600);
+		frmVentaAlta.setAlwaysOnTop(true);
 		frmVentaAlta.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmVentaAlta.getContentPane().setLayout(null);
 		

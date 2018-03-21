@@ -50,32 +50,35 @@ public class VentaModificar extends javax.swing.JFrame {
 	@SuppressWarnings("serial")
 	private void initialize () {
 		buscarVentas();
-		setVisible(true);
 		
 		frame = new JFrame();
-		frame.setBounds(100, 100, 380, 300);
+		frame.setBounds(100, 100, 600, 600);
+		frame.setAlwaysOnTop(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		getContentPane().setLayout(null);
 		
 		lblVentas = new JLabel("Ventas");
 		lblVentas.setBounds(223, 6, 80, 16);
 		getContentPane().add(lblVentas);
+		frame.getContentPane().add(lblVentas);
 		
 		lblComision = new JLabel("Comisión Venta:");
 		lblComision.setEnabled(false);
 		lblComision.setBounds(33, 252, 117, 16);
 		getContentPane().add(lblComision);
+		frame.getContentPane().add(lblComision);
 
 		lblGastoEscritura = new JLabel("Gastos Escritura");
 		lblGastoEscritura.setEnabled(false);
 		lblGastoEscritura.setBounds(33, 298, 117, 16);
 		getContentPane().add(lblGastoEscritura);
+		frame.getContentPane().add(lblGastoEscritura);
 		
 		lblValorEscritura = new JLabel("Valor Escritura");
 		lblValorEscritura.setEnabled(false);
 		lblValorEscritura.setBounds(33, 339, 117, 16);
 		getContentPane().add(lblValorEscritura);
+		frame.getContentPane().add(lblValorEscritura);
 		
 		btnModificar = new JButton("Modificar");
 		btnModificar.addActionListener(new ActionListener() {
@@ -85,6 +88,7 @@ public class VentaModificar extends javax.swing.JFrame {
 		});
 		btnModificar.setBounds(378, 368, 117, 29);
 		getContentPane().add(btnModificar);
+		frame.getContentPane().add(btnModificar);
 		String[] columnNames = {"Calle", "Nombre"};
 		table = new JTable();
 		table.setModel(new DefaultTableModel(new Object[][] {}, columnNames) {
@@ -104,6 +108,7 @@ public class VentaModificar extends javax.swing.JFrame {
 		scrollPaneAlquileres.setBounds(107, 34, 349, 171);
 		table.setFillsViewportHeight(true);
 		getContentPane().add(scrollPaneAlquileres);
+		frame.getContentPane().add(scrollPaneAlquileres);
 		txtComision = new JTextField();
 		txtComision.addKeyListener(new KeyAdapter() {
 			public void keyTyped(KeyEvent e) {
@@ -114,6 +119,7 @@ public class VentaModificar extends javax.swing.JFrame {
 		txtComision.setEnabled(false);
 		txtComision.setBounds(173, 247, 130, 26);
 		getContentPane().add(txtComision);
+		frame.getContentPane().add(txtComision);
 		txtComision.setColumns(10);
 		
 		txtGastoEscritura = new JTextField();
@@ -126,6 +132,7 @@ public class VentaModificar extends javax.swing.JFrame {
 		txtGastoEscritura.setEditable(false);
 		txtGastoEscritura.setBounds(173, 293, 130, 26);
 		getContentPane().add(txtGastoEscritura);
+		frame.getContentPane().add(txtGastoEscritura);
 		txtGastoEscritura.setColumns(10);
 		
 		
@@ -139,6 +146,7 @@ public class VentaModificar extends javax.swing.JFrame {
 		txtValorEscritura.setEditable(false);
 		txtValorEscritura.setBounds(173, 334, 130, 26);
 		getContentPane().add(txtValorEscritura);
+		frame.getContentPane().add(txtValorEscritura);
 		txtValorEscritura.setColumns(10);
 		
 	}
@@ -157,8 +165,8 @@ public class VentaModificar extends javax.swing.JFrame {
 			
 			for (Venta a: ventas) {
 				model.addRow(new Object[]{
-					a.getPropiedad(),
-					a.getInteresado()
+					a.getPropiedad().getCalle(),
+					a.getInteresado().getNombre_razon()
 				});
 			}
 			
@@ -167,13 +175,17 @@ public class VentaModificar extends javax.swing.JFrame {
 			        int row = table.rowAtPoint(evt.getPoint());
 			        int col = table.columnAtPoint(evt.getPoint());
 			        if (row >= 0 && col >= 0) {
-			        	venta = ventas.get(row);
-						txtComision.setVisible(true);
+			        		venta = ventas.get(row);
+				    		txtComision.setEditable(true);
+				    		txtComision.setEnabled(true);
 						txtComision.setText(Float.toString(venta.getComisionVenta()));
 						
-						txtGastoEscritura.setVisible(true);
+						txtGastoEscritura.setEditable(true);
+						txtGastoEscritura.setEnabled(true);
 						txtGastoEscritura.setText(Float.toString(venta.getGastosEscritura()));
 						
+						txtValorEscritura.setEditable(true);
+						txtValorEscritura.setEnabled(true);
 						txtValorEscritura.setVisible(true);
 						txtValorEscritura.setText(Float.toString(venta.getValorEscritura()));
 			        }
@@ -184,11 +196,15 @@ public class VentaModificar extends javax.swing.JFrame {
 		}
 	}
 	
+	public void setVisible(boolean isVisible) {
+		this.frame.setVisible(isVisible);
+	}
+	
 	public void onSubmit() {
 		venta.setValorEscritura(Float.parseFloat(txtValorEscritura.getText()));
 		venta.setGastosEscritura(Float.parseFloat(txtGastoEscritura.getText()));
 		sistema.grabarVenta(venta);
 		JOptionPane.showMessageDialog(null, "Venta modificada exitosamente!");
-		frame.dispose();
+		setVisible(false);
 	}
 }

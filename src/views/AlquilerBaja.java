@@ -39,7 +39,8 @@ public class AlquilerBaja extends javax.swing.JFrame {
 	private void initialize () {
 		
 		frmAlquilerBaja = new JFrame();
-		frmAlquilerBaja.setBounds(100, 100, 380, 300);
+		frmAlquilerBaja.setBounds(100, 100, 600, 600);
+		frmAlquilerBaja.setAlwaysOnTop(true);
 		frmAlquilerBaja.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmAlquilerBaja.getContentPane().setLayout(null);
 

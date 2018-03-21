@@ -32,7 +32,6 @@ public class AlquilerModificar extends javax.swing.JFrame {
 	private JFrame frmAlquilerModificar;
 	private List<Alquiler> alquileres;
 	private Alquiler alquiler;
-	
 	private JTable table;
 	private JLabel lblComision = new JLabel("Comision gestion");
 	private JLabel lblSellado = new JLabel("Gastos sellado");
@@ -50,7 +49,8 @@ public class AlquilerModificar extends javax.swing.JFrame {
 	private void initialize () {
 		
 		frmAlquilerModificar = new JFrame();
-		frmAlquilerModificar.setBounds(100, 100, 380, 300);
+		frmAlquilerModificar.setBounds(100, 100, 600, 600);
+		frmAlquilerModificar.setAlwaysOnTop(true);
 		frmAlquilerModificar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmAlquilerModificar.getContentPane().setLayout(null);
 		getContentPane().setLayout(null);

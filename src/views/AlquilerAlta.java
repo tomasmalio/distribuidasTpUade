@@ -65,7 +65,8 @@ public class AlquilerAlta {
 	private void initialize() {
 		
 		frmAlquilerAlta = new JFrame();
-		frmAlquilerAlta.setBounds(100, 100, 682, 632);
+		frmAlquilerAlta.setBounds(100, 100, 600, 600);
+		frmAlquilerAlta.setAlwaysOnTop(true);
 		frmAlquilerAlta.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmAlquilerAlta.getContentPane().setLayout(null);
 		

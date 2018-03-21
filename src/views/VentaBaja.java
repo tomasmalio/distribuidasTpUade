@@ -40,7 +40,8 @@ public class VentaBaja extends javax.swing.JFrame {
 	private void initialize () {
 		
 		frmVentaBaja = new JFrame();
-		frmVentaBaja.setBounds(100, 100, 380, 300);
+		frmVentaBaja.setBounds(100, 100, 600, 600);
+		frmVentaBaja.setAlwaysOnTop(true);
 		frmVentaBaja.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmVentaBaja.getContentPane().setLayout(null);
 		

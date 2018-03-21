@@ -3,9 +3,9 @@
  * Trabajo Práctico - Inmobiliaria
  * GitHub: https://github.com/tomasmalio/distribuidasTpUade
  * 
- * @author	Tomas Malio, 
- * 			Florencia Otero
- * 			Martin Sacco,
+ * @author	1037546 - Tomas Malio 
+ * 			1065743 - Florencia Otero
+ * 			1024354 - Martin Sacco
  * 
  ****************************************************/
 package app;

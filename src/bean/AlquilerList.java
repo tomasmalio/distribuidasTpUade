@@ -23,4 +23,5 @@ public class AlquilerList {
 	public boolean removeAlquiler (Alquiler alquiler) {
 		return alquileres.remove(alquiler);
 	}
+	
 }

@@ -97,13 +97,7 @@ public class AlquilerModificar extends javax.swing.JFrame {
 		JButton btnModificar = new JButton("Modificar");
 		btnModificar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//hacer que el sist tome datos de los text fields y modifique el alquiler
-				try {
-					sistema.modifyService(alquiler); 
-					JOptionPane.showMessageDialog(null, "Alquiler modificado exitosamente!");
-				} catch (Exception e1) {
-					e1.printStackTrace();
-				}
+				onSubmit();
 			}
 		});
 		btnModificar.setBounds(422, 419, 117, 29);
@@ -177,7 +171,16 @@ public class AlquilerModificar extends javax.swing.JFrame {
 			JOptionPane.showMessageDialog(null, "No se encontraron coincidencias");
 		}
 	}
+
 	public void setVisible(boolean isVisible) {
 		this.frmAlquilerModificar.setVisible(isVisible);
+	}
+	
+	private void onSubmit() {
+		alquiler.setComisionGestion(Float.parseFloat(txtComision.getText()));
+		alquiler.setGastosSellado(Float.parseFloat(txtSellado.getText()));
+		sistema.grabarAlquiler(alquiler);
+		JOptionPane.showMessageDialog(null, "Alquiler modificado exitosamente!");
+		frmAlquilerModificar.dispose();
 	}
 }

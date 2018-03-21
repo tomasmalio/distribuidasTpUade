@@ -239,21 +239,12 @@ public class SistemaInmobiliaria {
 	public List<Venta> getVentas() {
 		return ventas.getVentas();
 	}
-
-	/**
-	 * Modify Service for Alquiler
-	 * 
-	 * @param alquiler
-	 */
-	public void modifyService(Alquiler alquiler) {
-		
-	}
 	
 	/**
 	 * Modifiy Service for Venta
 	 * @param venta
 	 */
-	public void modifyService(Venta venta) {
+	public void editService(Venta venta) {
 		
 	}
 }

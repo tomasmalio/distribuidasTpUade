@@ -25,7 +25,6 @@ public class Servicio {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	private Date fecha;
-	
 
 	@OneToOne(cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn
@@ -35,9 +34,14 @@ public class Servicio {
     @PrimaryKeyJoinColumn
 	private Persona interesado;
 	
+	public int getId() {
+		return id;
+	}
+	
 	public Date getFecha() {
 		return fecha;
 	}
+	
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}

@@ -26,7 +26,6 @@ import java.text.ParseException;
 import javax.swing.JFormattedTextField;
 
 public class AlquilerAlta {
-	private static final long serialVersionUID = 1L;
 	private JFrame frmAlquilerAlta;
 	private JTextField textFechaDesde;
 	private JTextField textFechaHasta;
@@ -251,12 +250,6 @@ public class AlquilerAlta {
 			
 			float gestion = Float.parseFloat(textComision.getText());
 			float sellado = Float.parseFloat(textSellado.getText());
-			
-			// TODO: HARDCODE TIME!
-//			Date fdesde = new SimpleDateFormat("yyyy-MM-dd").parse("2010-10-10");
-//			Date fhasta = new SimpleDateFormat("yyyy-MM-dd").parse("2014-10-10");
-//			float gestion = Float.parseFloat("10");
-//			float sellado = Float.parseFloat("10");
 			
 			/**
 			 * Agregamos el alquiler

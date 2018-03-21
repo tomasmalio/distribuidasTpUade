@@ -2,7 +2,6 @@ package views;
 
 import app.SistemaInmobiliaria;
 import bean.Alquiler;
-import bean.Propiedad;
 import bean.Servicio;
 
 import javax.swing.JLabel;
@@ -15,7 +14,6 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
@@ -28,14 +26,12 @@ public class AlquilerModificar extends javax.swing.JFrame {
 	private SistemaInmobiliaria sistema;
 	private JTextField txtComision;
 	private JTextField txtSellado;
-	private JTextField txtBajaAlquiler;
 	private JFrame frmAlquilerModificar;
 	private List<Alquiler> alquileres;
 	private Alquiler alquiler;
 	private JTable table;
 	private JLabel lblComision = new JLabel("Comision gestion");
 	private JLabel lblSellado = new JLabel("Gastos sellado");
-	
 	
 	public AlquilerModificar (SistemaInmobiliaria s) {
 		super();
@@ -46,6 +42,7 @@ public class AlquilerModificar extends javax.swing.JFrame {
 		setVisible(true);
 	}
 	
+	@SuppressWarnings("serial")
 	private void initialize () {
 		
 		frmAlquilerModificar = new JFrame();

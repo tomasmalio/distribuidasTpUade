@@ -2,7 +2,6 @@ package views;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JButton;
@@ -10,7 +9,6 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 import app.SistemaInmobiliaria;
@@ -37,6 +35,7 @@ public class VentaBaja extends javax.swing.JFrame {
 		setVisible(true);		
 	}
 	
+	@SuppressWarnings("serial")
 	private void initialize () {
 		
 		frmVentaBaja = new JFrame();
@@ -66,7 +65,7 @@ public class VentaBaja extends javax.swing.JFrame {
 		String[] columnNames = {"Calle", "Nombre"};
 		table = new JTable();
 		table.setModel(new DefaultTableModel(new Object[][] {}, columnNames) {
-			    public Class<?> getColumnClass(int column) {
+				public Class<?> getColumnClass(int column) {
 			        switch(column) {
 			            default: return Object.class;
 			        }

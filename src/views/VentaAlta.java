@@ -5,8 +5,6 @@ import java.awt.event.ActionListener;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -251,12 +249,6 @@ public class VentaAlta extends javax.swing.JFrame {
 			float vEscritura = Float.parseFloat(valorEscritura.getText());
 			float cVenta = Float.parseFloat(comisionVenta.getText());
 			float gEscritura = Float.parseFloat(gastosEscritura.getText());
-			
-			// TODO: HARDCODE TIME!
-//			Date fEscritura = new SimpleDateFormat("yyyy-MM-dd").parse("2010-10-10");
-//			float vEscritura = Float.parseFloat("10");
-//			float cVenta = Float.parseFloat("10");
-//			float gEscritura = Float.parseFloat("10");
 			
 			/**
 			 * Agregamos una nueva venta

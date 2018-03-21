@@ -13,16 +13,11 @@ package app;
 import app.Setup;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import javax.swing.*;
 import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
 
-import bean.Persona;
-import bean.Propiedad;
 import views.AlquilerAlta;
 import views.AlquilerModificar;
 import views.VentaAlta;

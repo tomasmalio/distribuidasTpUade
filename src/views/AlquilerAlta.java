@@ -162,7 +162,7 @@ public class AlquilerAlta {
 			}
 		});
 		
-		btnAlquilar.setBounds(559, 575, 117, 29);
+		btnAlquilar.setBounds(433, 549, 117, 29);
 		frmAlquilerAlta.getContentPane().add(btnAlquilar);
 	}
 	
